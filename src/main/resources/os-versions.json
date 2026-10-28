@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-24",
+  "description": "OS versions available for synthetic Usage Tracker packet generation.",
+  "sourceWorkbook": "java-usage-840-distinct-records.xlsx",
+  "osVersions": [
+    {
+      "id": "OSV-001",
+      "version": "5.15.0-119-generic",
+      "platform": "Linux",
+      "osNames": [
+        "Linux"
+      ],
+      "architectures": [
+        "amd64",
+        "aarch64"
+      ],
+      "sourceRecords": 185
+    },
+    {
+      "id": "OSV-002",
+      "version": "5.11",
+      "platform": "Solaris",
+      "osNames": [
+        "SunOS"
+      ],
+      "architectures": [
+        "amd64",
+        "sparcv9"
+      ],
+      "sourceRecords": 4
+    },
+    {
+      "id": "OSV-003",
+      "version": "10.0",
+      "platform": "Windows",
+      "osNames": [
+        "Windows 11",
+        "Windows Server 2022"
+      ],
+      "architectures": [
+        "amd64"
+      ],
+      "sourceRecords": 623
+    },
+    {
+      "id": "OSV-004",
+      "version": "6.1",
+      "platform": "Windows",
+      "osNames": [
+        "Windows 7"
+      ],
+      "architectures": [
+        "amd64"
+      ],
+      "sourceRecords": 8
+    },
+    {
+      "id": "OSV-005",
+      "version": "14.7",
+      "platform": "macOS",
+      "osNames": [
+        "Mac OS X"
+      ],
+      "architectures": [
+        "arm64"
+      ],
+      "sourceRecords": 6
+    },
+    {
+      "id": "OSV-006",
+      "version": "13.7",
+      "platform": "macOS",
+      "osNames": [
+        "Mac OS X"
+      ],
+      "architectures": [
+        "x86_64"
+      ],
+      "sourceRecords": 10
+    },
+    {
+      "id": "OSV-007",
+      "version": "5.10",
+      "platform": "Solaris",
+      "osNames": [
+        "SunOS"
+      ],
+      "architectures": [
+        "amd64",
+        "sparcv9"
+      ],
+      "sourceRecords": 4
+    }
+  ]
+}

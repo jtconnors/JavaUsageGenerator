@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jtconnors</groupId>
+  <artifactId>java-usage-generator</artifactId>
+  <version>1.0.0</version>
+  <name>JUG - Java Usage Generator</name>
+
+  <properties>
+    <maven.compiler.release>25</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputTimestamp>2026-10-28T00:00:00Z</project.build.outputTimestamp>
+    <jug.module>com.jtconnors.jug</jug.module>
+    <jug.mainClass>com.jtconnors.jug.JugSelector</jug.mainClass>
+    <jug.appName>Java Usage Generator</jug.appName>
+  </properties>
+
+  <build>
+    <finalName>java-usage-generator</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.6.3</version>
+        <executions>
+          <execution>
+            <id>require-jdk-25</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>[25,26)</version>
+                  <message>JUG must be built with JDK 25.</message>
+                </requireJavaVersion>
+                <requireMavenVersion>
+                  <version>[3.9.0,4.0.0)</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.16.0</version>
+        <configuration>
+          <release>25</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${jug.mainClass}</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.4</version>
+        <executions>
+          <execution>
+            <id>create-minimal-runtime</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>${java.home}/bin/jlink</executable>
+              <arguments>
+                <argument>--module-path</argument>
+                <argument>${java.home}/jmods${path.separator}${project.build.directory}/${project.build.finalName}.jar</argument>
+                <argument>--add-modules</argument>
+                <argument>${jug.module}</argument>
+                <argument>--launcher</argument>
+                <argument>jug=${jug.module}/${jug.mainClass}</argument>
+                <argument>--output</argument>
+                <argument>${project.build.directory}/runtime</argument>
+                <argument>--strip-debug</argument>
+                <argument>--no-header-files</argument>
+                <argument>--no-man-pages</argument>
+                <argument>--compress=zip-6</argument>
+              </arguments>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>package-macos-application</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>${java.home}/bin/jpackage</executable>
+              <arguments>
+                <argument>--type</argument>
+                <argument>app-image</argument>
+                <argument>--name</argument>
+                <argument>${jug.appName}</argument>
+                <argument>--app-version</argument>
+                <argument>${project.version}</argument>
+                <argument>--vendor</argument>
+                <argument>JUG</argument>
+                <argument>--runtime-image</argument>
+                <argument>${project.build.directory}/runtime</argument>
+                <argument>--module</argument>
+                <argument>${jug.module}/${jug.mainClass}</argument>
+                <argument>--dest</argument>
+                <argument>${project.build.directory}/dist</argument>
+                <argument>--mac-package-identifier</argument>
+                <argument>local.jug.generator</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

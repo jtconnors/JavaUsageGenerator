@@ -1,0 +1,2082 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-24",
+  "description": "Java applications available for synthetic Usage Tracker packet generation.",
+  "sourceWorkbook": "java-usage-840-distinct-records.xlsx",
+  "applications": [
+    {
+      "id": "APP-001",
+      "name": "Apache Tomcat",
+      "type": "Real",
+      "category": "Web server",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/tomcat/bin/bootstrap.jar:/opt/tomcat/bin/tomcat-juli.jar",
+        "C:\\Apps\\tomcat\\bin\\bootstrap.jar;C:\\Apps\\tomcat\\bin\\tomcat-juli.jar"
+      ],
+      "javaCommands": [
+        "org.apache.catalina.startup.Bootstrap start"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-002",
+      "name": "H2 Database",
+      "type": "Real",
+      "category": "Database",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/h2/h2.jar",
+        "C:\\Apps\\h2\\h2.jar"
+      ],
+      "javaCommands": [
+        "org.h2.tools.Server -tcp -tcpPort 9092"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-003",
+      "name": "Eclipse Jetty",
+      "type": "Real",
+      "category": "Web server",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/Applications/jetty/start.jar",
+        "C:\\Apps\\jetty\\start.jar",
+        "/opt/jetty/start.jar"
+      ],
+      "javaCommands": [
+        "/Applications/jetty/start.jar jetty.http.port=8080",
+        "C:\\Apps\\jetty\\start.jar jetty.http.port=8080",
+        "/opt/jetty/start.jar jetty.http.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-004",
+      "name": "Jenkins",
+      "type": "Real",
+      "category": "CI server",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/Applications/jenkins/jenkins.war",
+        "/opt/jenkins/jenkins.war",
+        "C:\\Apps\\jenkins\\jenkins.war"
+      ],
+      "javaCommands": [
+        "/Applications/jenkins/jenkins.war --httpPort=8080",
+        "/opt/jenkins/jenkins.war --httpPort=8080",
+        "C:\\Apps\\jenkins\\jenkins.war --httpPort=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-005",
+      "name": "Apache Ant",
+      "type": "Real",
+      "category": "Build tool",
+      "javaMajors": [
+        "7",
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "C:\\Apps\\ant\\lib\\ant-launcher.jar",
+        "/opt/ant/lib/ant-launcher.jar"
+      ],
+      "javaCommands": [
+        "org.apache.tools.ant.launch.Launcher -f C:\\Apps\\ant\\workspace\\build.xml clean dist",
+        "org.apache.tools.ant.launch.Launcher -f /opt/ant/workspace/build.xml clean dist"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-006",
+      "name": "Apache JMeter",
+      "type": "Real",
+      "category": "Load testing",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 175,
+      "classPaths": [
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00063.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00001.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00050.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00042.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00030.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00068.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00029.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00044.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00026.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00085.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00045.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00021.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00009.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00014.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00053.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00064.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00052.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00046.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00025.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00019.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00060.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00008.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00003.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00051.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00004.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00083.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00024.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00027.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00049.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00091.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00076.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00082.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00061.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00038.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00032.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00034.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00072.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00092.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00095.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00071.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00040.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00047.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00020.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00023.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00058.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00015.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00086.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00028.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00013.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00054.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00039.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00070.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00017.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00088.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00059.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00041.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00069.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00002.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00074.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00062.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00081.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00089.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00078.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00037.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00057.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00048.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00077.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00035.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00087.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00093.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00018.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00094.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00036.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00055.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00006.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00084.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00022.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00016.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00010.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00080.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00066.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00011.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00007.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00090.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00043.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00075.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00067.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00065.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00073.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00031.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00056.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00012.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00033.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00005.jtl",
+        "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar -n -t C:\\Apps\\jmeter\\plans\\checkout.jmx -l C:\\Apps\\jmeter\\results\\run-00079.jtl"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-007",
+      "name": "Apache ActiveMQ Classic",
+      "type": "Real",
+      "category": "Message broker",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/activemq/bin/activemq.jar",
+        "C:\\Apps\\activemq\\bin\\activemq.jar"
+      ],
+      "javaCommands": [
+        "/opt/activemq/bin/activemq.jar start",
+        "C:\\Apps\\activemq\\bin\\activemq.jar start"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-008",
+      "name": "Apache Derby",
+      "type": "Real",
+      "category": "Database",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\derby\\lib\\derby.jar;C:\\Apps\\derby\\lib\\derbynet.jar;C:\\Apps\\derby\\lib\\derbyshared.jar;C:\\Apps\\derby\\lib\\derbytools.jar",
+        "/opt/derby/lib/derby.jar:/opt/derby/lib/derbynet.jar:/opt/derby/lib/derbyshared.jar:/opt/derby/lib/derbytools.jar"
+      ],
+      "javaCommands": [
+        "org.apache.derby.drda.NetworkServerControl start -h 127.0.0.1 -p 1527"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-009",
+      "name": "Checkstyle",
+      "type": "Real",
+      "category": "Code quality",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/Applications/checkstyle/checkstyle-all.jar",
+        "C:\\Apps\\checkstyle\\checkstyle-all.jar"
+      ],
+      "javaCommands": [
+        "/Applications/checkstyle/checkstyle-all.jar -c /google_checks.xml /Applications/checkstyle/workspace/src",
+        "C:\\Apps\\checkstyle\\checkstyle-all.jar -c \\google_checks.xml C:\\Apps\\checkstyle\\workspace\\src",
+        "C:\\Apps\\checkstyle\\checkstyle-all.jar -c /google_checks.xml C:\\Apps\\checkstyle\\workspace\\src"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-010",
+      "name": "PlantUML",
+      "type": "Real",
+      "category": "Diagramming",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/Applications/plantuml/plantuml.jar",
+        "C:\\Apps\\plantuml\\plantuml.jar"
+      ],
+      "javaCommands": [
+        "/Applications/plantuml/plantuml.jar -tsvg /Applications/plantuml/diagrams/architecture.puml",
+        "C:\\Apps\\plantuml\\plantuml.jar -tsvg C:\\Apps\\plantuml\\diagrams\\architecture.puml"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-011",
+      "name": "Apache Kafka",
+      "type": "Real",
+      "category": "Event streaming",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/kafka/libs/kafka_2.13.jar:/opt/kafka/libs/kafka-clients.jar:/opt/kafka/libs/scala-library.jar",
+        "C:\\Apps\\kafka\\libs\\kafka_2.13.jar;C:\\Apps\\kafka\\libs\\kafka-clients.jar;C:\\Apps\\kafka\\libs\\scala-library.jar"
+      ],
+      "javaCommands": [
+        "kafka.Kafka /opt/kafka/config/server.properties",
+        "kafka.Kafka C:\\Apps\\kafka\\config\\server.properties"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-012",
+      "name": "Apache ZooKeeper",
+      "type": "Real",
+      "category": "Coordination",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/zookeeper/zookeeper.jar:/opt/zookeeper/lib/slf4j-api.jar",
+        "C:\\Apps\\zookeeper\\zookeeper.jar;C:\\Apps\\zookeeper\\lib\\slf4j-api.jar"
+      ],
+      "javaCommands": [
+        "org.apache.zookeeper.server.quorum.QuorumPeerMain /opt/zookeeper/conf/zoo.cfg",
+        "org.apache.zookeeper.server.quorum.QuorumPeerMain C:\\Apps\\zookeeper\\conf\\zoo.cfg"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-013",
+      "name": "Apache Cassandra",
+      "type": "Real",
+      "category": "Database",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/cassandra/conf:/opt/cassandra/lib/apache-cassandra.jar:/opt/cassandra/lib/guava.jar",
+        "C:\\Apps\\cassandra\\conf;C:\\Apps\\cassandra\\lib\\apache-cassandra.jar;C:\\Apps\\cassandra\\lib\\guava.jar"
+      ],
+      "javaCommands": [
+        "org.apache.cassandra.service.CassandraDaemon"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-014",
+      "name": "Apache Solr",
+      "type": "Real",
+      "category": "Search",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\solr\\server\\start.jar",
+        "/opt/solr/server/start.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\solr\\server\\start.jar --module=http",
+        "/opt/solr/server/start.jar --module=http"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-015",
+      "name": "Apache NiFi",
+      "type": "Real",
+      "category": "Data integration",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/nifi/conf:/opt/nifi/lib/nifi-runtime.jar",
+        "C:\\Apps\\nifi\\conf;C:\\Apps\\nifi\\lib\\nifi-runtime.jar"
+      ],
+      "javaCommands": [
+        "org.apache.nifi.NiFi"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-016",
+      "name": "Apache Flink",
+      "type": "Real",
+      "category": "Stream processing",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/flink/lib/flink-dist.jar",
+        "C:\\Apps\\flink\\lib\\flink-dist.jar"
+      ],
+      "javaCommands": [
+        "org.apache.flink.runtime.entrypoint.StandaloneSessionClusterEntrypoint --configDir /opt/flink/conf",
+        "org.apache.flink.runtime.entrypoint.StandaloneSessionClusterEntrypoint --configDir C:\\Apps\\flink\\conf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-017",
+      "name": "Apache Spark",
+      "type": "Real",
+      "category": "Data processing",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/spark/conf:/opt/spark/jars/spark-core_2.12.jar:/opt/spark/jars/scala-library.jar",
+        "C:\\Apps\\spark\\conf;C:\\Apps\\spark\\jars\\spark-core_2.12.jar;C:\\Apps\\spark\\jars\\scala-library.jar"
+      ],
+      "javaCommands": [
+        "org.apache.spark.deploy.master.Master --host LNX-SPARK-02 --port 7077 --webui-port 8080",
+        "org.apache.spark.deploy.master.Master --host LNX-SPARK-04 --port 7077 --webui-port 8080",
+        "org.apache.spark.deploy.master.Master --host WIN-SPARK-01 --port 7077 --webui-port 8080",
+        "org.apache.spark.deploy.master.Master --host LNX-SPARK-03 --port 7077 --webui-port 8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-018",
+      "name": "Apache Hadoop",
+      "type": "Real",
+      "category": "Distributed storage",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/hadoop/etc/hadoop:/opt/hadoop/share/hadoop/common/hadoop-common.jar:/opt/hadoop/share/hadoop/hdfs/hadoop-hdfs.jar",
+        "C:\\Apps\\hadoop\\etc\\hadoop;C:\\Apps\\hadoop\\share\\hadoop\\common\\hadoop-common.jar;C:\\Apps\\hadoop\\share\\hadoop\\hdfs\\hadoop-hdfs.jar"
+      ],
+      "javaCommands": [
+        "org.apache.hadoop.hdfs.server.namenode.NameNode"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-019",
+      "name": "Apache Hive",
+      "type": "Real",
+      "category": "SQL analytics",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 7,
+      "classPaths": [
+        "/opt/hive/conf:/opt/hive/lib/hive-service.jar:/opt/hive/lib/hive-exec.jar",
+        "C:\\Apps\\hive\\conf;C:\\Apps\\hive\\lib\\hive-service.jar;C:\\Apps\\hive\\lib\\hive-exec.jar"
+      ],
+      "javaCommands": [
+        "org.apache.hive.service.server.HiveServer2"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-020",
+      "name": "Apache HBase",
+      "type": "Real",
+      "category": "Database",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/hbase/conf:/opt/hbase/lib/hbase-server.jar:/opt/hbase/lib/hbase-common.jar",
+        "C:\\Apps\\hbase\\conf;C:\\Apps\\hbase\\lib\\hbase-server.jar;C:\\Apps\\hbase\\lib\\hbase-common.jar"
+      ],
+      "javaCommands": [
+        "org.apache.hadoop.hbase.master.HMaster start"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-021",
+      "name": "Apache Druid",
+      "type": "Real",
+      "category": "Analytics database",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\druid\\conf;C:\\Apps\\druid\\lib\\druid-services.jar",
+        "/opt/druid/conf:/opt/druid/lib/druid-services.jar"
+      ],
+      "javaCommands": [
+        "org.apache.druid.cli.Main server coordinator"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-022",
+      "name": "Apache Pinot",
+      "type": "Real",
+      "category": "Analytics database",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/pinot/lib/pinot-all.jar",
+        "C:\\Apps\\pinot\\lib\\pinot-all.jar"
+      ],
+      "javaCommands": [
+        "org.apache.pinot.tools.admin.PinotAdministrator StartController -configFileName /opt/pinot/conf/controller.conf",
+        "org.apache.pinot.tools.admin.PinotAdministrator StartController -configFileName C:\\Apps\\pinot\\conf\\controller.conf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-023",
+      "name": "Apache Ignite",
+      "type": "Real",
+      "category": "Distributed database",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/ignite/libs/ignite-core.jar",
+        "C:\\Apps\\ignite\\libs\\ignite-core.jar"
+      ],
+      "javaCommands": [
+        "org.apache.ignite.startup.cmdline.CommandLineStartup /opt/ignite/config/default-config.xml",
+        "org.apache.ignite.startup.cmdline.CommandLineStartup C:\\Apps\\ignite\\config\\default-config.xml"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-024",
+      "name": "Apache Maven",
+      "type": "Real",
+      "category": "Build tool",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\maven\\boot\\plexus-classworlds.jar",
+        "/Applications/maven/boot/plexus-classworlds.jar"
+      ],
+      "javaCommands": [
+        "org.codehaus.plexus.classworlds.launcher.Launcher -B -f C:\\Apps\\maven\\workspace\\pom.xml clean verify",
+        "org.codehaus.plexus.classworlds.launcher.Launcher -B -f /Applications/maven/workspace/pom.xml clean verify"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-025",
+      "name": "Apache Groovy",
+      "type": "Real",
+      "category": "Scripting",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\groovy\\lib\\groovy.jar",
+        "/Applications/groovy/lib/groovy.jar"
+      ],
+      "javaCommands": [
+        "groovy.ui.GroovyMain C:\\Apps\\groovy\\scripts\\daily-report.groovy",
+        "groovy.ui.GroovyMain /Applications/groovy/scripts/daily-report.groovy"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-026",
+      "name": "Jython",
+      "type": "Real",
+      "category": "Scripting",
+      "javaMajors": [
+        "7",
+        "8"
+      ],
+      "sourceRecords": 6,
+      "classPaths": [
+        "C:\\Apps\\jython\\jython-standalone.jar",
+        "/opt/jython/jython-standalone.jar"
+      ],
+      "javaCommands": [
+        "org.python.util.jython C:\\Apps\\jython\\scripts\\import-data.py",
+        "org.python.util.jython /opt/jython/scripts/import-data.py"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-027",
+      "name": "Apache Tika",
+      "type": "Real",
+      "category": "Content extraction",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 67,
+      "classPaths": [
+        "C:\\Apps\\tika\\tika-app.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00022.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00025.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00041.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00037.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00011.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00049.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00019.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00067.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00028.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00053.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00061.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00009.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00030.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00044.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00056.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00064.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00034.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00048.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00054.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00032.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00004.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00016.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00040.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00059.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00031.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00012.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00005.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00043.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00018.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00047.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00027.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00057.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00029.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00024.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00026.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00062.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00042.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00055.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00050.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00033.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00017.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00051.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00007.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00023.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00036.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00020.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00008.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00015.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00039.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00045.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00066.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00014.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00046.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00006.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00060.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00010.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00021.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00001.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00063.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00002.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00065.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00052.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00013.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00058.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00003.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00038.pdf",
+        "C:\\Apps\\tika\\tika-app.jar --text C:\\Apps\\tika\\input\\document-00035.pdf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-028",
+      "name": "Apache FOP",
+      "type": "Real",
+      "category": "Document processing",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 176,
+      "classPaths": [
+        "C:\\Apps\\fop\\build\\fop.jar;C:\\Apps\\fop\\lib\\xmlgraphics-commons.jar"
+      ],
+      "javaCommands": [
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00032.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00138.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00023.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00163.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00034.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00022.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00124.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00116.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00151.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00006.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00092.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00058.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00074.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00028.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00109.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00013.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00155.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00129.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00103.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00111.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00066.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00043.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00172.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00041.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00037.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00015.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00102.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00069.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00075.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00115.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00016.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00108.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00011.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00145.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00132.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00128.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00077.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00021.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00106.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00136.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00073.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00126.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00157.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00097.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00117.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00060.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00003.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00167.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00068.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00042.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00171.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00098.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00166.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00141.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00123.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00162.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00031.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00064.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00027.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00174.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00118.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00090.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00154.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00158.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00139.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00091.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00107.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00156.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00094.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00024.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00007.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00040.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00070.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00009.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00176.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00105.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00018.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00140.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00082.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00173.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00080.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00137.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00078.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00087.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00030.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00150.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00001.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00142.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00005.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00061.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00100.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00020.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00072.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00144.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00004.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00096.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00113.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00164.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00036.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00148.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00085.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00044.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00054.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00017.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00076.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00063.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00133.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00153.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00120.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00065.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00130.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00025.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00159.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00119.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00143.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00170.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00026.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00051.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00089.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00039.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00127.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00131.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00053.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00071.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00114.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00099.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00049.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00012.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00112.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00110.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00083.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00014.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00084.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00059.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00029.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00081.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00122.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00052.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00134.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00035.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00050.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00079.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00055.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00165.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00046.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00160.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00047.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00019.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00038.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00067.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00008.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00048.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00062.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00169.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00152.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00088.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00057.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00086.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00175.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00010.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00135.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00125.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00056.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00161.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00101.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00168.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00121.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00093.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00149.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00033.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00147.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00095.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00104.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00146.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00045.pdf",
+        "org.apache.fop.cli.Main -fo C:\\Apps\\fop\\input\\invoice.fo -pdf C:\\Apps\\fop\\output\\invoice-00002.pdf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-029",
+      "name": "Apache PDFBox CLI",
+      "type": "Real",
+      "category": "Document processing",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 100,
+      "classPaths": [
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00078.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00077.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00033.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00045.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00061.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00025.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00068.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00019.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00062.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00084.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00070.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00004.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00032.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00003.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00037.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00036.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00086.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00031.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00069.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00006.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00081.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00071.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00051.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00044.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00056.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00067.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00009.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00089.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00001.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00091.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00064.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00029.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00092.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00080.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00039.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00024.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00099.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00095.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00005.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00100.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00015.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00043.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00057.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00082.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00034.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00087.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00048.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00096.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00026.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00060.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00040.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00074.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00023.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00018.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00094.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00014.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00065.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00085.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00093.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00054.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00010.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00046.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00073.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00055.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00090.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00017.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00027.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00002.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00030.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00028.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00016.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00088.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00098.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00079.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00063.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00047.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00052.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00076.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00059.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00042.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00041.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00020.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00097.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00007.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00050.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00083.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00075.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00049.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00013.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00072.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00021.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00012.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00038.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00011.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00035.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00008.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00066.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00058.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00053.pdf",
+        "C:\\Apps\\pdfbox\\pdfbox-app.jar ExtractText C:\\Apps\\pdfbox\\input\\report-00022.pdf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-030",
+      "name": "Apache Batik Rasterizer",
+      "type": "Real",
+      "category": "Image processing",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\batik\\batik-rasterizer.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\batik\\batik-rasterizer.jar -m image/png C:\\Apps\\batik\\input\\chart.svg",
+        "C:\\Apps\\batik\\batik-rasterizer.jar -m image\\png C:\\Apps\\batik\\input\\chart.svg"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-031",
+      "name": "Apache Xalan",
+      "type": "Real",
+      "category": "XML processing",
+      "javaMajors": [
+        "7",
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "C:\\Apps\\xalan\\xalan.jar;C:\\Apps\\xalan\\serializer.jar",
+        "/opt/xalan/xalan.jar:/opt/xalan/serializer.jar"
+      ],
+      "javaCommands": [
+        "org.apache.xalan.xslt.Process -IN C:\\Apps\\xalan\\input\\orders.xml -XSL C:\\Apps\\xalan\\templates\\orders.xsl -OUT C:\\Apps\\xalan\\output\\orders.html",
+        "org.apache.xalan.xslt.Process -IN /opt/xalan/input/orders.xml -XSL /opt/xalan/templates/orders.xsl -OUT /opt/xalan/output/orders.html"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-032",
+      "name": "Apache James",
+      "type": "Real",
+      "category": "Mail server",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/james/conf:/opt/james/lib/james-server.jar",
+        "C:\\Apps\\james\\conf;C:\\Apps\\james\\lib\\james-server.jar"
+      ],
+      "javaCommands": [
+        "org.apache.james.JPAJamesServerMain"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-033",
+      "name": "Apache Karaf",
+      "type": "Real",
+      "category": "Application runtime",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/karaf/lib/boot/org.apache.karaf.main.jar",
+        "C:\\Apps\\karaf\\lib\\boot\\org.apache.karaf.main.jar"
+      ],
+      "javaCommands": [
+        "org.apache.karaf.main.Main"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-034",
+      "name": "Apache ServiceMix",
+      "type": "Real",
+      "category": "Integration server",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/servicemix/lib/boot/org.apache.karaf.main.jar",
+        "C:\\Apps\\servicemix\\lib\\boot\\org.apache.karaf.main.jar"
+      ],
+      "javaCommands": [
+        "org.apache.karaf.main.Main"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-035",
+      "name": "Apache Artemis",
+      "type": "Real",
+      "category": "Message broker",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\artemis\\lib\\artemis-boot.jar",
+        "/opt/artemis/lib/artemis-boot.jar"
+      ],
+      "javaCommands": [
+        "org.apache.activemq.artemis.boot.Artemis run"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-036",
+      "name": "Apache BookKeeper",
+      "type": "Real",
+      "category": "Distributed storage",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/bookkeeper/conf:/opt/bookkeeper/lib/bookkeeper-server.jar",
+        "C:\\Apps\\bookkeeper\\conf;C:\\Apps\\bookkeeper\\lib\\bookkeeper-server.jar"
+      ],
+      "javaCommands": [
+        "org.apache.bookkeeper.server.Main --conf /opt/bookkeeper/conf/bk_server.conf",
+        "org.apache.bookkeeper.server.Main --conf C:\\Apps\\bookkeeper\\conf\\bk_server.conf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-037",
+      "name": "Apache Pulsar",
+      "type": "Real",
+      "category": "Event streaming",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/pulsar/conf:/opt/pulsar/lib/pulsar-broker.jar",
+        "C:\\Apps\\pulsar\\conf;C:\\Apps\\pulsar\\lib\\pulsar-broker.jar"
+      ],
+      "javaCommands": [
+        "org.apache.pulsar.PulsarBrokerStarter --broker-conf /opt/pulsar/conf/broker.conf",
+        "org.apache.pulsar.PulsarBrokerStarter --broker-conf C:\\Apps\\pulsar\\conf\\broker.conf"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-038",
+      "name": "Apache Zeppelin",
+      "type": "Real",
+      "category": "Notebook server",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\zeppelin\\conf;C:\\Apps\\zeppelin\\lib\\zeppelin-server.jar",
+        "/opt/zeppelin/conf:/opt/zeppelin/lib/zeppelin-server.jar"
+      ],
+      "javaCommands": [
+        "org.apache.zeppelin.server.ZeppelinServer"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-039",
+      "name": "Apache Jena Fuseki",
+      "type": "Real",
+      "category": "Semantic database",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/fuseki/fuseki-server.jar",
+        "C:\\Apps\\fuseki\\fuseki-server.jar"
+      ],
+      "javaCommands": [
+        "/opt/fuseki/fuseki-server.jar --port=3030 --mem /dataset",
+        "C:\\Apps\\fuseki\\fuseki-server.jar --port=3030 --mem \\dataset"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-040",
+      "name": "Apache OpenNLP CLI",
+      "type": "Real",
+      "category": "Language processing",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "C:\\Apps\\opennlp\\lib\\opennlp-tools.jar"
+      ],
+      "javaCommands": [
+        "opennlp.tools.cmdline.CLI TokenizerME C:\\Apps\\opennlp\\models\\en-token.bin"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-041",
+      "name": "Metabase",
+      "type": "Real",
+      "category": "Business intelligence",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/metabase/metabase.jar",
+        "C:\\Apps\\metabase\\metabase.jar"
+      ],
+      "javaCommands": [
+        "/opt/metabase/metabase.jar",
+        "C:\\Apps\\metabase\\metabase.jar"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-042",
+      "name": "Keycloak",
+      "type": "Real",
+      "category": "Identity management",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/Applications/keycloak/lib/quarkus-run.jar",
+        "/opt/keycloak/lib/quarkus-run.jar",
+        "C:\\Apps\\keycloak\\lib\\quarkus-run.jar"
+      ],
+      "javaCommands": [
+        "/Applications/keycloak/lib/quarkus-run.jar start --http-enabled=true --hostname=identity.example.test",
+        "/opt/keycloak/lib/quarkus-run.jar start --http-enabled=true --hostname=identity.example.test",
+        "C:\\Apps\\keycloak\\lib\\quarkus-run.jar start --http-enabled=true --hostname=identity.example.test"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-043",
+      "name": "WildFly",
+      "type": "Real",
+      "category": "Application server",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/wildfly/jboss-modules.jar",
+        "C:\\Apps\\wildfly\\jboss-modules.jar"
+      ],
+      "javaCommands": [
+        "/opt/wildfly/jboss-modules.jar -mp /opt/wildfly/modules org.jboss.as.standalone -c standalone.xml",
+        "C:\\Apps\\wildfly\\jboss-modules.jar -mp C:\\Apps\\wildfly\\modules org.jboss.as.standalone -c standalone.xml"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-044",
+      "name": "Payara Micro",
+      "type": "Real",
+      "category": "Application server",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/payara/payara-micro.jar",
+        "C:\\Apps\\payara\\payara-micro.jar"
+      ],
+      "javaCommands": [
+        "/opt/payara/payara-micro.jar --port 8080 --deploy /opt/payara/deployments/portal.war",
+        "C:\\Apps\\payara\\payara-micro.jar --port 8080 --deploy C:\\Apps\\payara\\deployments\\portal.war"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-045",
+      "name": "Eclipse GlassFish",
+      "type": "Real",
+      "category": "Application server",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/glassfish/glassfish/modules/glassfish.jar",
+        "C:\\Apps\\glassfish\\glassfish\\modules\\glassfish.jar"
+      ],
+      "javaCommands": [
+        "com.sun.enterprise.glassfish.bootstrap.ASMain -domainname domain1"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-046",
+      "name": "JOSM",
+      "type": "Real",
+      "category": "Desktop mapping",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\josm\\josm-tested.jar",
+        "/opt/josm/josm-tested.jar",
+        "/Applications/josm/josm-tested.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\josm\\josm-tested.jar",
+        "/opt/josm/josm-tested.jar",
+        "/Applications/josm/josm-tested.jar"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-047",
+      "name": "JabRef",
+      "type": "Real",
+      "category": "Reference management",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 6,
+      "classPaths": [
+        "C:\\Apps\\jabref\\JabRef.jar",
+        "/opt/jabref/JabRef.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\jabref\\JabRef.jar C:\\Apps\\jabref\\documents\\references.bib",
+        "/opt/jabref/JabRef.jar /opt/jabref/documents/references.bib"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-048",
+      "name": "jEdit",
+      "type": "Real",
+      "category": "Text editor",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\jedit\\jedit.jar",
+        "/opt/jedit/jedit.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\jedit\\jedit.jar C:\\Apps\\jedit\\workspace\\README.txt",
+        "/opt/jedit/jedit.jar /opt/jedit/workspace/README.txt"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-049",
+      "name": "ImageJ",
+      "type": "Real",
+      "category": "Image analysis",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 7,
+      "classPaths": [
+        "C:\\Apps\\imagej\\ij.jar"
+      ],
+      "javaCommands": [
+        "ij.ImageJ -batch C:\\Apps\\imagej\\macros\\analyze.ijm"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-050",
+      "name": "Sweet Home 3D",
+      "type": "Real",
+      "category": "Interior design",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/sweethome3d/SweetHome3D.jar",
+        "C:\\Apps\\sweethome3d\\SweetHome3D.jar"
+      ],
+      "javaCommands": [
+        "/opt/sweethome3d/SweetHome3D.jar",
+        "C:\\Apps\\sweethome3d\\SweetHome3D.jar"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-051",
+      "name": "Northstar Invoice Processor",
+      "type": "Fictional",
+      "category": "Finance batch",
+      "javaMajors": [
+        "7",
+        "8",
+        "15"
+      ],
+      "sourceRecords": 7,
+      "classPaths": [
+        "C:\\Apps\\invoice-processor\\invoice-processor.jar",
+        "/opt/invoice-processor/invoice-processor.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\invoice-processor\\invoice-processor.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/invoice-processor/invoice-processor.jar --spring.profiles.active=production --server.port=8080",
+        "com.example.legacy.invoiceprocessor.Main --environment=staging",
+        "/opt/invoice-processor/invoice-processor.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-052",
+      "name": "Harbor Inventory Service",
+      "type": "Fictional",
+      "category": "Inventory",
+      "javaMajors": [
+        "8",
+        "11",
+        "12"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/inventory-service/inventory-service.jar",
+        "C:\\Apps\\inventory-service\\inventory-service.jar"
+      ],
+      "javaCommands": [
+        "/opt/inventory-service/inventory-service.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/inventory-service/inventory-service.jar --spring.profiles.active=production --server.port=8080",
+        "C:\\Apps\\inventory-service\\inventory-service.jar --spring.profiles.active=production --server.port=8080",
+        "com.example.legacy.inventoryservice.Main --environment=staging"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-053",
+      "name": "Cedar Claims Gateway",
+      "type": "Fictional",
+      "category": "Insurance",
+      "javaMajors": [
+        "8",
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/claims-gateway/claims-gateway.jar",
+        "C:\\Apps\\claims-gateway\\claims-gateway.jar"
+      ],
+      "javaCommands": [
+        "/opt/claims-gateway/claims-gateway.jar --spring.profiles.active=production --server.port=8080",
+        "com.example.legacy.claimsgateway.Main --environment=staging",
+        "C:\\Apps\\claims-gateway\\claims-gateway.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/claims-gateway/claims-gateway.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-054",
+      "name": "Summit Payroll Batch",
+      "type": "Fictional",
+      "category": "Payroll",
+      "javaMajors": [
+        "8",
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/payroll-batch/payroll-batch.jar",
+        "C:\\Apps\\payroll-batch\\payroll-batch.jar"
+      ],
+      "javaCommands": [
+        "com.example.legacy.payrollbatch.Main --environment=staging",
+        "/opt/payroll-batch/payroll-batch.jar --spring.profiles.active=development --server.port=8080",
+        "C:\\Apps\\payroll-batch\\payroll-batch.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/payroll-batch/payroll-batch.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-055",
+      "name": "Orchard Customer Portal",
+      "type": "Fictional",
+      "category": "Customer service",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 6,
+      "classPaths": [
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
+        "/opt/customer-portal/customer-portal.jar"
+      ],
+      "javaCommands": [
+        "https://legacy.example.test/customer-portal/: com.example.legacy.customerportal.Client --environment=production sourceURL=https://legacy.example.test/customer-portal/customer-portal.jnlp",
+        "/opt/customer-portal/customer-portal.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/customer-portal/customer-portal.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/customer-portal/customer-portal.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "javaws application",
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-056",
+      "name": "Beacon Shipment Tracker",
+      "type": "Fictional",
+      "category": "Logistics",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/shipment-tracker/shipment-tracker.jar",
+        "C:\\Apps\\shipment-tracker\\shipment-tracker.jar"
+      ],
+      "javaCommands": [
+        "/opt/shipment-tracker/shipment-tracker.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/shipment-tracker/shipment-tracker.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/shipment-tracker/shipment-tracker.jar --spring.profiles.active=development --server.port=8080",
+        "C:\\Apps\\shipment-tracker\\shipment-tracker.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-057",
+      "name": "Maple Order Orchestrator",
+      "type": "Fictional",
+      "category": "Order management",
+      "javaMajors": [
+        "17",
+        "20"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/order-orchestrator/order-orchestrator.jar",
+        "C:\\Apps\\order-orchestrator\\order-orchestrator.jar"
+      ],
+      "javaCommands": [
+        "/opt/order-orchestrator/order-orchestrator.jar --spring.profiles.active=production --server.port=8080",
+        "C:\\Apps\\order-orchestrator\\order-orchestrator.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/order-orchestrator/order-orchestrator.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/order-orchestrator/order-orchestrator.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-058",
+      "name": "Atlas Pricing Engine",
+      "type": "Fictional",
+      "category": "Pricing",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/pricing-engine/pricing-engine.jar",
+        "C:\\Apps\\pricing-engine\\pricing-engine.jar"
+      ],
+      "javaCommands": [
+        "/opt/pricing-engine/pricing-engine.jar --spring.profiles.active=production --server.port=8080",
+        "C:\\Apps\\pricing-engine\\pricing-engine.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/pricing-engine/pricing-engine.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/pricing-engine/pricing-engine.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-059",
+      "name": "Riverbend Fraud Monitor",
+      "type": "Fictional",
+      "category": "Fraud detection",
+      "javaMajors": [
+        "8"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/fraud-monitor/fraud-monitor.jar",
+        "C:\\Apps\\fraud-monitor\\fraud-monitor.jar"
+      ],
+      "javaCommands": [
+        "/opt/fraud-monitor/fraud-monitor.jar --spring.profiles.active=production --server.port=8080",
+        "C:\\Apps\\fraud-monitor\\fraud-monitor.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/fraud-monitor/fraud-monitor.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/fraud-monitor/fraud-monitor.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-060",
+      "name": "Pinecrest Policy Service",
+      "type": "Fictional",
+      "category": "Insurance",
+      "javaMajors": [
+        "8",
+        "11",
+        "23"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/policy-service/policy-service.jar",
+        "C:\\Java\\jdk1.8.0_121\\jre\\lib\\deploy.jar"
+      ],
+      "javaCommands": [
+        "/opt/policy-service/policy-service.jar --spring.profiles.active=production --server.port=8080",
+        "https://legacy.example.test/policy-service/: com.example.legacy.policyservice.Client --environment=production sourceURL=https://legacy.example.test/policy-service/policy-service.jnlp",
+        "/opt/policy-service/policy-service.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/policy-service/policy-service.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start",
+        "javaws application"
+      ]
+    },
+    {
+      "id": "APP-061",
+      "name": "Copperleaf Billing API",
+      "type": "Fictional",
+      "category": "Billing",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\billing-api\\billing-api.jar",
+        "/opt/billing-api/billing-api.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\billing-api\\billing-api.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/billing-api/billing-api.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/billing-api/billing-api.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/billing-api/billing-api.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-062",
+      "name": "Meadow Audit Collector",
+      "type": "Fictional",
+      "category": "Audit",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\audit-collector\\audit-collector.jar",
+        "/opt/audit-collector/audit-collector.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\audit-collector\\audit-collector.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/audit-collector/audit-collector.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/audit-collector/audit-collector.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/audit-collector/audit-collector.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-063",
+      "name": "Silverline Report Scheduler",
+      "type": "Fictional",
+      "category": "Reporting",
+      "javaMajors": [
+        "8",
+        "24"
+      ],
+      "sourceRecords": 8,
+      "classPaths": [
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
+        "/opt/report-scheduler/report-scheduler.jar"
+      ],
+      "javaCommands": [
+        "https://legacy.example.test/report-scheduler/: com.example.legacy.reportscheduler.Client --environment=production sourceURL=https://legacy.example.test/report-scheduler/report-scheduler.jnlp",
+        "/opt/report-scheduler/report-scheduler.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/report-scheduler/report-scheduler.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/report-scheduler/report-scheduler.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "javaws application",
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-064",
+      "name": "Brookside Document Indexer",
+      "type": "Fictional",
+      "category": "Document processing",
+      "javaMajors": [
+        "8",
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Java\\jdk1.8.0_121\\jre\\lib\\deploy.jar",
+        "C:\\Apps\\document-indexer\\document-indexer.jar"
+      ],
+      "javaCommands": [
+        "https://legacy.example.test/document-indexer/: com.example.legacy.documentindexer.Client --environment=production sourceURL=https://legacy.example.test/document-indexer/document-indexer.jnlp",
+        "C:\\Apps\\document-indexer\\document-indexer.jar --spring.profiles.active=staging --server.port=8080",
+        "C:\\Apps\\document-indexer\\document-indexer.jar --spring.profiles.active=development --server.port=8080",
+        "C:\\Apps\\document-indexer\\document-indexer.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "javaws application",
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-065",
+      "name": "Horizon Loyalty Service",
+      "type": "Fictional",
+      "category": "Loyalty",
+      "javaMajors": [
+        "8",
+        "17",
+        "18"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
+        "/opt/loyalty-service/loyalty-service.jar"
+      ],
+      "javaCommands": [
+        "https://legacy.example.test/loyalty-service/: com.example.legacy.loyaltyservice.Client --environment=production sourceURL=https://legacy.example.test/loyalty-service/loyalty-service.jnlp",
+        "/opt/loyalty-service/loyalty-service.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/loyalty-service/loyalty-service.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/loyalty-service/loyalty-service.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "javaws application",
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-066",
+      "name": "Willow Data Reconciler",
+      "type": "Fictional",
+      "category": "Data quality",
+      "javaMajors": [
+        "21",
+        "22"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\data-reconciler\\data-reconciler.jar",
+        "/opt/data-reconciler/data-reconciler.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\data-reconciler\\data-reconciler.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/data-reconciler/data-reconciler.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/data-reconciler/data-reconciler.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/data-reconciler/data-reconciler.jar --spring.profiles.active=development --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-067",
+      "name": "Evergreen Catalog API",
+      "type": "Fictional",
+      "category": "Product catalog",
+      "javaMajors": [
+        "8",
+        "26"
+      ],
+      "sourceRecords": 7,
+      "classPaths": [
+        "C:\\Apps\\catalog-api\\catalog-api.jar",
+        "/opt/catalog-api/catalog-api.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\catalog-api\\catalog-api.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/catalog-api/catalog-api.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/catalog-api/catalog-api.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/catalog-api/catalog-api.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-068",
+      "name": "Clearwater Risk Batch",
+      "type": "Fictional",
+      "category": "Risk analytics",
+      "javaMajors": [
+        "11"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\risk-batch\\risk-batch.jar",
+        "/opt/risk-batch/risk-batch.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\risk-batch\\risk-batch.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/risk-batch/risk-batch.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/risk-batch/risk-batch.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/risk-batch/risk-batch.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-069",
+      "name": "Stonebridge Asset Register",
+      "type": "Fictional",
+      "category": "Asset management",
+      "javaMajors": [
+        "8",
+        "17",
+        "19"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/asset-register/asset-register.jar",
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar"
+      ],
+      "javaCommands": [
+        "/opt/asset-register/asset-register.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/asset-register/asset-register.jar --spring.profiles.active=development --server.port=8080",
+        "https://legacy.example.test/asset-register/: com.example.legacy.assetregister.Client --environment=production sourceURL=https://legacy.example.test/asset-register/asset-register.jnlp",
+        "/opt/asset-register/asset-register.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start",
+        "javaws application"
+      ]
+    },
+    {
+      "id": "APP-070",
+      "name": "Redwood Consent Service",
+      "type": "Fictional",
+      "category": "Privacy operations",
+      "javaMajors": [
+        "21"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "/opt/consent-service/consent-service.jar",
+        "C:\\Apps\\consent-service\\consent-service.jar"
+      ],
+      "javaCommands": [
+        "/opt/consent-service/consent-service.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/consent-service/consent-service.jar --spring.profiles.active=development --server.port=8080",
+        "C:\\Apps\\consent-service\\consent-service.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/consent-service/consent-service.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-071",
+      "name": "Lakeside Procurement Hub",
+      "type": "Fictional",
+      "category": "Procurement",
+      "javaMajors": [
+        "8",
+        "14"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
+        "/opt/procurement-hub/procurement-hub.jar"
+      ],
+      "javaCommands": [
+        "https://legacy.example.test/procurement-hub/: com.example.legacy.procurementhub.Client --environment=production sourceURL=https://legacy.example.test/procurement-hub/procurement-hub.jnlp",
+        "/opt/procurement-hub/procurement-hub.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/procurement-hub/procurement-hub.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/procurement-hub/procurement-hub.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "javaws application",
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-072",
+      "name": "Bluebird Notification Worker",
+      "type": "Fictional",
+      "category": "Notifications",
+      "javaMajors": [
+        "11",
+        "13"
+      ],
+      "sourceRecords": 4,
+      "classPaths": [
+        "C:\\Apps\\notification-worker\\notification-worker.jar",
+        "/opt/notification-worker/notification-worker.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\notification-worker\\notification-worker.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/notification-worker/notification-worker.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/notification-worker/notification-worker.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/notification-worker/notification-worker.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-073",
+      "name": "Sequoia Forecast Runner",
+      "type": "Fictional",
+      "category": "Forecasting",
+      "javaMajors": [
+        "17"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "C:\\Apps\\forecast-runner\\forecast-runner.jar",
+        "/opt/forecast-runner/forecast-runner.jar"
+      ],
+      "javaCommands": [
+        "C:\\Apps\\forecast-runner\\forecast-runner.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/forecast-runner/forecast-runner.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/forecast-runner/forecast-runner.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/forecast-runner/forecast-runner.jar --spring.profiles.active=staging --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-074",
+      "name": "Westhaven Settlement Engine",
+      "type": "Fictional",
+      "category": "Payments",
+      "javaMajors": [
+        "21",
+        "27"
+      ],
+      "sourceRecords": 5,
+      "classPaths": [
+        "/opt/settlement-engine/settlement-engine.jar",
+        "C:\\Apps\\settlement-engine\\settlement-engine.jar"
+      ],
+      "javaCommands": [
+        "/opt/settlement-engine/settlement-engine.jar --spring.profiles.active=staging --server.port=8080",
+        "C:\\Apps\\settlement-engine\\settlement-engine.jar --spring.profiles.active=production --server.port=8080",
+        "/opt/settlement-engine/settlement-engine.jar --spring.profiles.active=development --server.port=8080",
+        "/opt/settlement-engine/settlement-engine.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start"
+      ]
+    },
+    {
+      "id": "APP-075",
+      "name": "Aurora Timesheet Processor",
+      "type": "Fictional",
+      "category": "Workforce",
+      "javaMajors": [
+        "8",
+        "16"
+      ],
+      "sourceRecords": 6,
+      "classPaths": [
+        "/opt/timesheet-processor/timesheet-processor.jar",
+        "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar"
+      ],
+      "javaCommands": [
+        "/opt/timesheet-processor/timesheet-processor.jar --spring.profiles.active=development --server.port=8080",
+        "https://legacy.example.test/timesheet-processor/: com.example.legacy.timesheetprocessor.Client --environment=production sourceURL=https://legacy.example.test/timesheet-processor/timesheet-processor.jnlp",
+        "/opt/timesheet-processor/timesheet-processor.jar --spring.profiles.active=staging --server.port=8080",
+        "/opt/timesheet-processor/timesheet-processor.jar --spring.profiles.active=production --server.port=8080"
+      ],
+      "startTypes": [
+        "VM start",
+        "javaws application"
+      ]
+    }
+  ]
+}

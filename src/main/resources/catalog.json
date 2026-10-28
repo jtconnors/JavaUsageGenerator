@@ -1,0 +1,2073 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-13",
+  "description": "JDK version catalog grouped by release family for selecting individual versions or all listed versions in a family.",
+  "sourceUrl": "https://ops.java/releases/",
+  "coverage": {
+    "minimumVersions": {
+      "5": "5.0u38",
+      "6": "6u25",
+      "1.4.2": "1.4.2_35"
+    },
+    "completeFamiliesFrom": "7",
+    "completeFamiliesThrough": "27",
+    "includesPlannedReleases": false,
+    "includesRestrictedBuilds": false,
+    "includesCustomerSpecificPatches": false,
+    "note": "Preserves the 318 versions in the preceding report. Membership is historical availability, not current support or licensing eligibility."
+  },
+  "releases": [
+    {
+      "id": "1.4.2",
+      "label": "JDK 1.4.2",
+      "versions": [
+        {
+          "version": "1.4.2_35",
+          "label": "1.4.2_35",
+          "kind": "update",
+          "javaVersion": "1.4.2_35"
+        },
+        {
+          "version": "1.4.2_36",
+          "label": "1.4.2_36",
+          "kind": "update",
+          "javaVersion": "1.4.2_36"
+        },
+        {
+          "version": "1.4.2_37",
+          "label": "1.4.2_37",
+          "kind": "update",
+          "javaVersion": "1.4.2_37"
+        },
+        {
+          "version": "1.4.2_38",
+          "label": "1.4.2_38",
+          "kind": "update",
+          "javaVersion": "1.4.2_38"
+        },
+        {
+          "version": "1.4.2_40",
+          "label": "1.4.2_40",
+          "kind": "update",
+          "javaVersion": "1.4.2_40"
+        },
+        {
+          "version": "1.4.2_41",
+          "label": "1.4.2_41",
+          "kind": "update",
+          "javaVersion": "1.4.2_41"
+        },
+        {
+          "version": "1.4.2_42",
+          "label": "1.4.2_42",
+          "kind": "update",
+          "javaVersion": "1.4.2_42"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "label": "JDK 5",
+      "versions": [
+        {
+          "version": "5.0u38",
+          "label": "5.0u38",
+          "kind": "update",
+          "javaVersion": "1.5.0_38"
+        },
+        {
+          "version": "5.0u39",
+          "label": "5.0u39",
+          "kind": "update",
+          "javaVersion": "1.5.0_39"
+        },
+        {
+          "version": "5.0u40",
+          "label": "5.0u40",
+          "kind": "update",
+          "javaVersion": "1.5.0_40"
+        },
+        {
+          "version": "5.0u41",
+          "label": "5.0u41",
+          "kind": "update",
+          "javaVersion": "1.5.0_41"
+        },
+        {
+          "version": "5.0u45",
+          "label": "5.0u45",
+          "kind": "update",
+          "javaVersion": "1.5.0_45"
+        },
+        {
+          "version": "5.0u51",
+          "label": "5.0u51",
+          "kind": "update",
+          "javaVersion": "1.5.0_51"
+        },
+        {
+          "version": "5.0u55",
+          "label": "5.0u55",
+          "kind": "update",
+          "javaVersion": "1.5.0_55"
+        },
+        {
+          "version": "5.0u61",
+          "label": "5.0u61",
+          "kind": "update",
+          "javaVersion": "1.5.0_61"
+        },
+        {
+          "version": "5.0u65",
+          "label": "5.0u65",
+          "kind": "update",
+          "javaVersion": "1.5.0_65"
+        },
+        {
+          "version": "5.0u71",
+          "label": "5.0u71",
+          "kind": "update",
+          "javaVersion": "1.5.0_71"
+        },
+        {
+          "version": "5.0u75",
+          "label": "5.0u75",
+          "kind": "update",
+          "javaVersion": "1.5.0_75"
+        },
+        {
+          "version": "5.0u81",
+          "label": "5.0u81",
+          "kind": "update",
+          "javaVersion": "1.5.0_81"
+        },
+        {
+          "version": "5.0u85",
+          "label": "5.0u85",
+          "kind": "update",
+          "javaVersion": "1.5.0_85"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "label": "JDK 6",
+      "versions": [
+        {
+          "version": "6u25",
+          "label": "6u25",
+          "kind": "update",
+          "javaVersion": "1.6.0_25"
+        },
+        {
+          "version": "6u26",
+          "label": "6u26",
+          "kind": "update",
+          "javaVersion": "1.6.0_26"
+        },
+        {
+          "version": "6u27",
+          "label": "6u27",
+          "kind": "update",
+          "javaVersion": "1.6.0_27"
+        },
+        {
+          "version": "6u29",
+          "label": "6u29",
+          "kind": "update",
+          "javaVersion": "1.6.0_29"
+        },
+        {
+          "version": "6u30",
+          "label": "6u30",
+          "kind": "update",
+          "javaVersion": "1.6.0_30"
+        },
+        {
+          "version": "6u31",
+          "label": "6u31",
+          "kind": "update",
+          "javaVersion": "1.6.0_31"
+        },
+        {
+          "version": "6u32",
+          "label": "6u32",
+          "kind": "update",
+          "javaVersion": "1.6.0_32"
+        },
+        {
+          "version": "6u33",
+          "label": "6u33",
+          "kind": "update",
+          "javaVersion": "1.6.0_33"
+        },
+        {
+          "version": "6u34",
+          "label": "6u34",
+          "kind": "update",
+          "javaVersion": "1.6.0_34"
+        },
+        {
+          "version": "6u35",
+          "label": "6u35",
+          "kind": "update",
+          "javaVersion": "1.6.0_35"
+        },
+        {
+          "version": "6u37",
+          "label": "6u37",
+          "kind": "update",
+          "javaVersion": "1.6.0_37"
+        },
+        {
+          "version": "6u38",
+          "label": "6u38",
+          "kind": "update",
+          "javaVersion": "1.6.0_38"
+        },
+        {
+          "version": "6u39",
+          "label": "6u39",
+          "kind": "update",
+          "javaVersion": "1.6.0_39"
+        },
+        {
+          "version": "6u41",
+          "label": "6u41",
+          "kind": "update",
+          "javaVersion": "1.6.0_41"
+        },
+        {
+          "version": "6u43",
+          "label": "6u43",
+          "kind": "update",
+          "javaVersion": "1.6.0_43"
+        },
+        {
+          "version": "6u45",
+          "label": "6u45",
+          "kind": "update",
+          "javaVersion": "1.6.0_45"
+        },
+        {
+          "version": "6u51",
+          "label": "6u51",
+          "kind": "update",
+          "javaVersion": "1.6.0_51"
+        },
+        {
+          "version": "6u60",
+          "label": "6u60",
+          "kind": "update",
+          "javaVersion": "1.6.0_60"
+        },
+        {
+          "version": "6u65",
+          "label": "6u65",
+          "kind": "update",
+          "javaVersion": "1.6.0_65"
+        },
+        {
+          "version": "6u71",
+          "label": "6u71",
+          "kind": "update",
+          "javaVersion": "1.6.0_71"
+        },
+        {
+          "version": "6u75",
+          "label": "6u75",
+          "kind": "update",
+          "javaVersion": "1.6.0_75"
+        },
+        {
+          "version": "6u81",
+          "label": "6u81",
+          "kind": "update",
+          "javaVersion": "1.6.0_81"
+        },
+        {
+          "version": "6u85",
+          "label": "6u85",
+          "kind": "update",
+          "javaVersion": "1.6.0_85"
+        },
+        {
+          "version": "6u91",
+          "label": "6u91",
+          "kind": "update",
+          "javaVersion": "1.6.0_91"
+        },
+        {
+          "version": "6u95",
+          "label": "6u95",
+          "kind": "update",
+          "javaVersion": "1.6.0_95"
+        },
+        {
+          "version": "6u101",
+          "label": "6u101",
+          "kind": "update",
+          "javaVersion": "1.6.0_101"
+        },
+        {
+          "version": "6u105",
+          "label": "6u105",
+          "kind": "update",
+          "javaVersion": "1.6.0_105"
+        },
+        {
+          "version": "6u111",
+          "label": "6u111",
+          "kind": "update",
+          "javaVersion": "1.6.0_111"
+        },
+        {
+          "version": "6u113",
+          "label": "6u113",
+          "kind": "update",
+          "javaVersion": "1.6.0_113"
+        },
+        {
+          "version": "6u115",
+          "label": "6u115",
+          "kind": "update",
+          "javaVersion": "1.6.0_115"
+        },
+        {
+          "version": "6u121",
+          "label": "6u121",
+          "kind": "update",
+          "javaVersion": "1.6.0_121"
+        },
+        {
+          "version": "6u131",
+          "label": "6u131",
+          "kind": "update",
+          "javaVersion": "1.6.0_131"
+        },
+        {
+          "version": "6u141",
+          "label": "6u141",
+          "kind": "update",
+          "javaVersion": "1.6.0_141"
+        },
+        {
+          "version": "6u151",
+          "label": "6u151",
+          "kind": "update",
+          "javaVersion": "1.6.0_151"
+        },
+        {
+          "version": "6u161",
+          "label": "6u161",
+          "kind": "update",
+          "javaVersion": "1.6.0_161"
+        },
+        {
+          "version": "6u171",
+          "label": "6u171",
+          "kind": "update",
+          "javaVersion": "1.6.0_171"
+        },
+        {
+          "version": "6u181",
+          "label": "6u181",
+          "kind": "update",
+          "javaVersion": "1.6.0_181"
+        },
+        {
+          "version": "6u191",
+          "label": "6u191",
+          "kind": "update",
+          "javaVersion": "1.6.0_191"
+        },
+        {
+          "version": "6u201",
+          "label": "6u201",
+          "kind": "update",
+          "javaVersion": "1.6.0_201"
+        },
+        {
+          "version": "6u211",
+          "label": "6u211",
+          "kind": "update",
+          "javaVersion": "1.6.0_211"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "label": "JDK 7",
+      "versions": [
+        {
+          "version": "7",
+          "label": "GA (JDK 7)",
+          "kind": "ga",
+          "javaVersion": "1.7.0"
+        },
+        {
+          "version": "7u1",
+          "label": "7u1",
+          "kind": "update",
+          "javaVersion": "1.7.0_01"
+        },
+        {
+          "version": "7u2",
+          "label": "7u2",
+          "kind": "update",
+          "javaVersion": "1.7.0_02"
+        },
+        {
+          "version": "7u3",
+          "label": "7u3",
+          "kind": "update",
+          "javaVersion": "1.7.0_03"
+        },
+        {
+          "version": "7u4",
+          "label": "7u4",
+          "kind": "update",
+          "javaVersion": "1.7.0_04"
+        },
+        {
+          "version": "7u5",
+          "label": "7u5",
+          "kind": "update",
+          "javaVersion": "1.7.0_05"
+        },
+        {
+          "version": "7u6",
+          "label": "7u6",
+          "kind": "update",
+          "javaVersion": "1.7.0_06"
+        },
+        {
+          "version": "7u7",
+          "label": "7u7",
+          "kind": "update",
+          "javaVersion": "1.7.0_07"
+        },
+        {
+          "version": "7u9",
+          "label": "7u9",
+          "kind": "update",
+          "javaVersion": "1.7.0_09"
+        },
+        {
+          "version": "7u10",
+          "label": "7u10",
+          "kind": "update",
+          "javaVersion": "1.7.0_10"
+        },
+        {
+          "version": "7u11",
+          "label": "7u11",
+          "kind": "update",
+          "javaVersion": "1.7.0_11"
+        },
+        {
+          "version": "7u13",
+          "label": "7u13",
+          "kind": "update",
+          "javaVersion": "1.7.0_13"
+        },
+        {
+          "version": "7u15",
+          "label": "7u15",
+          "kind": "update",
+          "javaVersion": "1.7.0_15"
+        },
+        {
+          "version": "7u17",
+          "label": "7u17",
+          "kind": "update",
+          "javaVersion": "1.7.0_17"
+        },
+        {
+          "version": "7u21",
+          "label": "7u21",
+          "kind": "update",
+          "javaVersion": "1.7.0_21"
+        },
+        {
+          "version": "7u25",
+          "label": "7u25",
+          "kind": "update",
+          "javaVersion": "1.7.0_25"
+        },
+        {
+          "version": "7u40",
+          "label": "7u40",
+          "kind": "update",
+          "javaVersion": "1.7.0_40"
+        },
+        {
+          "version": "7u45",
+          "label": "7u45",
+          "kind": "update",
+          "javaVersion": "1.7.0_45"
+        },
+        {
+          "version": "7u51",
+          "label": "7u51",
+          "kind": "update",
+          "javaVersion": "1.7.0_51"
+        },
+        {
+          "version": "7u55",
+          "label": "7u55",
+          "kind": "update",
+          "javaVersion": "1.7.0_55"
+        },
+        {
+          "version": "7u60",
+          "label": "7u60",
+          "kind": "update",
+          "javaVersion": "1.7.0_60"
+        },
+        {
+          "version": "7u65",
+          "label": "7u65",
+          "kind": "update",
+          "javaVersion": "1.7.0_65"
+        },
+        {
+          "version": "7u67",
+          "label": "7u67",
+          "kind": "update",
+          "javaVersion": "1.7.0_67"
+        },
+        {
+          "version": "7u71",
+          "label": "7u71",
+          "kind": "update",
+          "javaVersion": "1.7.0_71"
+        },
+        {
+          "version": "7u72",
+          "label": "7u72",
+          "kind": "update",
+          "javaVersion": "1.7.0_72"
+        },
+        {
+          "version": "7u75",
+          "label": "7u75",
+          "kind": "update",
+          "javaVersion": "1.7.0_75"
+        },
+        {
+          "version": "7u76",
+          "label": "7u76",
+          "kind": "update",
+          "javaVersion": "1.7.0_76"
+        },
+        {
+          "version": "7u79",
+          "label": "7u79",
+          "kind": "update",
+          "javaVersion": "1.7.0_79"
+        },
+        {
+          "version": "7u80",
+          "label": "7u80",
+          "kind": "update",
+          "javaVersion": "1.7.0_80"
+        },
+        {
+          "version": "7u85",
+          "label": "7u85",
+          "kind": "update",
+          "javaVersion": "1.7.0_85"
+        },
+        {
+          "version": "7u91",
+          "label": "7u91",
+          "kind": "update",
+          "javaVersion": "1.7.0_91"
+        },
+        {
+          "version": "7u95",
+          "label": "7u95",
+          "kind": "update",
+          "javaVersion": "1.7.0_95"
+        },
+        {
+          "version": "7u97",
+          "label": "7u97",
+          "kind": "update",
+          "javaVersion": "1.7.0_97"
+        },
+        {
+          "version": "7u99",
+          "label": "7u99",
+          "kind": "update",
+          "javaVersion": "1.7.0_99"
+        },
+        {
+          "version": "7u101",
+          "label": "7u101",
+          "kind": "update",
+          "javaVersion": "1.7.0_101"
+        },
+        {
+          "version": "7u111",
+          "label": "7u111",
+          "kind": "update",
+          "javaVersion": "1.7.0_111"
+        },
+        {
+          "version": "7u121",
+          "label": "7u121",
+          "kind": "update",
+          "javaVersion": "1.7.0_121"
+        },
+        {
+          "version": "7u131",
+          "label": "7u131",
+          "kind": "update",
+          "javaVersion": "1.7.0_131"
+        },
+        {
+          "version": "7u141",
+          "label": "7u141",
+          "kind": "update",
+          "javaVersion": "1.7.0_141"
+        },
+        {
+          "version": "7u151",
+          "label": "7u151",
+          "kind": "update",
+          "javaVersion": "1.7.0_151"
+        },
+        {
+          "version": "7u161",
+          "label": "7u161",
+          "kind": "update",
+          "javaVersion": "1.7.0_161"
+        },
+        {
+          "version": "7u171",
+          "label": "7u171",
+          "kind": "update",
+          "javaVersion": "1.7.0_171"
+        },
+        {
+          "version": "7u181",
+          "label": "7u181",
+          "kind": "update",
+          "javaVersion": "1.7.0_181"
+        },
+        {
+          "version": "7u191",
+          "label": "7u191",
+          "kind": "update",
+          "javaVersion": "1.7.0_191"
+        },
+        {
+          "version": "7u201",
+          "label": "7u201",
+          "kind": "update",
+          "javaVersion": "1.7.0_201"
+        },
+        {
+          "version": "7u211",
+          "label": "7u211",
+          "kind": "update",
+          "javaVersion": "1.7.0_211"
+        },
+        {
+          "version": "7u221",
+          "label": "7u221",
+          "kind": "update",
+          "javaVersion": "1.7.0_221"
+        },
+        {
+          "version": "7u231",
+          "label": "7u231",
+          "kind": "update",
+          "javaVersion": "1.7.0_231"
+        },
+        {
+          "version": "7u241",
+          "label": "7u241",
+          "kind": "update",
+          "javaVersion": "1.7.0_241"
+        },
+        {
+          "version": "7u251",
+          "label": "7u251",
+          "kind": "update",
+          "javaVersion": "1.7.0_251"
+        },
+        {
+          "version": "7u261",
+          "label": "7u261",
+          "kind": "update",
+          "javaVersion": "1.7.0_261"
+        },
+        {
+          "version": "7u271",
+          "label": "7u271",
+          "kind": "update",
+          "javaVersion": "1.7.0_271"
+        },
+        {
+          "version": "7u281",
+          "label": "7u281",
+          "kind": "update",
+          "javaVersion": "1.7.0_281"
+        },
+        {
+          "version": "7u291",
+          "label": "7u291",
+          "kind": "update",
+          "javaVersion": "1.7.0_291"
+        },
+        {
+          "version": "7u301",
+          "label": "7u301",
+          "kind": "update",
+          "javaVersion": "1.7.0_301"
+        },
+        {
+          "version": "7u311",
+          "label": "7u311",
+          "kind": "update",
+          "javaVersion": "1.7.0_311"
+        },
+        {
+          "version": "7u321",
+          "label": "7u321",
+          "kind": "update",
+          "javaVersion": "1.7.0_321"
+        },
+        {
+          "version": "7u331",
+          "label": "7u331",
+          "kind": "update",
+          "javaVersion": "1.7.0_331"
+        },
+        {
+          "version": "7u341",
+          "label": "7u341",
+          "kind": "update",
+          "javaVersion": "1.7.0_341"
+        },
+        {
+          "version": "7u343",
+          "label": "7u343",
+          "kind": "update",
+          "javaVersion": "1.7.0_343"
+        },
+        {
+          "version": "7u351",
+          "label": "7u351",
+          "kind": "update",
+          "javaVersion": "1.7.0_351"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "label": "JDK 8",
+      "versions": [
+        {
+          "version": "8",
+          "label": "GA (JDK 8)",
+          "kind": "ga",
+          "javaVersion": "1.8.0"
+        },
+        {
+          "version": "8u5",
+          "label": "8u5",
+          "kind": "update",
+          "javaVersion": "1.8.0_05"
+        },
+        {
+          "version": "8u11",
+          "label": "8u11",
+          "kind": "update",
+          "javaVersion": "1.8.0_11"
+        },
+        {
+          "version": "8u20",
+          "label": "8u20",
+          "kind": "update",
+          "javaVersion": "1.8.0_20"
+        },
+        {
+          "version": "8u25",
+          "label": "8u25",
+          "kind": "update",
+          "javaVersion": "1.8.0_25"
+        },
+        {
+          "version": "8u31",
+          "label": "8u31",
+          "kind": "update",
+          "javaVersion": "1.8.0_31"
+        },
+        {
+          "version": "8u40",
+          "label": "8u40",
+          "kind": "update",
+          "javaVersion": "1.8.0_40"
+        },
+        {
+          "version": "8u45",
+          "label": "8u45",
+          "kind": "update",
+          "javaVersion": "1.8.0_45"
+        },
+        {
+          "version": "8u51",
+          "label": "8u51",
+          "kind": "update",
+          "javaVersion": "1.8.0_51"
+        },
+        {
+          "version": "8u60",
+          "label": "8u60",
+          "kind": "update",
+          "javaVersion": "1.8.0_60"
+        },
+        {
+          "version": "8u65",
+          "label": "8u65",
+          "kind": "update",
+          "javaVersion": "1.8.0_65"
+        },
+        {
+          "version": "8u66",
+          "label": "8u66",
+          "kind": "update",
+          "javaVersion": "1.8.0_66"
+        },
+        {
+          "version": "8u71",
+          "label": "8u71",
+          "kind": "update",
+          "javaVersion": "1.8.0_71"
+        },
+        {
+          "version": "8u72",
+          "label": "8u72",
+          "kind": "update",
+          "javaVersion": "1.8.0_72"
+        },
+        {
+          "version": "8u73",
+          "label": "8u73",
+          "kind": "update",
+          "javaVersion": "1.8.0_73"
+        },
+        {
+          "version": "8u74",
+          "label": "8u74",
+          "kind": "update",
+          "javaVersion": "1.8.0_74"
+        },
+        {
+          "version": "8u77",
+          "label": "8u77",
+          "kind": "update",
+          "javaVersion": "1.8.0_77"
+        },
+        {
+          "version": "8u91",
+          "label": "8u91",
+          "kind": "update",
+          "javaVersion": "1.8.0_91"
+        },
+        {
+          "version": "8u92",
+          "label": "8u92",
+          "kind": "update",
+          "javaVersion": "1.8.0_92"
+        },
+        {
+          "version": "8u101",
+          "label": "8u101",
+          "kind": "update",
+          "javaVersion": "1.8.0_101"
+        },
+        {
+          "version": "8u102",
+          "label": "8u102",
+          "kind": "update",
+          "javaVersion": "1.8.0_102"
+        },
+        {
+          "version": "8u111",
+          "label": "8u111",
+          "kind": "update",
+          "javaVersion": "1.8.0_111"
+        },
+        {
+          "version": "8u112",
+          "label": "8u112",
+          "kind": "update",
+          "javaVersion": "1.8.0_112"
+        },
+        {
+          "version": "8u121",
+          "label": "8u121",
+          "kind": "update",
+          "javaVersion": "1.8.0_121"
+        },
+        {
+          "version": "8u131",
+          "label": "8u131",
+          "kind": "update",
+          "javaVersion": "1.8.0_131"
+        },
+        {
+          "version": "8u141",
+          "label": "8u141",
+          "kind": "update",
+          "javaVersion": "1.8.0_141"
+        },
+        {
+          "version": "8u144",
+          "label": "8u144",
+          "kind": "update",
+          "javaVersion": "1.8.0_144"
+        },
+        {
+          "version": "8u151",
+          "label": "8u151",
+          "kind": "update",
+          "javaVersion": "1.8.0_151"
+        },
+        {
+          "version": "8u152",
+          "label": "8u152",
+          "kind": "update",
+          "javaVersion": "1.8.0_152"
+        },
+        {
+          "version": "8u161",
+          "label": "8u161",
+          "kind": "update",
+          "javaVersion": "1.8.0_161"
+        },
+        {
+          "version": "8u162",
+          "label": "8u162",
+          "kind": "update",
+          "javaVersion": "1.8.0_162"
+        },
+        {
+          "version": "8u171",
+          "label": "8u171",
+          "kind": "update",
+          "javaVersion": "1.8.0_171"
+        },
+        {
+          "version": "8u172",
+          "label": "8u172",
+          "kind": "update",
+          "javaVersion": "1.8.0_172"
+        },
+        {
+          "version": "8u181",
+          "label": "8u181",
+          "kind": "update",
+          "javaVersion": "1.8.0_181"
+        },
+        {
+          "version": "8u191",
+          "label": "8u191",
+          "kind": "update",
+          "javaVersion": "1.8.0_191"
+        },
+        {
+          "version": "8u192",
+          "label": "8u192",
+          "kind": "update",
+          "javaVersion": "1.8.0_192"
+        },
+        {
+          "version": "8u201",
+          "label": "8u201",
+          "kind": "update",
+          "javaVersion": "1.8.0_201"
+        },
+        {
+          "version": "8u202",
+          "label": "8u202",
+          "kind": "update",
+          "javaVersion": "1.8.0_202"
+        },
+        {
+          "version": "8u211",
+          "label": "8u211",
+          "kind": "update",
+          "javaVersion": "1.8.0_211"
+        },
+        {
+          "version": "8u212",
+          "label": "8u212",
+          "kind": "update",
+          "javaVersion": "1.8.0_212"
+        },
+        {
+          "version": "8u221",
+          "label": "8u221",
+          "kind": "update",
+          "javaVersion": "1.8.0_221"
+        },
+        {
+          "version": "8u231",
+          "label": "8u231",
+          "kind": "update",
+          "javaVersion": "1.8.0_231"
+        },
+        {
+          "version": "8u241",
+          "label": "8u241",
+          "kind": "update",
+          "javaVersion": "1.8.0_241"
+        },
+        {
+          "version": "8u251",
+          "label": "8u251",
+          "kind": "update",
+          "javaVersion": "1.8.0_251"
+        },
+        {
+          "version": "8u261",
+          "label": "8u261",
+          "kind": "update",
+          "javaVersion": "1.8.0_261"
+        },
+        {
+          "version": "8u271",
+          "label": "8u271",
+          "kind": "update",
+          "javaVersion": "1.8.0_271"
+        },
+        {
+          "version": "8u281",
+          "label": "8u281",
+          "kind": "update",
+          "javaVersion": "1.8.0_281"
+        },
+        {
+          "version": "8u291",
+          "label": "8u291",
+          "kind": "update",
+          "javaVersion": "1.8.0_291"
+        },
+        {
+          "version": "8u301",
+          "label": "8u301",
+          "kind": "update",
+          "javaVersion": "1.8.0_301"
+        },
+        {
+          "version": "8u311",
+          "label": "8u311",
+          "kind": "update",
+          "javaVersion": "1.8.0_311"
+        },
+        {
+          "version": "8u321",
+          "label": "8u321",
+          "kind": "update",
+          "javaVersion": "1.8.0_321"
+        },
+        {
+          "version": "8u331",
+          "label": "8u331",
+          "kind": "update",
+          "javaVersion": "1.8.0_331"
+        },
+        {
+          "version": "8u333",
+          "label": "8u333",
+          "kind": "update",
+          "javaVersion": "1.8.0_333"
+        },
+        {
+          "version": "8u341",
+          "label": "8u341",
+          "kind": "update",
+          "javaVersion": "1.8.0_341"
+        },
+        {
+          "version": "8u351",
+          "label": "8u351",
+          "kind": "update",
+          "javaVersion": "1.8.0_351"
+        },
+        {
+          "version": "8u361",
+          "label": "8u361",
+          "kind": "update",
+          "javaVersion": "1.8.0_361"
+        },
+        {
+          "version": "8u371",
+          "label": "8u371",
+          "kind": "update",
+          "javaVersion": "1.8.0_371"
+        },
+        {
+          "version": "8u381",
+          "label": "8u381",
+          "kind": "update",
+          "javaVersion": "1.8.0_381"
+        },
+        {
+          "version": "8u391",
+          "label": "8u391",
+          "kind": "update",
+          "javaVersion": "1.8.0_391"
+        },
+        {
+          "version": "8u401",
+          "label": "8u401",
+          "kind": "update",
+          "javaVersion": "1.8.0_401"
+        },
+        {
+          "version": "8u411",
+          "label": "8u411",
+          "kind": "update",
+          "javaVersion": "1.8.0_411"
+        },
+        {
+          "version": "8u421",
+          "label": "8u421",
+          "kind": "update",
+          "javaVersion": "1.8.0_421"
+        },
+        {
+          "version": "8u431",
+          "label": "8u431",
+          "kind": "update",
+          "javaVersion": "1.8.0_431"
+        },
+        {
+          "version": "8u441",
+          "label": "8u441",
+          "kind": "update",
+          "javaVersion": "1.8.0_441"
+        },
+        {
+          "version": "8u451",
+          "label": "8u451",
+          "kind": "update",
+          "javaVersion": "1.8.0_451"
+        },
+        {
+          "version": "8u461",
+          "label": "8u461",
+          "kind": "update",
+          "javaVersion": "1.8.0_461"
+        },
+        {
+          "version": "8u471",
+          "label": "8u471",
+          "kind": "update",
+          "javaVersion": "1.8.0_471"
+        },
+        {
+          "version": "8u481",
+          "label": "8u481",
+          "kind": "update",
+          "javaVersion": "1.8.0_481"
+        },
+        {
+          "version": "8u491",
+          "label": "8u491",
+          "kind": "update",
+          "javaVersion": "1.8.0_491"
+        },
+        {
+          "version": "8u501",
+          "label": "8u501",
+          "kind": "update",
+          "javaVersion": "1.8.0_501"
+        },
+        {
+          "version": "8u503",
+          "label": "8u503",
+          "kind": "update",
+          "javaVersion": "1.8.0_503"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "label": "JDK 9",
+      "versions": [
+        {
+          "version": "9",
+          "label": "GA (JDK 9)",
+          "kind": "ga",
+          "javaVersion": "9"
+        },
+        {
+          "version": "9.0.1",
+          "label": "9.0.1",
+          "kind": "update",
+          "javaVersion": "9.0.1"
+        },
+        {
+          "version": "9.0.4",
+          "label": "9.0.4",
+          "kind": "update",
+          "javaVersion": "9.0.4"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "label": "JDK 10",
+      "versions": [
+        {
+          "version": "10",
+          "label": "GA (JDK 10)",
+          "kind": "ga",
+          "javaVersion": "10"
+        },
+        {
+          "version": "10.0.1",
+          "label": "10.0.1",
+          "kind": "update",
+          "javaVersion": "10.0.1"
+        },
+        {
+          "version": "10.0.2",
+          "label": "10.0.2",
+          "kind": "update",
+          "javaVersion": "10.0.2"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "label": "JDK 11",
+      "versions": [
+        {
+          "version": "11",
+          "label": "GA (JDK 11)",
+          "kind": "ga",
+          "javaVersion": "11"
+        },
+        {
+          "version": "11.0.1",
+          "label": "11.0.1",
+          "kind": "update",
+          "javaVersion": "11.0.1"
+        },
+        {
+          "version": "11.0.2",
+          "label": "11.0.2",
+          "kind": "update",
+          "javaVersion": "11.0.2"
+        },
+        {
+          "version": "11.0.3",
+          "label": "11.0.3",
+          "kind": "update",
+          "javaVersion": "11.0.3"
+        },
+        {
+          "version": "11.0.4",
+          "label": "11.0.4",
+          "kind": "update",
+          "javaVersion": "11.0.4"
+        },
+        {
+          "version": "11.0.5",
+          "label": "11.0.5",
+          "kind": "update",
+          "javaVersion": "11.0.5"
+        },
+        {
+          "version": "11.0.6",
+          "label": "11.0.6",
+          "kind": "update",
+          "javaVersion": "11.0.6"
+        },
+        {
+          "version": "11.0.7",
+          "label": "11.0.7",
+          "kind": "update",
+          "javaVersion": "11.0.7"
+        },
+        {
+          "version": "11.0.8",
+          "label": "11.0.8",
+          "kind": "update",
+          "javaVersion": "11.0.8"
+        },
+        {
+          "version": "11.0.9",
+          "label": "11.0.9",
+          "kind": "update",
+          "javaVersion": "11.0.9"
+        },
+        {
+          "version": "11.0.10",
+          "label": "11.0.10",
+          "kind": "update",
+          "javaVersion": "11.0.10"
+        },
+        {
+          "version": "11.0.11",
+          "label": "11.0.11",
+          "kind": "update",
+          "javaVersion": "11.0.11"
+        },
+        {
+          "version": "11.0.12",
+          "label": "11.0.12",
+          "kind": "update",
+          "javaVersion": "11.0.12"
+        },
+        {
+          "version": "11.0.13",
+          "label": "11.0.13",
+          "kind": "update",
+          "javaVersion": "11.0.13"
+        },
+        {
+          "version": "11.0.14",
+          "label": "11.0.14",
+          "kind": "update",
+          "javaVersion": "11.0.14"
+        },
+        {
+          "version": "11.0.15",
+          "label": "11.0.15",
+          "kind": "update",
+          "javaVersion": "11.0.15"
+        },
+        {
+          "version": "11.0.15.1",
+          "label": "11.0.15.1",
+          "kind": "update",
+          "javaVersion": "11.0.15.1"
+        },
+        {
+          "version": "11.0.16",
+          "label": "11.0.16",
+          "kind": "update",
+          "javaVersion": "11.0.16"
+        },
+        {
+          "version": "11.0.16.1",
+          "label": "11.0.16.1",
+          "kind": "update",
+          "javaVersion": "11.0.16.1"
+        },
+        {
+          "version": "11.0.17",
+          "label": "11.0.17",
+          "kind": "update",
+          "javaVersion": "11.0.17"
+        },
+        {
+          "version": "11.0.18",
+          "label": "11.0.18",
+          "kind": "update",
+          "javaVersion": "11.0.18"
+        },
+        {
+          "version": "11.0.19",
+          "label": "11.0.19",
+          "kind": "update",
+          "javaVersion": "11.0.19"
+        },
+        {
+          "version": "11.0.20",
+          "label": "11.0.20",
+          "kind": "update",
+          "javaVersion": "11.0.20"
+        },
+        {
+          "version": "11.0.21",
+          "label": "11.0.21",
+          "kind": "update",
+          "javaVersion": "11.0.21"
+        },
+        {
+          "version": "11.0.22",
+          "label": "11.0.22",
+          "kind": "update",
+          "javaVersion": "11.0.22"
+        },
+        {
+          "version": "11.0.23",
+          "label": "11.0.23",
+          "kind": "update",
+          "javaVersion": "11.0.23"
+        },
+        {
+          "version": "11.0.24",
+          "label": "11.0.24",
+          "kind": "update",
+          "javaVersion": "11.0.24"
+        },
+        {
+          "version": "11.0.25",
+          "label": "11.0.25",
+          "kind": "update",
+          "javaVersion": "11.0.25"
+        },
+        {
+          "version": "11.0.26",
+          "label": "11.0.26",
+          "kind": "update",
+          "javaVersion": "11.0.26"
+        },
+        {
+          "version": "11.0.27",
+          "label": "11.0.27",
+          "kind": "update",
+          "javaVersion": "11.0.27"
+        },
+        {
+          "version": "11.0.28",
+          "label": "11.0.28",
+          "kind": "update",
+          "javaVersion": "11.0.28"
+        },
+        {
+          "version": "11.0.29",
+          "label": "11.0.29",
+          "kind": "update",
+          "javaVersion": "11.0.29"
+        },
+        {
+          "version": "11.0.30",
+          "label": "11.0.30",
+          "kind": "update",
+          "javaVersion": "11.0.30"
+        },
+        {
+          "version": "11.0.31",
+          "label": "11.0.31",
+          "kind": "update",
+          "javaVersion": "11.0.31"
+        },
+        {
+          "version": "11.0.32",
+          "label": "11.0.32",
+          "kind": "update",
+          "javaVersion": "11.0.32"
+        },
+        {
+          "version": "11.0.32.1",
+          "label": "11.0.32.1",
+          "kind": "update",
+          "javaVersion": "11.0.32.1"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "label": "JDK 12",
+      "versions": [
+        {
+          "version": "12",
+          "label": "GA (JDK 12)",
+          "kind": "ga",
+          "javaVersion": "12"
+        },
+        {
+          "version": "12.0.1",
+          "label": "12.0.1",
+          "kind": "update",
+          "javaVersion": "12.0.1"
+        },
+        {
+          "version": "12.0.2",
+          "label": "12.0.2",
+          "kind": "update",
+          "javaVersion": "12.0.2"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "label": "JDK 13",
+      "versions": [
+        {
+          "version": "13",
+          "label": "GA (JDK 13)",
+          "kind": "ga",
+          "javaVersion": "13"
+        },
+        {
+          "version": "13.0.1",
+          "label": "13.0.1",
+          "kind": "update",
+          "javaVersion": "13.0.1"
+        },
+        {
+          "version": "13.0.2",
+          "label": "13.0.2",
+          "kind": "update",
+          "javaVersion": "13.0.2"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "label": "JDK 14",
+      "versions": [
+        {
+          "version": "14",
+          "label": "GA (JDK 14)",
+          "kind": "ga",
+          "javaVersion": "14"
+        },
+        {
+          "version": "14.0.1",
+          "label": "14.0.1",
+          "kind": "update",
+          "javaVersion": "14.0.1"
+        },
+        {
+          "version": "14.0.2",
+          "label": "14.0.2",
+          "kind": "update",
+          "javaVersion": "14.0.2"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "label": "JDK 15",
+      "versions": [
+        {
+          "version": "15",
+          "label": "GA (JDK 15)",
+          "kind": "ga",
+          "javaVersion": "15"
+        },
+        {
+          "version": "15.0.1",
+          "label": "15.0.1",
+          "kind": "update",
+          "javaVersion": "15.0.1"
+        },
+        {
+          "version": "15.0.2",
+          "label": "15.0.2",
+          "kind": "update",
+          "javaVersion": "15.0.2"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "label": "JDK 16",
+      "versions": [
+        {
+          "version": "16",
+          "label": "GA (JDK 16)",
+          "kind": "ga",
+          "javaVersion": "16"
+        },
+        {
+          "version": "16.0.1",
+          "label": "16.0.1",
+          "kind": "update",
+          "javaVersion": "16.0.1"
+        },
+        {
+          "version": "16.0.2",
+          "label": "16.0.2",
+          "kind": "update",
+          "javaVersion": "16.0.2"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "label": "JDK 17",
+      "versions": [
+        {
+          "version": "17",
+          "label": "GA (JDK 17)",
+          "kind": "ga",
+          "javaVersion": "17"
+        },
+        {
+          "version": "17.0.1",
+          "label": "17.0.1",
+          "kind": "update",
+          "javaVersion": "17.0.1"
+        },
+        {
+          "version": "17.0.2",
+          "label": "17.0.2",
+          "kind": "update",
+          "javaVersion": "17.0.2"
+        },
+        {
+          "version": "17.0.3",
+          "label": "17.0.3",
+          "kind": "update",
+          "javaVersion": "17.0.3"
+        },
+        {
+          "version": "17.0.3.1",
+          "label": "17.0.3.1",
+          "kind": "update",
+          "javaVersion": "17.0.3.1"
+        },
+        {
+          "version": "17.0.4",
+          "label": "17.0.4",
+          "kind": "update",
+          "javaVersion": "17.0.4"
+        },
+        {
+          "version": "17.0.4.1",
+          "label": "17.0.4.1",
+          "kind": "update",
+          "javaVersion": "17.0.4.1"
+        },
+        {
+          "version": "17.0.5",
+          "label": "17.0.5",
+          "kind": "update",
+          "javaVersion": "17.0.5"
+        },
+        {
+          "version": "17.0.6",
+          "label": "17.0.6",
+          "kind": "update",
+          "javaVersion": "17.0.6"
+        },
+        {
+          "version": "17.0.7",
+          "label": "17.0.7",
+          "kind": "update",
+          "javaVersion": "17.0.7"
+        },
+        {
+          "version": "17.0.8",
+          "label": "17.0.8",
+          "kind": "update",
+          "javaVersion": "17.0.8"
+        },
+        {
+          "version": "17.0.9",
+          "label": "17.0.9",
+          "kind": "update",
+          "javaVersion": "17.0.9"
+        },
+        {
+          "version": "17.0.10",
+          "label": "17.0.10",
+          "kind": "update",
+          "javaVersion": "17.0.10"
+        },
+        {
+          "version": "17.0.11",
+          "label": "17.0.11",
+          "kind": "update",
+          "javaVersion": "17.0.11"
+        },
+        {
+          "version": "17.0.12",
+          "label": "17.0.12",
+          "kind": "update",
+          "javaVersion": "17.0.12"
+        },
+        {
+          "version": "17.0.13",
+          "label": "17.0.13",
+          "kind": "update",
+          "javaVersion": "17.0.13"
+        },
+        {
+          "version": "17.0.14",
+          "label": "17.0.14",
+          "kind": "update",
+          "javaVersion": "17.0.14"
+        },
+        {
+          "version": "17.0.15",
+          "label": "17.0.15",
+          "kind": "update",
+          "javaVersion": "17.0.15"
+        },
+        {
+          "version": "17.0.16",
+          "label": "17.0.16",
+          "kind": "update",
+          "javaVersion": "17.0.16"
+        },
+        {
+          "version": "17.0.17",
+          "label": "17.0.17",
+          "kind": "update",
+          "javaVersion": "17.0.17"
+        },
+        {
+          "version": "17.0.18",
+          "label": "17.0.18",
+          "kind": "update",
+          "javaVersion": "17.0.18"
+        },
+        {
+          "version": "17.0.19",
+          "label": "17.0.19",
+          "kind": "update",
+          "javaVersion": "17.0.19"
+        },
+        {
+          "version": "17.0.20",
+          "label": "17.0.20",
+          "kind": "update",
+          "javaVersion": "17.0.20"
+        },
+        {
+          "version": "17.0.20.1",
+          "label": "17.0.20.1",
+          "kind": "update",
+          "javaVersion": "17.0.20.1"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "label": "JDK 18",
+      "versions": [
+        {
+          "version": "18",
+          "label": "GA (JDK 18)",
+          "kind": "ga",
+          "javaVersion": "18"
+        },
+        {
+          "version": "18.0.1",
+          "label": "18.0.1",
+          "kind": "update",
+          "javaVersion": "18.0.1"
+        },
+        {
+          "version": "18.0.1.1",
+          "label": "18.0.1.1",
+          "kind": "update",
+          "javaVersion": "18.0.1.1"
+        },
+        {
+          "version": "18.0.2",
+          "label": "18.0.2",
+          "kind": "update",
+          "javaVersion": "18.0.2"
+        },
+        {
+          "version": "18.0.2.1",
+          "label": "18.0.2.1",
+          "kind": "update",
+          "javaVersion": "18.0.2.1"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "label": "JDK 19",
+      "versions": [
+        {
+          "version": "19",
+          "label": "GA (JDK 19)",
+          "kind": "ga",
+          "javaVersion": "19"
+        },
+        {
+          "version": "19.0.1",
+          "label": "19.0.1",
+          "kind": "update",
+          "javaVersion": "19.0.1"
+        },
+        {
+          "version": "19.0.2",
+          "label": "19.0.2",
+          "kind": "update",
+          "javaVersion": "19.0.2"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "label": "JDK 20",
+      "versions": [
+        {
+          "version": "20",
+          "label": "GA (JDK 20)",
+          "kind": "ga",
+          "javaVersion": "20"
+        },
+        {
+          "version": "20.0.1",
+          "label": "20.0.1",
+          "kind": "update",
+          "javaVersion": "20.0.1"
+        },
+        {
+          "version": "20.0.2",
+          "label": "20.0.2",
+          "kind": "update",
+          "javaVersion": "20.0.2"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "label": "JDK 21",
+      "versions": [
+        {
+          "version": "21",
+          "label": "GA (JDK 21)",
+          "kind": "ga",
+          "javaVersion": "21"
+        },
+        {
+          "version": "21.0.1",
+          "label": "21.0.1",
+          "kind": "update",
+          "javaVersion": "21.0.1"
+        },
+        {
+          "version": "21.0.2",
+          "label": "21.0.2",
+          "kind": "update",
+          "javaVersion": "21.0.2"
+        },
+        {
+          "version": "21.0.3",
+          "label": "21.0.3",
+          "kind": "update",
+          "javaVersion": "21.0.3"
+        },
+        {
+          "version": "21.0.4",
+          "label": "21.0.4",
+          "kind": "update",
+          "javaVersion": "21.0.4"
+        },
+        {
+          "version": "21.0.5",
+          "label": "21.0.5",
+          "kind": "update",
+          "javaVersion": "21.0.5"
+        },
+        {
+          "version": "21.0.6",
+          "label": "21.0.6",
+          "kind": "update",
+          "javaVersion": "21.0.6"
+        },
+        {
+          "version": "21.0.7",
+          "label": "21.0.7",
+          "kind": "update",
+          "javaVersion": "21.0.7"
+        },
+        {
+          "version": "21.0.8",
+          "label": "21.0.8",
+          "kind": "update",
+          "javaVersion": "21.0.8"
+        },
+        {
+          "version": "21.0.9",
+          "label": "21.0.9",
+          "kind": "update",
+          "javaVersion": "21.0.9"
+        },
+        {
+          "version": "21.0.10",
+          "label": "21.0.10",
+          "kind": "update",
+          "javaVersion": "21.0.10"
+        },
+        {
+          "version": "21.0.11",
+          "label": "21.0.11",
+          "kind": "update",
+          "javaVersion": "21.0.11"
+        },
+        {
+          "version": "21.0.12",
+          "label": "21.0.12",
+          "kind": "update",
+          "javaVersion": "21.0.12"
+        },
+        {
+          "version": "21.0.12.1",
+          "label": "21.0.12.1",
+          "kind": "update",
+          "javaVersion": "21.0.12.1"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "label": "JDK 22",
+      "versions": [
+        {
+          "version": "22",
+          "label": "GA (JDK 22)",
+          "kind": "ga",
+          "javaVersion": "22"
+        },
+        {
+          "version": "22.0.1",
+          "label": "22.0.1",
+          "kind": "update",
+          "javaVersion": "22.0.1"
+        },
+        {
+          "version": "22.0.2",
+          "label": "22.0.2",
+          "kind": "update",
+          "javaVersion": "22.0.2"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "label": "JDK 23",
+      "versions": [
+        {
+          "version": "23",
+          "label": "GA (JDK 23)",
+          "kind": "ga",
+          "javaVersion": "23"
+        },
+        {
+          "version": "23.0.1",
+          "label": "23.0.1",
+          "kind": "update",
+          "javaVersion": "23.0.1"
+        },
+        {
+          "version": "23.0.2",
+          "label": "23.0.2",
+          "kind": "update",
+          "javaVersion": "23.0.2"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "label": "JDK 24",
+      "versions": [
+        {
+          "version": "24",
+          "label": "GA (JDK 24)",
+          "kind": "ga",
+          "javaVersion": "24"
+        },
+        {
+          "version": "24.0.1",
+          "label": "24.0.1",
+          "kind": "update",
+          "javaVersion": "24.0.1"
+        },
+        {
+          "version": "24.0.2",
+          "label": "24.0.2",
+          "kind": "update",
+          "javaVersion": "24.0.2"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "label": "JDK 25",
+      "versions": [
+        {
+          "version": "25",
+          "label": "GA (JDK 25)",
+          "kind": "ga",
+          "javaVersion": "25"
+        },
+        {
+          "version": "25.0.1",
+          "label": "25.0.1",
+          "kind": "update",
+          "javaVersion": "25.0.1"
+        },
+        {
+          "version": "25.0.2",
+          "label": "25.0.2",
+          "kind": "update",
+          "javaVersion": "25.0.2"
+        },
+        {
+          "version": "25.0.3",
+          "label": "25.0.3",
+          "kind": "update",
+          "javaVersion": "25.0.3"
+        },
+        {
+          "version": "25.0.4",
+          "label": "25.0.4",
+          "kind": "update",
+          "javaVersion": "25.0.4"
+        },
+        {
+          "version": "25.0.4.1",
+          "label": "25.0.4.1",
+          "kind": "update",
+          "javaVersion": "25.0.4.1"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "label": "JDK 26",
+      "versions": [
+        {
+          "version": "26",
+          "label": "GA (JDK 26)",
+          "kind": "ga",
+          "javaVersion": "26"
+        },
+        {
+          "version": "26.0.1",
+          "label": "26.0.1",
+          "kind": "update",
+          "javaVersion": "26.0.1"
+        },
+        {
+          "version": "26.0.2",
+          "label": "26.0.2",
+          "kind": "update",
+          "javaVersion": "26.0.2"
+        },
+        {
+          "version": "26.0.2.1",
+          "label": "26.0.2.1",
+          "kind": "update",
+          "javaVersion": "26.0.2.1"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "label": "JDK 27",
+      "versions": [
+        {
+          "version": "27",
+          "label": "GA (JDK 27)",
+          "kind": "ga",
+          "javaVersion": "27"
+        }
+      ]
+    }
+  ]
+}
