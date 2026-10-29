@@ -28,8 +28,8 @@ Python, or Node.js.
   intervals.
 - Optionally transmit generated records over UDP.
 - Configure the UDP host and port; the initial port is `32139`.
-- Receive UDP JUT records on a configurable host/IP and port and inspect them in
-  the application.
+- Receive UDP JUT records on a configurable local bind address and port and
+  inspect them in the application.
 - Save generated records as `.jut` files.
 
 All available choices are selected when the application starts.
@@ -121,10 +121,13 @@ be stopped early, and generated records can be saved together.
 
 ### Listen
 
-The Listen tab receives UDP JUT records and displays each packet as it
-arrives. The listener defaults to `localhost` on port `32139`, matching the
-Generate tab. The host/IP and port can be changed before listening starts, and
-the displayed packets can be cleared without stopping the listener.
+The Listen tab receives UDP JUT records and displays each packet as it arrives.
+The listener defaults to `0.0.0.0` on port `32139`, accepting packets addressed
+to any local IPv4 interface. Use `localhost` to accept packets only from this
+computer, or enter the address of a specific local network interface. A remote
+computer's address cannot be used as a bind address. The bind address and port
+can be changed before listening starts, and displayed packets can be cleared
+without stopping the listener.
 
 ### Timestamps
 
@@ -318,3 +321,7 @@ files for that operating system and architecture.
 
 UDP transmission is disabled by default. Only enable it when you control or
 have permission to send data to the configured destination.
+
+Listening on `0.0.0.0` exposes the configured UDP port on every local IPv4
+interface. Ensure the operating-system and network firewalls permit the desired
+senders, and use `localhost` when remote access is not needed.
