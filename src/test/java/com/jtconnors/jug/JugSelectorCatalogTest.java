@@ -2,6 +2,7 @@ package com.jtconnors.jug;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.nio.file.Files;
@@ -97,5 +98,16 @@ class JugSelectorCatalogTest {
         assertEquals("HOST-900002", JugSelector.nextCustomId("HOST-", merged.entries().stream().map(JugSelector.HostEntry::id).toList()));
         assertTrue(JugSelector.validIpAddress("203.0.113.255"));
         assertFalse(JugSelector.validIpAddress("203.0.113.256"));
+    }
+
+    @Test
+    void generatesTimestampsWithinTheConfiguredRange() {
+        var random = new java.util.Random(42);
+        for (int index = 0; index < 100; index++) {
+            long timestamp = JugSelector.randomTimestamp(1_000L, 2_000L, random);
+            assertTrue(timestamp >= 1_000L && timestamp <= 2_000L);
+        }
+        assertEquals(1_500L, JugSelector.randomTimestamp(1_500L, 1_500L, random));
+        assertThrows(IllegalArgumentException.class, () -> JugSelector.randomTimestamp(2_000L, 1_000L, random));
     }
 }

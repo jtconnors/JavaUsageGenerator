@@ -22,7 +22,8 @@ Python, or Node.js.
 - Save and reload Java-version selections as JSON files.
 - Export application, host, and OS selections as separate JSON files.
 - Generate a random 15-field JUT record using the current selections.
-- Randomize record timestamps between now and 90 days ago.
+- Configure record timestamps to use the current time, a random time in the last
+  30, 90, or 180 days, or a custom date/time range.
 - Generate a configurable series of records at millisecond, second, or minute
   intervals.
 - Optionally transmit generated records over UDP.
@@ -124,6 +125,14 @@ The Listen tab receives UDP JUT records and displays each packet as it
 arrives. The listener defaults to `localhost` on port `32139`, matching the
 Generate tab. The host/IP and port can be changed before listening starts, and
 the displayed packets can be cleared without stopping the listener.
+
+### Timestamps
+
+Choose how timestamps are assigned to generated JUT records. The default is a
+random time in the last 90 days, preserving JUG's original behavior. Other
+options use the current time, a random time in the last 30 or 180 days, or a
+custom start and end date/time. Timestamp controls are locked while a packet
+series is running so the rule remains consistent throughout the run.
 
 ### Java Versions
 
