@@ -14,7 +14,7 @@
     "includesPlannedReleases": false,
     "includesRestrictedBuilds": false,
     "includesCustomerSpecificPatches": false,
-    "note": "Preserves the 318 versions in the preceding report. Membership is historical availability, not current support or licensing eligibility."
+    "note": "Membership is historical availability, not current support or licensing eligibility."
   },
   "releases": [
     {

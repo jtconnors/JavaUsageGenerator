@@ -1,16 +1,23 @@
 """Check the packaged application's CLI, catalog, and properties compatibility."""
 import argparse
 import json
+import os
 import subprocess
+import sys
 import tempfile
 import zipfile
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('app', help='Packaged .app path')
+parser.add_argument('app', help='Packaged application image path')
 args = parser.parse_args()
 app = Path(args.app).resolve()
-binary = app / 'Contents/MacOS/Java Usage Generator'
+if sys.platform == 'darwin':
+    binary = app / 'Contents/MacOS/Java Usage Generator'
+elif os.name == 'nt':
+    binary = app / 'jug.exe'
+else:
+    raise SystemExit('The packaged application test supports macOS and Windows.')
 modular_jar = app.parents[1] / 'java-usage-generator.jar'
 root = Path(__file__).resolve().parent
 resources = root / 'src/main/resources'
@@ -34,13 +41,15 @@ def run(*args):
 def properties(text):
     return dict(line.split('=', 1) for line in text.splitlines() if line and not line.startswith('#'))
 
+entries = [entry for family in catalog['releases'] for entry in family['versions']]
+expected_version_count = len(entries)
+
 assert run('--help').returncode == 0
-assert len(run('--list').stdout.splitlines()) == 319
+assert len(run('--list').stdout.splitlines()) == expected_version_count + 1
 all_versions = run('--all')
 assert all_versions.returncode == 0, all_versions.stderr
 settings = properties(all_versions.stdout)
-assert settings['generator.selection.count'] == '318'
-entries = [entry for family in catalog['releases'] for entry in family['versions']]
+assert settings['generator.selection.count'] == str(expected_version_count)
 for index, entry in enumerate(entries):
     assert settings[f'generator.selection.{index}.version'] == entry['version']
     assert settings[f'generator.selection.{index}.javaVersion'] == entry['javaVersion']
@@ -65,4 +74,4 @@ with tempfile.TemporaryDirectory(prefix='java-usage-generator-') as directory:
     assert run('--family', '8', '--exclude-family', '8').returncode != 0
     assert run('--version', 'unknown').returncode != 0
     assert run('--family', '999').returncode != 0
-print('Passed packaged CLI, all 318 mappings, bundled 300-host and 7-OS-version catalogs, includes/excludes, saved selection reload, legacy configuration compatibility, invalid data, and overwrite protection.')
+print('Passed packaged CLI, all catalog mappings, bundled host and OS-version catalogs, includes/excludes, saved selection reload, legacy configuration compatibility, invalid data, and overwrite protection.')
