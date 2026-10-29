@@ -3,22 +3,29 @@ package com.jtconnors.jug;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.net.http.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class JugSelector {
-    record Entry(String family, String version, String label, String javaVersion) {}
+    record Entry(String family, String version, String label, String javaVersion, String kind) {}
     record Catalog(String date, List<Entry> entries, List<String> families) {}
-    record ApplicationEntry(String id, String name, String type, String category, List<String> javaMajors, int sourceRecords, List<String> classPaths, List<String> javaCommands, List<String> startTypes) {}
+    record FeedDownload(String body, boolean fallback) {}
+    record CatalogUpdate(Catalog catalog, int additions, Path path, boolean fallback) {}
+    record ApplicationEntry(String id, String name, String type, String category, List<String> javaMajors, List<String> classPaths, List<String> javaCommands, List<String> startTypes) {}
     record ApplicationCatalog(String date, List<ApplicationEntry> entries) {}
-    record HostEntry(String id, String value, String hostName, String ipAddress, String platform, int sourceRecords) {}
+    record HostEntry(String id, String value, String hostName, String ipAddress, String platform) {}
     record HostCatalog(String date, List<HostEntry> entries) {}
-    record OsVersionEntry(String id, String version, String platform, List<String> osNames, List<String> architectures, int sourceRecords) {}
+    record OsVersionEntry(String id, String version, String platform, List<String> osNames, List<String> architectures) {}
     record OsVersionCatalog(String date, List<OsVersionEntry> entries) {}
     static final String HELP = """
         Java Usage Generator (JUG) — standalone application
@@ -31,7 +38,7 @@ public class JugSelector {
         --exclude-family ID    Exclude a family after inclusions (repeatable)
         --exclude-version V    Exclude a version after inclusions (repeatable)
         --input FILE           Load a saved selection
-        --output FILE          Save properties (otherwise print to stdout)
+        --output FILE          Save JSON (otherwise print to stdout)
         --force                Allow replacing an existing output
         --catalog FILE         Load an updated JSON catalog
         --help                 Print this help
@@ -61,30 +68,18 @@ public class JugSelector {
         try {
             var options=options(args);
             if (options.containsKey("help")) { System.out.print(HELP); return; }
-            Catalog catalog;
-            if (options.containsKey("catalog")) catalog=readCatalog(Files.readString(Path.of(value(options,"catalog"))));
-            else try (var stream=JugSelector.class.getResourceAsStream("/catalog.json")) {
-                if (stream==null) throw new IOException("Bundled catalog missing");
-                catalog=readCatalog(new String(stream.readAllBytes(), StandardCharsets.UTF_8));
-            }
+            Catalog catalog=options.containsKey("catalog")
+                ? readCatalog(Files.readString(Path.of(value(options,"catalog"))))
+                : readDefaultCatalog();
             ApplicationCatalog applicationCatalog;
             if (options.containsKey("applications-catalog")) applicationCatalog=readApplicationCatalog(Files.readString(Path.of(value(options,"applications-catalog"))));
-            else try (var stream=JugSelector.class.getResourceAsStream("/applications.json")) {
-                if (stream==null) throw new IOException("Bundled application catalog missing");
-                applicationCatalog=readApplicationCatalog(new String(stream.readAllBytes(), StandardCharsets.UTF_8));
-            }
+            else applicationCatalog=readDefaultApplicationCatalog();
             HostCatalog hostCatalog;
             if (options.containsKey("hosts-catalog")) hostCatalog=readHostCatalog(Files.readString(Path.of(value(options,"hosts-catalog"))));
-            else try (var stream=JugSelector.class.getResourceAsStream("/hosts.json")) {
-                if (stream==null) throw new IOException("Bundled host catalog missing");
-                hostCatalog=readHostCatalog(new String(stream.readAllBytes(), StandardCharsets.UTF_8));
-            }
+            else hostCatalog=readDefaultHostCatalog();
             OsVersionCatalog osVersionCatalog;
             if (options.containsKey("os-versions-catalog")) osVersionCatalog=readOsVersionCatalog(Files.readString(Path.of(value(options,"os-versions-catalog"))));
-            else try (var stream=JugSelector.class.getResourceAsStream("/os-versions.json")) {
-                if (stream==null) throw new IOException("Bundled OS version catalog missing");
-                osVersionCatalog=readOsVersionCatalog(new String(stream.readAllBytes(), StandardCharsets.UTF_8));
-            }
+            else osVersionCatalog=readDefaultOsVersionCatalog();
             if (options.containsKey("list")) {
                 if (options.containsKey("gui")) throw new IllegalArgumentException("Choose --gui or --list");
                 System.out.println("Family\tVersion\tjavaVersion");
@@ -101,7 +96,7 @@ public class JugSelector {
             for (String family:options.getOrDefault("exclude-family",List.of())) selectFamily(catalog,selected,family,false);
             for (String version:options.getOrDefault("exclude-version",List.of())) { requireVersion(catalog,version); selected.remove(version); }
             if (args.length==0 || options.containsKey("gui")) {
-                if (options.containsKey("output") || options.containsKey("force")) throw new IllegalArgumentException("Use Save properties in GUI mode");
+                if (options.containsKey("output") || options.containsKey("force")) throw new IllegalArgumentException("Use Save JSON configuration in GUI mode");
                 final Catalog initial=catalog;
                 SwingUtilities.invokeLater(()->{
                     try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); }
@@ -109,7 +104,7 @@ public class JugSelector {
                     new Window(initial,selected,applicationCatalog,hostCatalog,osVersionCatalog).setVisible(true);
                 });
             } else {
-                String content=properties(catalog,selected);
+                String content=versionConfiguration(catalog,selected);
                 if (!options.containsKey("output")) System.out.print(content);
                 else {
                     Path output=Path.of(value(options,"output")).toAbsolutePath().normalize();
@@ -123,6 +118,163 @@ public class JugSelector {
             }
         } catch(Exception error) { System.err.println("Error: "+error.getMessage()); System.exit(1); }
     }
+    static Catalog readDefaultCatalog() throws IOException {
+        Path saved=userCatalogPath();
+        if(Files.isRegularFile(saved)) {
+            try { return readCatalog(Files.readString(saved,StandardCharsets.UTF_8)); }
+            catch(RuntimeException ignored) {}
+        }
+        try(var stream=JugSelector.class.getResourceAsStream("/catalog.json")) {
+            if(stream==null) throw new IOException("Bundled catalog missing");
+            return readCatalog(new String(stream.readAllBytes(),StandardCharsets.UTF_8));
+        }
+    }
+    static Path userDataDirectory() {
+        String os=System.getProperty("os.name","").toLowerCase(Locale.ROOT),home=System.getProperty("user.home");
+        if(os.contains("mac")) return Path.of(home,"Library","Application Support","JavaUsageGenerator");
+        if(os.contains("win")) {
+            String appData=System.getenv("APPDATA");
+            return Path.of(appData==null||appData.isBlank()?Path.of(home,"AppData","Roaming").toString():appData,"JavaUsageGenerator");
+        }
+        return Path.of(home,".java-usage-generator");
+    }
+    static Path userCatalogPath() { return userDataDirectory().resolve("catalog.json"); }
+    static Path customApplicationsPath() { return userDataDirectory().resolve("custom-applications.json"); }
+    static Path customHostsPath() { return userDataDirectory().resolve("custom-hosts.json"); }
+    static Path customOsVersionsPath() { return userDataDirectory().resolve("custom-os-versions.json"); }
+    static String bundledResource(String name) throws IOException {
+        try(var stream=JugSelector.class.getResourceAsStream(name)) {
+            if(stream==null) throw new IOException("Bundled resource missing: "+name);
+            return new String(stream.readAllBytes(),StandardCharsets.UTF_8);
+        }
+    }
+    static ApplicationCatalog readDefaultApplicationCatalog() throws IOException {
+        var base=readApplicationCatalog(bundledResource("/applications.json"));
+        Path path=customApplicationsPath();
+        return Files.isRegularFile(path)?mergeApplicationCatalogs(base,readApplicationCatalog(Files.readString(path,StandardCharsets.UTF_8))):base;
+    }
+    static HostCatalog readDefaultHostCatalog() throws IOException {
+        var base=readHostCatalog(bundledResource("/hosts.json"));Path path=customHostsPath();
+        return Files.isRegularFile(path)?mergeHostCatalogs(base,readHostCatalog(Files.readString(path,StandardCharsets.UTF_8))):base;
+    }
+    static OsVersionCatalog readDefaultOsVersionCatalog() throws IOException {
+        var base=readOsVersionCatalog(bundledResource("/os-versions.json"));Path path=customOsVersionsPath();
+        return Files.isRegularFile(path)?mergeOsVersionCatalogs(base,readOsVersionCatalog(Files.readString(path,StandardCharsets.UTF_8))):base;
+    }
+    static void writeAtomically(Path path,String content) throws IOException {
+        Files.createDirectories(path.getParent());Path temporary=Files.createTempFile(path.getParent(),path.getFileName().toString()+"-",".tmp");
+        try {Files.writeString(temporary,content,StandardCharsets.UTF_8,StandardOpenOption.TRUNCATE_EXISTING);try{Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}catch(AtomicMoveNotSupportedException ignored){Files.move(temporary,path,StandardCopyOption.REPLACE_EXISTING);}}
+        finally{Files.deleteIfExists(temporary);}
+    }
+    static CatalogUpdate fetchLatestCatalog(Catalog current) throws Exception {
+        var client=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(15)).followRedirects(HttpClient.Redirect.NORMAL).build();
+        FeedDownload download=downloadReleaseFeed(client);
+        Catalog merged=mergeOracleReleases(current,download.body);
+        Path path=userCatalogPath();
+        writeAtomically(path,catalogJson(merged));
+        var oldVersions=new HashSet<String>();current.entries.forEach(entry->oldVersions.add(entry.version));
+        int additions=(int)merged.entries.stream().filter(entry->!oldVersions.contains(entry.version)).count();
+        return new CatalogUpdate(merged,additions,path,download.fallback);
+    }
+    static FeedDownload downloadReleaseFeed(HttpClient client) throws Exception {
+        Exception directFailure;
+        try {
+            var response=sendReleaseRequest(client,"https://ops.java/releases.json","application/json");
+            if(response.statusCode()==200) return new FeedDownload(response.body(),false);
+            directFailure=new IOException("Oracle release service returned HTTP "+response.statusCode());
+        } catch(Exception exception) { directFailure=exception; }
+        try {
+            var response=sendReleaseRequest(client,"https://r.jina.ai/https://ops.java/releases.json","text/plain");
+            if(response.statusCode()!=200) throw new IOException("web fallback returned HTTP "+response.statusCode());
+            return new FeedDownload(extractFallbackJson(response.body()),true);
+        } catch(Exception fallbackFailure) {
+            String directMessage=directFailure.getMessage()==null?directFailure.getClass().getSimpleName():directFailure.getMessage();
+            String fallbackMessage=fallbackFailure.getMessage()==null?fallbackFailure.getClass().getSimpleName():fallbackFailure.getMessage();
+            throw new IOException("Could not retrieve ops.java releases. "+directMessage+"; "+fallbackMessage,fallbackFailure);
+        }
+    }
+    static HttpResponse<String> sendReleaseRequest(HttpClient client,String url,String accept) throws Exception {
+        var request=HttpRequest.newBuilder(URI.create(url)).timeout(Duration.ofSeconds(45)).header("Accept",accept).header("User-Agent","JavaUsageGenerator/1.0").GET().build();
+        return client.send(request,HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+    }
+    static String extractFallbackJson(String body) {
+        String source="URL Source: https://ops.java/releases.json",marker="Markdown Content:";
+        if(!body.contains(source)) throw new IllegalArgumentException("web fallback did not identify ops.java as its source");
+        int markerAt=body.indexOf(marker),start=markerAt<0?-1:body.indexOf('{',markerAt+marker.length()),end=body.lastIndexOf('}');
+        if(start<0 || end<start) throw new IllegalArgumentException("web fallback did not return the Oracle release JSON");
+        return body.substring(start,end+1);
+    }
+    @SuppressWarnings("unchecked")
+    static Catalog mergeOracleReleases(Catalog current,String text) {
+        var root=(Map<String,Object>)new Json(text).read();
+        String generated=(String)root.get("generated");
+        if(generated==null || !generated.matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Oracle release feed has an invalid generation date");
+        var data=(Map<String,Object>)root.get("data");
+        var releases=(List<Object>)data.get("releases");
+        if(releases==null || releases.isEmpty()) throw new IllegalArgumentException("Oracle release feed contains no releases");
+        var existing=new HashSet<String>();current.entries.forEach(entry->existing.add(entry.version));
+        var additions=new ArrayList<Entry>();int delivered=0;
+        for(var raw:releases) {
+            var item=(Map<String,Object>)raw;
+            if(!"DELIVERED".equals(item.get("status"))) continue;
+            delivered++;
+            int family=((java.math.BigDecimal)item.get("family")).intValueExact();
+            String version=(String)item.get("version"),type=(String)item.get("type");
+            boolean securityAlert="SA".equals(type);
+            if(family<8 || version==null || !supportedVersion(family,version,securityAlert) || existing.contains(version)) continue;
+            String javaVersion=expectedJavaVersion(family,version);
+            String label=version.equals(String.valueOf(family))?"GA (JDK "+family+")":securityAlert?version+" (Security Alert)":version;
+            additions.add(new Entry(String.valueOf(family),version,label,javaVersion,version.equals(String.valueOf(family))?"ga":"update"));
+            existing.add(version);
+        }
+        if(delivered==0) throw new IllegalArgumentException("Oracle release feed contains no delivered releases");
+        var legacy=new ArrayList<Entry>();var modern=new TreeMap<Integer,List<Entry>>();
+        for(var entry:current.entries) {
+            int family=familyNumber(entry.family);
+            if(family<8) legacy.add(entry);else modern.computeIfAbsent(family,key->new ArrayList<>()).add(entry);
+        }
+        for(var entry:additions) modern.computeIfAbsent(Integer.parseInt(entry.family),key->new ArrayList<>()).add(entry);
+        var merged=new ArrayList<Entry>(legacy);var families=new ArrayList<String>();
+        for(var entry:legacy) if(!families.contains(entry.family)) families.add(entry.family);
+        for(var group:modern.entrySet()) {
+            group.getValue().sort((left,right)->compareVersions(left.version,right.version));
+            merged.addAll(group.getValue());families.add(String.valueOf(group.getKey()));
+        }
+        return new Catalog(current.date.compareTo(generated)>=0?current.date:generated,List.copyOf(merged),List.copyOf(families));
+    }
+    static boolean standardVersion(int family,String version) {
+        if(family==8) return version.matches("8(?:u\\d+)?");
+        return version.matches(java.util.regex.Pattern.quote(String.valueOf(family))+"(?:\\.\\d+){0,3}");
+    }
+    static boolean supportedVersion(int family,String version,boolean securityAlert) {
+        if(standardVersion(family,version)) return true;
+        if(!securityAlert) return false;
+        if(family==8) return version.matches("8u\\d+b\\d+");
+        return version.matches(java.util.regex.Pattern.quote(String.valueOf(family))+"(?:\\.\\d+){4}");
+    }
+    static String expectedJavaVersion(int family,String version) {
+        if(family!=8) return version;
+        if(version.equals("8")) return "1.8.0";
+        var match=java.util.regex.Pattern.compile("8u(\\d+)(?:b\\d+)?").matcher(version);
+        if(!match.matches()) throw new IllegalArgumentException("Unsupported JDK 8 release version: "+version);
+        return String.format(Locale.ROOT,"1.8.0_%02d",Integer.parseInt(match.group(1)));
+    }
+    static int familyNumber(String family) { return family.equals("1.4.2")?1:Integer.parseInt(family); }
+    static int compareVersions(String left,String right) {
+        int[] a=Arrays.stream(left.replaceFirst("^[^0-9]*","").split("[^0-9]+")).filter(part->!part.isEmpty()).mapToInt(Integer::parseInt).toArray();
+        int[] b=Arrays.stream(right.replaceFirst("^[^0-9]*","").split("[^0-9]+")).filter(part->!part.isEmpty()).mapToInt(Integer::parseInt).toArray();
+        for(int i=0;i<Math.max(a.length,b.length);i++){int av=i<a.length?a[i]:0,bv=i<b.length?b[i]:0;if(av!=bv)return Integer.compare(av,bv);}return left.compareTo(right);
+    }
+    static String catalogJson(Catalog catalog) {
+        var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"asOf\": \"").append(catalog.date).append("\",\n  \"description\": \"JDK version catalog grouped by release family for selecting individual versions or all listed versions in a family.\",\n  \"sourceUrl\": \"https://ops.java/releases/\",\n  \"releases\": [\n");
+        for(int i=0;i<catalog.families.size();i++) {
+            String family=catalog.families.get(i);var entries=catalog.entries.stream().filter(entry->entry.family.equals(family)).toList();
+            text.append("    {\n      \"id\": \"").append(jsonString(family)).append("\",\n      \"label\": \"JDK ").append(jsonString(family)).append("\",\n      \"versions\": [\n");
+            for(int j=0;j<entries.size();j++){var entry=entries.get(j);text.append("        {\n          \"version\": \"").append(jsonString(entry.version)).append("\",\n          \"label\": \"").append(jsonString(entry.label)).append("\",\n          \"kind\": \"").append(jsonString(entry.kind)).append("\",\n          \"javaVersion\": \"").append(jsonString(entry.javaVersion)).append("\"\n        }");if(j+1<entries.size())text.append(',');text.append('\n');}
+            text.append("      ]\n    }");if(i+1<catalog.families.size())text.append(',');text.append('\n');
+        }
+        return text.append("  ]\n}\n").toString();
+    }
     static void requireVersion(Catalog catalog,String version) {
         if(catalog.entries.stream().noneMatch(e->e.version.equals(version))) throw new IllegalArgumentException("Unknown version: "+version);
     }
@@ -130,36 +282,41 @@ public class JugSelector {
         if(!catalog.families.contains(family)) throw new IllegalArgumentException("Unknown family: "+family);
         for(var e:catalog.entries) if(e.family.equals(family)) { if(include) selected.add(e.version); else selected.remove(e.version); }
     }
-    static String properties(Catalog catalog,Set<String> selected) {
+    static String versionConfiguration(Catalog catalog,Set<String> selected) {
         if(selected.isEmpty()) throw new IllegalArgumentException("Select at least one version");
-        var text=new StringBuilder("# Java Usage Tracker generator: selected versions\n# Explicit snapshot; selecting a family includes its currently listed versions.\ngenerator.selection.schemaVersion=1\ngenerator.catalog.asOf=").append(catalog.date).append("\ngenerator.selection.count=").append(selected.size()).append('\n');
-        int index=0;
-        for(var e:catalog.entries) if(selected.contains(e.version)) {
-            String prefix="generator.selection."+index++;
-            text.append('\n').append(prefix).append(".family=").append(e.family).append('\n').append(prefix).append(".version=").append(e.version).append('\n').append(prefix).append(".javaVersion=").append(e.javaVersion).append('\n');
+        var chosen=catalog.entries.stream().filter(entry->selected.contains(entry.version)).toList();
+        if(chosen.size()!=selected.size()) throw new IllegalArgumentException("Selection contains unavailable versions");
+        var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"catalogAsOf\": \"").append(catalog.date).append("\",\n  \"versionCount\": ").append(chosen.size()).append(",\n  \"versions\": [\n");
+        for(int i=0;i<chosen.size();i++) {
+            var entry=chosen.get(i);
+            text.append("    {\n      \"family\": \"").append(jsonString(entry.family)).append("\",\n      \"version\": \"").append(jsonString(entry.version)).append("\",\n      \"javaVersion\": \"").append(jsonString(entry.javaVersion)).append("\"\n    }");
+            if(i+1<chosen.size()) text.append(',');
+            text.append('\n');
         }
-        if(index!=selected.size()) throw new IllegalArgumentException("Selection contains unavailable versions");
-        return text.toString();
+        return text.append("  ]\n}\n").toString();
     }
+    @SuppressWarnings("unchecked")
     static Set<String> readSelection(Path path,Catalog catalog) throws IOException {
-        var settings=new Properties(){ public synchronized Object put(Object key,Object value) {
-            if(containsKey(key)) throw new IllegalArgumentException("Duplicate property: "+key);
-            return super.put(key,value);
-        }};
-        try(var reader=Files.newBufferedReader(path,StandardCharsets.UTF_8)) { settings.load(reader); }
-        if(!"1".equals(settings.getProperty("generator.selection.schemaVersion"))) throw new IllegalArgumentException("Unsupported selection schema");
-        if(!settings.getProperty("generator.catalog.asOf", "").matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Invalid catalog date");
-        int count=Integer.parseInt(settings.getProperty("generator.selection.count","0"));
+        var data=(Map<String,Object>)new Json(Files.readString(path,StandardCharsets.UTF_8)).read();
+        if(!data.keySet().equals(Set.of("schemaVersion","catalogAsOf","versionCount","versions"))) throw new IllegalArgumentException("Unexpected version configuration fields");
+        int schema=((java.math.BigDecimal)data.get("schemaVersion")).intValueExact();
+        if(schema!=1) throw new IllegalArgumentException("Unsupported selection schema");
+        String catalogDate=(String)data.get("catalogAsOf");
+        if(catalogDate==null || !catalogDate.matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Invalid catalog date");
+        int count=((java.math.BigDecimal)data.get("versionCount")).intValueExact();
         if(count<1 || count>catalog.entries.size()) throw new IllegalArgumentException("Invalid selection count");
+        var versions=(List<Object>)data.get("versions");
+        if(versions.size()!=count) throw new IllegalArgumentException("Version count does not match versions array");
         var known=new HashMap<String,Entry>(); for(var e:catalog.entries) known.put(e.version,e);
         var selected=new HashSet<String>();
-        for(int i=0;i<count;i++) {
-            String prefix="generator.selection."+i,version=settings.getProperty(prefix+".version");
+        for(var raw:versions) {
+            var item=(Map<String,Object>)raw;
+            if(!item.keySet().equals(Set.of("family","version","javaVersion"))) throw new IllegalArgumentException("Unexpected selected version fields");
+            String version=(String)item.get("version");
             Entry e=known.get(version);
             if(e==null || !selected.add(version)) throw new IllegalArgumentException("Unknown or duplicate version: "+version);
-            if(!e.family.equals(settings.getProperty(prefix+".family")) || !e.javaVersion.equals(settings.getProperty(prefix+".javaVersion"))) throw new IllegalArgumentException("Catalog mapping mismatch: "+version);
+            if(!e.family.equals(item.get("family")) || !e.javaVersion.equals(item.get("javaVersion"))) throw new IllegalArgumentException("Catalog mapping mismatch: "+version);
         }
-        if(settings.size()!=3+3*count) throw new IllegalArgumentException("Unexpected selection properties");
         return selected;
     }
     @SuppressWarnings("unchecked")
@@ -176,9 +333,9 @@ public class JugSelector {
             if(updates.isEmpty()) throw new IllegalArgumentException("Empty family");
             for(var update:updates) {
                 var item=(Map<String,Object>)update;
-                String version=(String)item.get("version"),javaVersion=(String)item.get("javaVersion"),label=(String)item.get("label");
-                if(version==null || javaVersion==null || label==null || !version.matches("[A-Za-z0-9._+-]+") || !javaVersion.matches("[A-Za-z0-9._+-]+") || !versions.add(version)) throw new IllegalArgumentException("Invalid or duplicate version");
-                entries.add(new Entry(family,version,label,javaVersion));
+                String version=(String)item.get("version"),javaVersion=(String)item.get("javaVersion"),label=(String)item.get("label"),kind=(String)item.get("kind");
+                if(version==null || javaVersion==null || label==null || !Set.of("ga","update").contains(kind) || !version.matches("[A-Za-z0-9._+-]+") || !javaVersion.matches("[A-Za-z0-9._+-]+") || !versions.add(version)) throw new IllegalArgumentException("Invalid or duplicate version");
+                entries.add(new Entry(family,version,label,javaVersion,kind));
             }
         }
         if(entries.isEmpty()) throw new IllegalArgumentException("Empty catalog");
@@ -197,12 +354,25 @@ public class JugSelector {
             var classPaths=((List<Object>)item.get("classPaths")).stream().map(String::valueOf).toList();
             var javaCommands=((List<Object>)item.get("javaCommands")).stream().map(String::valueOf).toList();
             var startTypes=((List<Object>)item.get("startTypes")).stream().map(String::valueOf).toList();
-            int records=((java.math.BigDecimal)item.get("sourceRecords")).intValueExact();
-            if(id==null || !id.matches("APP-\\d{3,}") || !ids.add(id) || name==null || name.isBlank() || !names.add(name) || type==null || category==null || majors.isEmpty() || records<1 || classPaths.isEmpty() || classPaths.stream().anyMatch(String::isBlank) || new HashSet<>(classPaths).size()!=classPaths.size() || javaCommands.isEmpty() || javaCommands.stream().anyMatch(String::isBlank) || startTypes.isEmpty() || startTypes.stream().anyMatch(String::isBlank)) throw new IllegalArgumentException("Invalid or duplicate application");
-            entries.add(new ApplicationEntry(id,name,type,category,majors,records,classPaths,javaCommands,startTypes));
+            if(id==null || !id.matches("APP-\\d{3,}") || !ids.add(id) || name==null || name.isBlank() || !names.add(name) || type==null || category==null || majors.isEmpty() || classPaths.isEmpty() || classPaths.stream().anyMatch(String::isBlank) || new HashSet<>(classPaths).size()!=classPaths.size() || javaCommands.isEmpty() || javaCommands.stream().anyMatch(String::isBlank) || startTypes.isEmpty() || startTypes.stream().anyMatch(String::isBlank)) throw new IllegalArgumentException("Invalid or duplicate application");
+            entries.add(new ApplicationEntry(id,name,type,category,majors,classPaths,javaCommands,startTypes));
         }
         if(entries.isEmpty()) throw new IllegalArgumentException("Empty application catalog");
         return new ApplicationCatalog(date,List.copyOf(entries));
+    }
+    static String applicationCatalogJson(ApplicationCatalog catalog) {
+        var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"asOf\": \"").append(catalog.date).append("\",\n  \"description\": \"Custom Java applications created in Java Usage Generator.\",\n  \"applications\": [\n");
+        for(int i=0;i<catalog.entries.size();i++){var entry=catalog.entries.get(i);text.append("    {\n      \"id\": \"").append(jsonString(entry.id)).append("\",\n      \"name\": \"").append(jsonString(entry.name)).append("\",\n      \"type\": \"").append(jsonString(entry.type)).append("\",\n      \"category\": \"").append(jsonString(entry.category)).append("\",\n      \"javaMajors\": ");appendJsonArray(text,entry.javaMajors,"      ");text.append(",\n      \"classPaths\": ");appendJsonArray(text,entry.classPaths,"      ");text.append(",\n      \"javaCommands\": ");appendJsonArray(text,entry.javaCommands,"      ");text.append(",\n      \"startTypes\": ");appendJsonArray(text,entry.startTypes,"      ");text.append("\n    }");if(i+1<catalog.entries.size())text.append(',');text.append('\n');}
+        return text.append("  ]\n}\n").toString();
+    }
+    static ApplicationCatalog mergeApplicationCatalogs(ApplicationCatalog base,ApplicationCatalog custom) {
+        var entries=new ArrayList<ApplicationEntry>(base.entries);var ids=new HashSet<String>();var names=new HashSet<String>();base.entries.forEach(entry->{ids.add(entry.id);names.add(entry.name);});
+        for(var entry:custom.entries)if(!ids.add(entry.id)||!names.add(entry.name))throw new IllegalArgumentException("Custom application duplicates a bundled application: "+entry.name);else entries.add(entry);
+        return new ApplicationCatalog(base.date.compareTo(custom.date)>=0?base.date:custom.date,List.copyOf(entries));
+    }
+    static void appendCustomApplication(Path path,ApplicationEntry entry) throws IOException {
+        var existing=Files.isRegularFile(path)?readApplicationCatalog(Files.readString(path,StandardCharsets.UTF_8)):new ApplicationCatalog(LocalDate.now().toString(),List.of());
+        var entries=new ArrayList<>(existing.entries);entries.add(entry);var updated=new ApplicationCatalog(LocalDate.now().toString(),List.copyOf(entries));readApplicationCatalog(applicationCatalogJson(updated));writeAtomically(path,applicationCatalogJson(updated));
     }
     static String applicationConfiguration(ApplicationCatalog catalog,Set<String> selected) {
         if(selected.isEmpty()) throw new IllegalArgumentException("Select at least one application");
@@ -217,16 +387,45 @@ public class JugSelector {
         var data=(Map<String,Object>)new Json(text).read();String date=(String)data.get("asOf");
         if(date==null || !date.matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Invalid host catalog date");
         var entries=new ArrayList<HostEntry>();var ids=new HashSet<String>();var values=new HashSet<String>();var names=new HashSet<String>();var addresses=new HashSet<String>();
-        for(var raw:(List<Object>)data.get("hosts")) {var item=(Map<String,Object>)raw;String id=(String)item.get("id"),value=(String)item.get("value"),name=(String)item.get("hostName"),address=(String)item.get("ipAddress"),platform=(String)item.get("platform");int records=((java.math.BigDecimal)item.get("sourceRecords")).intValueExact();if(id==null || !id.matches("HOST-\\d{3,}") || !ids.add(id) || name==null || name.isBlank() || !names.add(name) || address==null || !address.matches("\\d{1,3}(?:\\.\\d{1,3}){3}") || !addresses.add(address) || value==null || !value.equals(name+"/"+address) || !values.add(value) || platform==null || platform.isBlank() || records<1) throw new IllegalArgumentException("Invalid or duplicate host");entries.add(new HostEntry(id,value,name,address,platform,records));}
+        for(var raw:(List<Object>)data.get("hosts")) {var item=(Map<String,Object>)raw;String id=(String)item.get("id"),value=(String)item.get("value"),name=(String)item.get("hostName"),address=(String)item.get("ipAddress"),platform=(String)item.get("platform");if(id==null || !id.matches("HOST-\\d{3,}") || !ids.add(id) || name==null || name.isBlank() || !names.add(name) || !validIpAddress(address) || !addresses.add(address) || value==null || !value.equals(name+"/"+address) || !values.add(value) || platform==null || platform.isBlank()) throw new IllegalArgumentException("Invalid or duplicate host");entries.add(new HostEntry(id,value,name,address,platform));}
         if(entries.isEmpty()) throw new IllegalArgumentException("Empty host catalog");return new HostCatalog(date,List.copyOf(entries));
+    }
+    static String hostCatalogJson(HostCatalog catalog) {
+        var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"asOf\": \"").append(catalog.date).append("\",\n  \"description\": \"Custom hosts created in Java Usage Generator.\",\n  \"hosts\": [\n");
+        for(int i=0;i<catalog.entries.size();i++){var entry=catalog.entries.get(i);text.append("    {\n      \"id\": \"").append(jsonString(entry.id)).append("\",\n      \"value\": \"").append(jsonString(entry.value)).append("\",\n      \"hostName\": \"").append(jsonString(entry.hostName)).append("\",\n      \"ipAddress\": \"").append(jsonString(entry.ipAddress)).append("\",\n      \"platform\": \"").append(jsonString(entry.platform)).append("\"\n    }");if(i+1<catalog.entries.size())text.append(',');text.append('\n');}
+        return text.append("  ]\n}\n").toString();
+    }
+    static HostCatalog mergeHostCatalogs(HostCatalog base,HostCatalog custom) {
+        var entries=new ArrayList<HostEntry>(base.entries);var ids=new HashSet<String>();var names=new HashSet<String>();var addresses=new HashSet<String>();base.entries.forEach(entry->{ids.add(entry.id);names.add(entry.hostName);addresses.add(entry.ipAddress);});
+        for(var entry:custom.entries)if(!ids.add(entry.id)||!names.add(entry.hostName)||!addresses.add(entry.ipAddress))throw new IllegalArgumentException("Custom host duplicates a bundled host: "+entry.value);else entries.add(entry);
+        return new HostCatalog(base.date.compareTo(custom.date)>=0?base.date:custom.date,List.copyOf(entries));
+    }
+    static void appendCustomHost(Path path,HostEntry entry) throws IOException {
+        var existing=Files.isRegularFile(path)?readHostCatalog(Files.readString(path,StandardCharsets.UTF_8)):new HostCatalog(LocalDate.now().toString(),List.of());var entries=new ArrayList<>(existing.entries);entries.add(entry);var updated=new HostCatalog(LocalDate.now().toString(),List.copyOf(entries));readHostCatalog(hostCatalogJson(updated));writeAtomically(path,hostCatalogJson(updated));
     }
     static String hostConfiguration(HostCatalog catalog,Set<String> selected) {
         if(selected.isEmpty()) throw new IllegalArgumentException("Select at least one host");var chosen=catalog.entries.stream().filter(entry->selected.contains(entry.id)).toList();if(chosen.size()!=selected.size()) throw new IllegalArgumentException("Host selection contains unavailable entries");var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"catalogAsOf\": \"").append(catalog.date).append("\",\n  \"hostCount\": ").append(chosen.size()).append(",\n  \"hosts\": [\n");for(int i=0;i<chosen.size();i++){var entry=chosen.get(i);text.append("    {\n      \"id\": \"").append(jsonString(entry.id)).append("\",\n      \"value\": \"").append(jsonString(entry.value)).append("\",\n      \"hostName\": \"").append(jsonString(entry.hostName)).append("\",\n      \"ipAddress\": \"").append(jsonString(entry.ipAddress)).append("\"\n    }");if(i+1<chosen.size())text.append(',');text.append('\n');}return text.append("  ]\n}\n").toString();
     }
     @SuppressWarnings("unchecked")
     static OsVersionCatalog readOsVersionCatalog(String text) {
-        var data=(Map<String,Object>)new Json(text).read();String date=(String)data.get("asOf");if(date==null || !date.matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Invalid OS version catalog date");var entries=new ArrayList<OsVersionEntry>();var ids=new HashSet<String>();var versions=new HashSet<String>();for(var raw:(List<Object>)data.get("osVersions")){var item=(Map<String,Object>)raw;String id=(String)item.get("id"),version=(String)item.get("version"),platform=(String)item.get("platform");var names=((List<Object>)item.get("osNames")).stream().map(String::valueOf).toList();var architectures=((List<Object>)item.get("architectures")).stream().map(String::valueOf).toList();int records=((java.math.BigDecimal)item.get("sourceRecords")).intValueExact();if(id==null || !id.matches("OSV-\\d{3,}") || !ids.add(id) || version==null || version.isBlank() || !versions.add(version) || platform==null || platform.isBlank() || names.isEmpty() || names.stream().anyMatch(String::isBlank) || architectures.isEmpty() || architectures.stream().anyMatch(String::isBlank) || records<1) throw new IllegalArgumentException("Invalid or duplicate OS version");entries.add(new OsVersionEntry(id,version,platform,names,architectures,records));}if(entries.isEmpty())throw new IllegalArgumentException("Empty OS version catalog");return new OsVersionCatalog(date,List.copyOf(entries));
+        var data=(Map<String,Object>)new Json(text).read();String date=(String)data.get("asOf");if(date==null || !date.matches("\\d{4}-\\d{2}-\\d{2}")) throw new IllegalArgumentException("Invalid OS version catalog date");var entries=new ArrayList<OsVersionEntry>();var ids=new HashSet<String>();var versions=new HashSet<String>();for(var raw:(List<Object>)data.get("osVersions")){var item=(Map<String,Object>)raw;String id=(String)item.get("id"),version=(String)item.get("version"),platform=(String)item.get("platform");var names=((List<Object>)item.get("osNames")).stream().map(String::valueOf).toList();var architectures=((List<Object>)item.get("architectures")).stream().map(String::valueOf).toList();if(id==null || !id.matches("OSV-\\d{3,}") || !ids.add(id) || version==null || version.isBlank() || !versions.add(version) || platform==null || platform.isBlank() || names.isEmpty() || names.stream().anyMatch(String::isBlank) || architectures.isEmpty() || architectures.stream().anyMatch(String::isBlank)) throw new IllegalArgumentException("Invalid or duplicate OS version");entries.add(new OsVersionEntry(id,version,platform,names,architectures));}if(entries.isEmpty())throw new IllegalArgumentException("Empty OS version catalog");return new OsVersionCatalog(date,List.copyOf(entries));
     }
+    static String osVersionCatalogJson(OsVersionCatalog catalog) {
+        var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"asOf\": \"").append(catalog.date).append("\",\n  \"description\": \"Custom OS versions created in Java Usage Generator.\",\n  \"osVersions\": [\n");
+        for(int i=0;i<catalog.entries.size();i++){var entry=catalog.entries.get(i);text.append("    {\n      \"id\": \"").append(jsonString(entry.id)).append("\",\n      \"version\": \"").append(jsonString(entry.version)).append("\",\n      \"platform\": \"").append(jsonString(entry.platform)).append("\",\n      \"osNames\": ");appendJsonArray(text,entry.osNames,"      ");text.append(",\n      \"architectures\": ");appendJsonArray(text,entry.architectures,"      ");text.append("\n    }");if(i+1<catalog.entries.size())text.append(',');text.append('\n');}
+        return text.append("  ]\n}\n").toString();
+    }
+    static OsVersionCatalog mergeOsVersionCatalogs(OsVersionCatalog base,OsVersionCatalog custom) {
+        var entries=new ArrayList<OsVersionEntry>(base.entries);var ids=new HashSet<String>();var versions=new HashSet<String>();base.entries.forEach(entry->{ids.add(entry.id);versions.add(entry.version);});for(var entry:custom.entries)if(!ids.add(entry.id)||!versions.add(entry.version))throw new IllegalArgumentException("Custom OS version duplicates a bundled version: "+entry.version);else entries.add(entry);return new OsVersionCatalog(base.date.compareTo(custom.date)>=0?base.date:custom.date,List.copyOf(entries));
+    }
+    static void appendCustomOsVersion(Path path,OsVersionEntry entry) throws IOException {
+        var existing=Files.isRegularFile(path)?readOsVersionCatalog(Files.readString(path,StandardCharsets.UTF_8)):new OsVersionCatalog(LocalDate.now().toString(),List.of());var entries=new ArrayList<>(existing.entries);entries.add(entry);var updated=new OsVersionCatalog(LocalDate.now().toString(),List.copyOf(entries));readOsVersionCatalog(osVersionCatalogJson(updated));writeAtomically(path,osVersionCatalogJson(updated));
+    }
+    static void appendJsonArray(StringBuilder text,List<String> values,String indent) {text.append("[\n");for(int i=0;i<values.size();i++){text.append(indent).append("  \"").append(jsonString(values.get(i))).append('"');if(i+1<values.size())text.append(',');text.append('\n');}text.append(indent).append(']');}
+    static boolean validIpAddress(String address) {if(address==null||!address.matches("\\d{1,3}(?:\\.\\d{1,3}){3}"))return false;return Arrays.stream(address.split("\\.")).allMatch(part->{int value=Integer.parseInt(part);return value<=255;});}
+    static List<String> lines(String value) {return value.lines().map(String::trim).filter(part->!part.isEmpty()).distinct().toList();}
+    static List<String> commaSeparated(String value) {return Arrays.stream(value.split("[,\\r\\n]+")).map(String::trim).filter(part->!part.isEmpty()).distinct().toList();}
+    static String nextCustomId(String prefix,Collection<String> ids) {int next=900001;for(String id:ids)if(id.startsWith(prefix))try{next=Math.max(next,Integer.parseInt(id.substring(prefix.length()))+1);}catch(NumberFormatException ignored){}return prefix+next;}
     static String osVersionConfiguration(OsVersionCatalog catalog,Set<String> selected) {
         if(selected.isEmpty())throw new IllegalArgumentException("Select at least one OS version");var chosen=catalog.entries.stream().filter(entry->selected.contains(entry.id)).toList();if(chosen.size()!=selected.size())throw new IllegalArgumentException("OS version selection contains unavailable entries");var text=new StringBuilder("{\n  \"schemaVersion\": 1,\n  \"catalogAsOf\": \"").append(catalog.date).append("\",\n  \"osVersionCount\": ").append(chosen.size()).append(",\n  \"osVersions\": [\n");for(int i=0;i<chosen.size();i++){var entry=chosen.get(i);text.append("    {\n      \"id\": \"").append(jsonString(entry.id)).append("\",\n      \"version\": \"").append(jsonString(entry.version)).append("\",\n      \"platform\": \"").append(jsonString(entry.platform)).append("\",\n      \"osNames\": [");for(int j=0;j<entry.osNames.size();j++){if(j>0)text.append(", ");text.append('"').append(jsonString(entry.osNames.get(j))).append('"');}text.append("],\n      \"architectures\": [");for(int j=0;j<entry.architectures.size();j++){if(j>0)text.append(", ");text.append('"').append(jsonString(entry.architectures.get(j))).append('"');}text.append("]\n    }");if(i+1<chosen.size())text.append(',');text.append('\n');}return text.append("  ]\n}\n").toString();
     }
@@ -261,19 +460,19 @@ public class JugSelector {
     static class Window extends JFrame {
         Catalog catalog; final Set<String> selected;
         final JComboBox<String> family=new JComboBox<>(); final JTextField search=new JTextField();
-        final JLabel info=new JLabel(),count=new JLabel(),status=new JLabel("Choose versions, then save your properties file.");
+        final JLabel info=new JLabel(),count=new JLabel(),status=new JLabel("Choose versions, then save the JSON configuration.");
         List<Entry> visible=new ArrayList<>(); boolean changing=false;
         final JTextArea preview=new JTextArea(); final VersionTable model=new VersionTable(); final JTable table=new JTable(model);
-        final JButton save=new JButton("Save properties…"),include=new JButton("Select entire family"),exclude=new JButton("Clear family");
+        final JButton save=new JButton("Save JSON configuration..."),include=new JButton("Select entire family"),exclude=new JButton("Clear family"),updateLatest=new JButton("Update for latest versions");
         Window(Catalog catalog,Set<String> selected,ApplicationCatalog applicationCatalog,HostCatalog hostCatalog,OsVersionCatalog osVersionCatalog) {
             super("JUG - Java Usage Generator");this.catalog=catalog;this.selected=selected;
             setDefaultCloseOperation(EXIT_ON_CLOSE);setSize(1120,760);setMinimumSize(new Dimension(820,540));setLocationRelativeTo(null);
             JPanel root=new JPanel(new BorderLayout(12,12));root.setBorder(BorderFactory.createEmptyBorder(18,18,18,18));setContentPane(root);
             var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select Java versions");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);
-            var controls=new JPanel(new GridLayout(2,1,6,6));var filters=new JPanel(new BorderLayout(8,8));family.setPreferredSize(new Dimension(160,28));filters.add(family,BorderLayout.WEST);filters.add(search,BorderLayout.CENTER);search.setToolTipText("Search versions or expected java.version values");search.getAccessibleContext().setAccessibleName("Search versions");family.getAccessibleContext().setAccessibleName("JDK family");controls.add(filters);
+            var controls=new JPanel(new GridLayout(2,1,6,6));var filters=new JPanel(new FlowLayout(FlowLayout.LEFT,8,0));family.setPreferredSize(new Dimension(160,28));filters.add(family);filters.add(searchPanel("Search versions",search));updateLatest.setToolTipText("Fetch released JDK 8 and later versions, including Security Alerts, from ops.java");updateLatest.addActionListener(event->updateForLatestVersions());filters.add(updateLatest);search.setToolTipText("Search versions or expected java.version values");search.getAccessibleContext().setAccessibleName("Search versions");family.getAccessibleContext().setAccessibleName("JDK family");controls.add(filters);
             var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(include);buttons.add(exclude);buttons.add(button("Select all versions",()->{catalog().entries.forEach(e->selected.add(e.version));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load selection…",this::loadSelection));buttons.add(button("Load catalog…",this::loadCatalog));controls.add(buttons);top.add(controls,BorderLayout.SOUTH);root.add(top,BorderLayout.NORTH);
             table.setRowHeight(28);table.setFillsViewportHeight(true);table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);table.getColumnModel().getColumn(0).setMaxWidth(65);
-            var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));preview.getAccessibleContext().setAccessibleName("Properties preview");right.add(new JScrollPane(preview),BorderLayout.CENTER);
+            var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));preview.getAccessibleContext().setAccessibleName("JSON configuration preview");right.add(new JScrollPane(preview),BorderLayout.CENTER);
             var footer=new JPanel(new BorderLayout(6,6));footer.add(new JLabel("Selections are a snapshot of currently listed versions."),BorderLayout.NORTH);footer.add(save,BorderLayout.SOUTH);right.add(footer,BorderLayout.SOUTH);
             var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.58);split.setDividerLocation(610);root.add(split,BorderLayout.CENTER);root.add(status,BorderLayout.SOUTH);
             include.addActionListener(e->chooseFamily(true));exclude.addActionListener(e->chooseFamily(false));save.addActionListener(e->saveSelection());
@@ -299,46 +498,63 @@ public class JugSelector {
             void stopSeries(){finishSeries("Stopped after "+seriesPackets.size()+" of "+seriesTarget+" packets.");}
             void saveSeries(){var chooser=chooser("Save JUT packet series");chooser.setSelectedFile(new File("packet-series.jut"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,String.join("",seriesPackets),StandardCharsets.UTF_8);seriesStatus.setText("Saved "+seriesPackets.size()+" packets to "+path);}catch(Exception exception){error(exception);}}
         }
+        interface EntryAction { void run() throws Exception; }
+        class EntryDialog {
+            final JDialog dialog;final JButton add=new JButton("Add");final JLabel validation=new JLabel(" ");final Supplier<String> validator;
+            EntryDialog(String title,JPanel form,Supplier<String> validator,EntryAction action){this.validator=validator;dialog=new JDialog(Window.this,title,true);dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);var content=new JPanel(new BorderLayout(10,10));content.setBorder(BorderFactory.createEmptyBorder(14,14,14,14));content.add(form,BorderLayout.CENTER);validation.setForeground(new Color(170,35,35));var footer=new JPanel(new BorderLayout(8,8));footer.add(validation,BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.RIGHT,6,0));var cancel=new JButton("Cancel");cancel.addActionListener(event->dialog.dispose());buttons.add(cancel);buttons.add(add);footer.add(buttons,BorderLayout.EAST);content.add(footer,BorderLayout.SOUTH);dialog.setContentPane(content);watch(form);add.addActionListener(event->{try{action.run();dialog.dispose();}catch(Exception exception){error(exception);}});update();dialog.getRootPane().setDefaultButton(add);dialog.pack();dialog.setMinimumSize(new Dimension(520,dialog.getHeight()));dialog.setLocationRelativeTo(Window.this);}
+            void watch(Component component){if(component instanceof JTextComponent text)text.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){update();}public void removeUpdate(DocumentEvent e){update();}public void changedUpdate(DocumentEvent e){update();}});if(component instanceof JComboBox<?> combo)combo.addActionListener(event->update());if(component instanceof JSpinner spinner)spinner.addChangeListener(event->update());if(component instanceof Container container)for(Component child:container.getComponents())watch(child);}
+            void update(){String message=validator.get();add.setEnabled(message==null);validation.setText(message==null?" ":message);}
+            void show(){dialog.setVisible(true);}
+        }
+        JPanel entryForm(){var form=new JPanel(new GridBagLayout());form.setBorder(BorderFactory.createEmptyBorder(0,0,4,0));return form;}
+        void addEntryField(JPanel form,int row,String label,JComponent field){var labelConstraints=new GridBagConstraints();labelConstraints.gridx=0;labelConstraints.gridy=row;labelConstraints.anchor=GridBagConstraints.NORTHWEST;labelConstraints.insets=new Insets(5,0,5,10);form.add(new JLabel(label),labelConstraints);var fieldConstraints=new GridBagConstraints();fieldConstraints.gridx=1;fieldConstraints.gridy=row;fieldConstraints.weightx=1;fieldConstraints.fill=GridBagConstraints.HORIZONTAL;fieldConstraints.insets=new Insets(3,0,3,0);form.add(field,fieldConstraints);}
+        JTextArea entryArea(int rows){var area=new JTextArea(rows,36);area.setLineWrap(false);return area;}
+        JScrollPane entryScroll(JTextArea area){var scroll=new JScrollPane(area);scroll.setPreferredSize(new Dimension(420,Math.max(64,area.getRows()*22)));return scroll;}
+        JButton addButton(String tooltip,Runnable action){var button=button("+",action);button.setToolTipText(tooltip);button.getAccessibleContext().setAccessibleName(tooltip);button.setPreferredSize(new Dimension(34,28));return button;}
+        String comboText(JComboBox<String> combo){Object value=combo.isEditable()?combo.getEditor().getItem():combo.getSelectedItem();return value==null?"":value.toString().trim();}
         class ApplicationPanel extends JPanel {
             ApplicationCatalog catalog;final Set<String> selected=new HashSet<>();List<ApplicationEntry> visible=new ArrayList<>();
             final JTextField search=new JTextField();final JLabel info=new JLabel(),count=new JLabel(),status=new JLabel("Choose applications, then save the JSON configuration.");final JTextArea preview=new JTextArea();final ApplicationTable model=new ApplicationTable();final JTable table=new JTable(model);final JButton save=new JButton("Save JSON configuration...");
             ApplicationPanel(ApplicationCatalog catalog) {
                 super(new BorderLayout(12,12));this.catalog=catalog;catalog.entries.forEach(entry->selected.add(entry.id));setBorder(BorderFactory.createEmptyBorder(18,18,18,18));
-                var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select Java applications");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search application names, types, or categories");controls.add(search,BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all applications",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Select real",()->{catalog().entries.stream().filter(entry->entry.type.equals("Real")).forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Select fictional",()->{catalog().entries.stream().filter(entry->entry.type.equals("Fictional")).forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);
-                table.setRowHeight(28);table.setFillsViewportHeight(true);table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);int[] widths={65,220,90,160,105,105,460};for(int i=0;i<widths.length;i++)table.getColumnModel().getColumn(i).setPreferredWidth(widths[i]);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.62);split.setDividerLocation(660);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);
+                var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select Java applications");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search application names, types, or categories");search.getAccessibleContext().setAccessibleName("Search applications");controls.add(searchPanel("Search applications",search),BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all applications",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Select real",()->{catalog().entries.stream().filter(entry->entry.type.equals("Real")).forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Select fictional",()->{catalog().entries.stream().filter(entry->entry.type.equals("Fictional")).forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));buttons.add(addButton("Add Java application",this::addApplication));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);
+                table.setRowHeight(28);table.setFillsViewportHeight(true);table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);int[] widths={65,220,90,160,105,460};for(int i=0;i<widths.length;i++)table.getColumnModel().getColumn(i).setPreferredWidth(widths[i]);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.62);split.setDividerLocation(660);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);
                 search.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){filter();}public void removeUpdate(DocumentEvent e){filter();}public void changedUpdate(DocumentEvent e){filter();}});save.addActionListener(event->save());filter();
             }
             ApplicationCatalog catalog(){return catalog;}
             void filter(){String query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.stream().filter(entry->(entry.name+" "+entry.type+" "+entry.category+" "+String.join(" ",entry.javaMajors)+" "+String.join(" ",entry.classPaths)).toLowerCase(Locale.ROOT).contains(query)).toList();model.fireTableDataChanged();refresh();}
             void refresh(){model.fireTableDataChanged();info.setText("Catalog "+catalog.date+" - "+catalog.entries.size()+" applications");count.setText(selected.size()+" applications selected - "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one application.":applicationConfiguration(catalog,selected));preview.setCaretPosition(0);}
+            void addApplication(){var name=new JTextField();var type=new JComboBox<>(new String[]{"Real","Fictional"});var category=new JTextField();var majors=new JTextField();var classPaths=entryArea(3);var commands=entryArea(3);var startTypes=new JTextField("VM start");var form=entryForm();addEntryField(form,0,"Application name",name);addEntryField(form,1,"Type",type);addEntryField(form,2,"Category",category);addEntryField(form,3,"Java major(s)",majors);addEntryField(form,4,"Classpaths (one per line)",entryScroll(classPaths));addEntryField(form,5,"Java commands (one per line)",entryScroll(commands));addEntryField(form,6,"Start type(s)",startTypes);Supplier<String> validator=()->{String value=name.getText().trim();if(value.isEmpty()||category.getText().trim().isEmpty()||commaSeparated(majors.getText()).isEmpty()||lines(classPaths.getText()).isEmpty()||lines(commands.getText()).isEmpty()||commaSeparated(startTypes.getText()).isEmpty())return "Complete all required fields.";if(catalog.entries.stream().anyMatch(entry->entry.name.equalsIgnoreCase(value)))return "An application with this name already exists.";return null;};new EntryDialog("Add Java application",form,validator,()->{var ids=catalog.entries.stream().map(ApplicationEntry::id).toList();var entry=new ApplicationEntry(nextCustomId("APP-",ids),name.getText().trim(),comboText(type),category.getText().trim(),commaSeparated(majors.getText()),lines(classPaths.getText()),lines(commands.getText()),commaSeparated(startTypes.getText()));appendCustomApplication(customApplicationsPath(),entry);var entries=new ArrayList<>(catalog.entries);entries.add(entry);catalog=new ApplicationCatalog(LocalDate.now().toString(),List.copyOf(entries));selected.add(entry.id);search.setText("");filter();status.setText("Added "+entry.name+" and saved it to "+customApplicationsPath()+".");}).show();}
             void loadCatalog(){var chooser=chooser("Load Java Applications JSON catalog");if(chooser.showOpenDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;try{var next=readApplicationCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(entry->known.add(entry.id));int previous=selected.size();selected.retainAll(known);catalog=next;filter();status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception exception){error(exception);}}
             void save(){var chooser=chooser("Save application configuration");chooser.setSelectedFile(new File("generator-applications.json"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,applicationConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" applications to "+path);}catch(Exception exception){error(exception);}}
-            class ApplicationTable extends AbstractTableModel {final String[] names={"Include","Application","Type","Category","Java major(s)","Source records","Classpath"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:column==5?Integer.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.name;case 2->entry.type;case 3->entry.category;case 4->String.join(", ",entry.javaMajors);case 5->entry.sourceRecords;default->String.join(" | ",entry.classPaths);};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
+            class ApplicationTable extends AbstractTableModel {final String[] names={"Include","Application","Type","Category","Java major(s)","Classpath"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.name;case 2->entry.type;case 3->entry.category;case 4->String.join(", ",entry.javaMajors);default->String.join(" | ",entry.classPaths);};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
         }
         class HostPanel extends JPanel {
             HostCatalog catalog;final Set<String> selected=new HashSet<>();List<HostEntry> visible=new ArrayList<>();final JTextField search=new JTextField();final JLabel info=new JLabel(),count=new JLabel(),status=new JLabel("Choose hosts, then save the JSON configuration.");final JTextArea preview=new JTextArea();final HostTable model=new HostTable();final JTable table=new JTable(model);final JButton save=new JButton("Save JSON configuration...");
-            HostPanel(HostCatalog catalog){super(new BorderLayout(12,12));this.catalog=catalog;catalog.entries.forEach(entry->selected.add(entry.id));setBorder(BorderFactory.createEmptyBorder(18,18,18,18));var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select hosts and IP addresses");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search hostnames, IP addresses, or platforms");controls.add(search,BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all hosts",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);table.setRowHeight(28);table.setFillsViewportHeight(true);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.58);split.setDividerLocation(610);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);search.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){filter();}public void removeUpdate(DocumentEvent e){filter();}public void changedUpdate(DocumentEvent e){filter();}});save.addActionListener(event->save());filter();}
-            HostCatalog catalog(){return catalog;}void filter(){String query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.stream().filter(entry->(entry.value+" "+entry.platform).toLowerCase(Locale.ROOT).contains(query)).toList();model.fireTableDataChanged();refresh();}void refresh(){model.fireTableDataChanged();info.setText("Catalog "+catalog.date+" - "+catalog.entries.size()+" hosts");count.setText(selected.size()+" hosts selected - "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one host.":hostConfiguration(catalog,selected));preview.setCaretPosition(0);}void loadCatalog(){var chooser=chooser("Load Hosts / IPs JSON catalog");if(chooser.showOpenDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;try{var next=readHostCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(entry->known.add(entry.id));int previous=selected.size();selected.retainAll(known);catalog=next;filter();status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception exception){error(exception);}}void save(){var chooser=chooser("Save host configuration");chooser.setSelectedFile(new File("generator-hosts.json"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,hostConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" hosts to "+path);}catch(Exception exception){error(exception);}}
-            class HostTable extends AbstractTableModel {final String[] names={"Include","Hostname","IP address","Platform","Source records"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:column==4?Integer.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.hostName;case 2->entry.ipAddress;case 3->entry.platform;default->entry.sourceRecords;};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
+            HostPanel(HostCatalog catalog){super(new BorderLayout(12,12));this.catalog=catalog;catalog.entries.forEach(entry->selected.add(entry.id));setBorder(BorderFactory.createEmptyBorder(18,18,18,18));var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select hosts and IP addresses");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search hostnames, IP addresses, or platforms");search.getAccessibleContext().setAccessibleName("Search hosts and IP addresses");controls.add(searchPanel("Search hosts/IPs",search),BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all hosts",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));buttons.add(addButton("Add host or IP address",this::addHost));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);table.setRowHeight(28);table.setFillsViewportHeight(true);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.58);split.setDividerLocation(610);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);search.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){filter();}public void removeUpdate(DocumentEvent e){filter();}public void changedUpdate(DocumentEvent e){filter();}});save.addActionListener(event->save());filter();}
+            HostCatalog catalog(){return catalog;}void filter(){String query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.stream().filter(entry->(entry.value+" "+entry.platform).toLowerCase(Locale.ROOT).contains(query)).toList();model.fireTableDataChanged();refresh();}void refresh(){model.fireTableDataChanged();info.setText("Catalog "+catalog.date+" - "+catalog.entries.size()+" hosts");count.setText(selected.size()+" hosts selected - "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one host.":hostConfiguration(catalog,selected));preview.setCaretPosition(0);}void addHost(){var name=new JTextField();var address=new JTextField();var platform=new JComboBox<>(new String[]{"Linux","Windows","macOS","Solaris"});platform.setEditable(true);var form=entryForm();addEntryField(form,0,"Hostname",name);addEntryField(form,1,"IP address",address);addEntryField(form,2,"Platform",platform);Supplier<String> validator=()->{String host=name.getText().trim(),ip=address.getText().trim();if(host.isEmpty()||ip.isEmpty()||comboText(platform).isEmpty())return "Complete all required fields.";if(!validIpAddress(ip))return "Enter a valid IPv4 address.";if(catalog.entries.stream().anyMatch(entry->entry.hostName.equalsIgnoreCase(host)))return "A host with this name already exists.";if(catalog.entries.stream().anyMatch(entry->entry.ipAddress.equals(ip)))return "A host with this IP address already exists.";return null;};new EntryDialog("Add host or IP address",form,validator,()->{String host=name.getText().trim(),ip=address.getText().trim();var ids=catalog.entries.stream().map(HostEntry::id).toList();var entry=new HostEntry(nextCustomId("HOST-",ids),host+"/"+ip,host,ip,comboText(platform));appendCustomHost(customHostsPath(),entry);var entries=new ArrayList<>(catalog.entries);entries.add(entry);catalog=new HostCatalog(LocalDate.now().toString(),List.copyOf(entries));selected.add(entry.id);search.setText("");filter();status.setText("Added "+entry.value+" and saved it to "+customHostsPath()+".");}).show();}void loadCatalog(){var chooser=chooser("Load Hosts / IPs JSON catalog");if(chooser.showOpenDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;try{var next=readHostCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(entry->known.add(entry.id));int previous=selected.size();selected.retainAll(known);catalog=next;filter();status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception exception){error(exception);}}void save(){var chooser=chooser("Save host configuration");chooser.setSelectedFile(new File("generator-hosts.json"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,hostConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" hosts to "+path);}catch(Exception exception){error(exception);}}
+            class HostTable extends AbstractTableModel {final String[] names={"Include","Hostname","IP address","Platform"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.hostName;case 2->entry.ipAddress;default->entry.platform;};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
         }
         class OsVersionPanel extends JPanel {
             OsVersionCatalog catalog;final Set<String> selected=new HashSet<>();List<OsVersionEntry> visible=new ArrayList<>();final JTextField search=new JTextField();final JLabel info=new JLabel(),count=new JLabel(),status=new JLabel("Choose OS versions, then save the JSON configuration.");final JTextArea preview=new JTextArea();final OsVersionTable model=new OsVersionTable();final JTable table=new JTable(model);final JButton save=new JButton("Save JSON configuration...");
-            OsVersionPanel(OsVersionCatalog catalog){super(new BorderLayout(12,12));this.catalog=catalog;catalog.entries.forEach(entry->selected.add(entry.id));setBorder(BorderFactory.createEmptyBorder(18,18,18,18));var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select OS versions");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search versions, OS names, architectures, or platforms");controls.add(search,BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all OS versions",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);table.setRowHeight(28);table.setFillsViewportHeight(true);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.58);split.setDividerLocation(610);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);search.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){filter();}public void removeUpdate(DocumentEvent e){filter();}public void changedUpdate(DocumentEvent e){filter();}});save.addActionListener(event->save());filter();}
-            OsVersionCatalog catalog(){return catalog;}void filter(){String query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.stream().filter(entry->(entry.version+" "+entry.platform+" "+String.join(" ",entry.osNames)+" "+String.join(" ",entry.architectures)).toLowerCase(Locale.ROOT).contains(query)).toList();model.fireTableDataChanged();refresh();}void refresh(){model.fireTableDataChanged();info.setText("Catalog "+catalog.date+" - "+catalog.entries.size()+" OS versions");count.setText(selected.size()+" OS versions selected - "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one OS version.":osVersionConfiguration(catalog,selected));preview.setCaretPosition(0);}void loadCatalog(){var chooser=chooser("Load OS Versions JSON catalog");if(chooser.showOpenDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;try{var next=readOsVersionCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(entry->known.add(entry.id));int previous=selected.size();selected.retainAll(known);catalog=next;filter();status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception exception){error(exception);}}void save(){var chooser=chooser("Save OS version configuration");chooser.setSelectedFile(new File("generator-os-versions.json"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,osVersionConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" OS versions to "+path);}catch(Exception exception){error(exception);}}
-            class OsVersionTable extends AbstractTableModel {final String[] names={"Include","OS version","Platform","OS name(s)","Architecture(s)","Source records"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:column==5?Integer.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.version;case 2->entry.platform;case 3->String.join(", ",entry.osNames);case 4->String.join(", ",entry.architectures);default->entry.sourceRecords;};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
+            OsVersionPanel(OsVersionCatalog catalog){super(new BorderLayout(12,12));this.catalog=catalog;catalog.entries.forEach(entry->selected.add(entry.id));setBorder(BorderFactory.createEmptyBorder(18,18,18,18));var top=new JPanel(new BorderLayout(8,8));var title=new JLabel("Java Usage Generator - select OS versions");title.setFont(title.getFont().deriveFont(Font.BOLD,22));top.add(title,BorderLayout.NORTH);top.add(info,BorderLayout.CENTER);var controls=new JPanel(new BorderLayout(8,8));search.setToolTipText("Search versions, OS names, architectures, or platforms");search.getAccessibleContext().setAccessibleName("Search OS versions");controls.add(searchPanel("Search OS versions",search),BorderLayout.CENTER);var buttons=new JPanel(new FlowLayout(FlowLayout.LEFT,5,0));buttons.add(button("Select all OS versions",()->{catalog().entries.forEach(entry->selected.add(entry.id));refresh();}));buttons.add(button("Clear selection",()->{selected.clear();refresh();}));buttons.add(button("Load catalog...",this::loadCatalog));buttons.add(addButton("Add OS version",this::addOsVersion));controls.add(buttons,BorderLayout.SOUTH);top.add(controls,BorderLayout.SOUTH);add(top,BorderLayout.NORTH);table.setRowHeight(28);table.setFillsViewportHeight(true);table.getColumnModel().getColumn(0).setMaxWidth(65);var right=new JPanel(new BorderLayout(10,10));right.setBorder(BorderFactory.createEmptyBorder(0,10,0,0));right.add(count,BorderLayout.NORTH);preview.setEditable(false);preview.setFont(new Font(Font.MONOSPACED,Font.PLAIN,12));right.add(new JScrollPane(preview),BorderLayout.CENTER);right.add(save,BorderLayout.SOUTH);var split=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,new JScrollPane(table),right);split.setResizeWeight(.58);split.setDividerLocation(610);add(split,BorderLayout.CENTER);add(status,BorderLayout.SOUTH);search.getDocument().addDocumentListener(new DocumentListener(){public void insertUpdate(DocumentEvent e){filter();}public void removeUpdate(DocumentEvent e){filter();}public void changedUpdate(DocumentEvent e){filter();}});save.addActionListener(event->save());filter();}
+            OsVersionCatalog catalog(){return catalog;}void filter(){String query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.stream().filter(entry->(entry.version+" "+entry.platform+" "+String.join(" ",entry.osNames)+" "+String.join(" ",entry.architectures)).toLowerCase(Locale.ROOT).contains(query)).toList();model.fireTableDataChanged();refresh();}void refresh(){model.fireTableDataChanged();info.setText("Catalog "+catalog.date+" - "+catalog.entries.size()+" OS versions");count.setText(selected.size()+" OS versions selected - "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one OS version.":osVersionConfiguration(catalog,selected));preview.setCaretPosition(0);}void addOsVersion(){var version=new JTextField();var platform=new JComboBox<>(new String[]{"Linux","Windows","macOS","Solaris"});platform.setEditable(true);var names=entryArea(3);var architectures=new JTextField();var form=entryForm();addEntryField(form,0,"OS version",version);addEntryField(form,1,"Platform",platform);addEntryField(form,2,"OS names (one per line)",entryScroll(names));addEntryField(form,3,"Architectures",architectures);Supplier<String> validator=()->{String value=version.getText().trim();if(value.isEmpty()||comboText(platform).isEmpty()||lines(names.getText()).isEmpty()||commaSeparated(architectures.getText()).isEmpty())return "Complete all required fields.";if(catalog.entries.stream().anyMatch(entry->entry.version.equalsIgnoreCase(value)))return "This OS version already exists.";return null;};new EntryDialog("Add OS version",form,validator,()->{var ids=catalog.entries.stream().map(OsVersionEntry::id).toList();var entry=new OsVersionEntry(nextCustomId("OSV-",ids),version.getText().trim(),comboText(platform),lines(names.getText()),commaSeparated(architectures.getText()));appendCustomOsVersion(customOsVersionsPath(),entry);var entries=new ArrayList<>(catalog.entries);entries.add(entry);catalog=new OsVersionCatalog(LocalDate.now().toString(),List.copyOf(entries));selected.add(entry.id);search.setText("");filter();status.setText("Added "+entry.version+" and saved it to "+customOsVersionsPath()+".");}).show();}void loadCatalog(){var chooser=chooser("Load OS Versions JSON catalog");if(chooser.showOpenDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;try{var next=readOsVersionCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(entry->known.add(entry.id));int previous=selected.size();selected.retainAll(known);catalog=next;filter();status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception exception){error(exception);}}void save(){var chooser=chooser("Save OS version configuration");chooser.setSelectedFile(new File("generator-os-versions.json"));if(chooser.showSaveDialog(Window.this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(Window.this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,osVersionConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" OS versions to "+path);}catch(Exception exception){error(exception);}}
+            class OsVersionTable extends AbstractTableModel {final String[] names={"Include","OS version","Platform","OS name(s)","Architecture(s)"};public int getRowCount(){return visible.size();}public int getColumnCount(){return names.length;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}public Object getValueAt(int row,int column){var entry=visible.get(row);return switch(column){case 0->selected.contains(entry.id);case 1->entry.version;case 2->entry.platform;case 3->String.join(", ",entry.osNames);default->String.join(", ",entry.architectures);};}public void setValueAt(Object value,int row,int column){if(Boolean.TRUE.equals(value))selected.add(visible.get(row).id);else selected.remove(visible.get(row).id);refresh();}}
         }
         Catalog catalog(){return catalog;}
         JButton button(String text,Runnable action){var button=new JButton(text);button.addActionListener(e->action.run());return button;}
+        JPanel searchPanel(String label,JTextField field){field.setPreferredSize(new Dimension(260,28));var panel=new JPanel(new FlowLayout(FlowLayout.LEFT,6,0));panel.add(new JLabel(label));panel.add(field);return panel;}
         void setCatalog(Catalog next){catalog=next;changing=true;family.removeAllItems();family.addItem("All families");for(String id:next.families.reversed())family.addItem("JDK "+id);changing=false;info.setText("Catalog "+next.date+" · "+next.families.size()+" families · "+next.entries.size()+" versions");filter();}
         String chosenFamily(){String text=(String)family.getSelectedItem();return text==null||text.equals("All families")?null:text.substring(4);}
         void chooseFamily(boolean value){String id=chosenFamily();if(id!=null){selectFamily(catalog,selected,id,value);refresh();}}
         void filter(){String id=chosenFamily(),query=search.getText().trim().toLowerCase(Locale.ROOT);visible=catalog.entries.reversed().stream().filter(e->(id==null||e.family.equals(id)) && (e.version+" "+e.javaVersion+" "+e.label+" JDK "+e.family).toLowerCase(Locale.ROOT).contains(query)).toList();include.setEnabled(id!=null);exclude.setEnabled(id!=null);model.fireTableDataChanged();refresh();}
-        void refresh(){model.fireTableDataChanged();count.setText(selected.size()+" versions selected · "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one version.":properties(catalog,selected));preview.setCaretPosition(0);}
+        void refresh(){model.fireTableDataChanged();count.setText(selected.size()+" versions selected · "+visible.size()+" displayed");save.setEnabled(!selected.isEmpty());preview.setText(selected.isEmpty()?"Select at least one version.":versionConfiguration(catalog,selected));preview.setCaretPosition(0);}
         JFileChooser chooser(String title){var chooser=new JFileChooser();chooser.setDialogTitle(title);return chooser;}
         void error(Exception error){JOptionPane.showMessageDialog(this,error.getMessage(),"Could not complete action",JOptionPane.ERROR_MESSAGE);}
-        void loadSelection(){var chooser=chooser("Load generator selection");if(chooser.showOpenDialog(this)!=JFileChooser.APPROVE_OPTION)return;try{Set<String> next=readSelection(chooser.getSelectedFile().toPath(),catalog);selected.clear();selected.addAll(next);refresh();status.setText("Loaded "+next.size()+" choices. Customize and save a revised file.");}catch(Exception error){error(error);}}
+        void loadSelection(){var chooser=chooser("Load Java Versions JSON configuration");if(chooser.showOpenDialog(this)!=JFileChooser.APPROVE_OPTION)return;try{Set<String> next=readSelection(chooser.getSelectedFile().toPath(),catalog);selected.clear();selected.addAll(next);refresh();status.setText("Loaded "+next.size()+" choices. Customize and save a revised file.");}catch(Exception error){error(error);}}
         void loadCatalog(){var chooser=chooser("Load Oracle JDK JSON catalog");if(chooser.showOpenDialog(this)!=JFileChooser.APPROVE_OPTION)return;try{Catalog next=readCatalog(Files.readString(chooser.getSelectedFile().toPath()));var known=new HashSet<String>();next.entries.forEach(e->known.add(e.version));int previous=selected.size();selected.retainAll(known);setCatalog(next);status.setText("Catalog loaded; "+(previous-selected.size())+" unavailable choices removed.");}catch(Exception error){error(error);}}
-        void saveSelection(){var chooser=chooser("Save generator version properties");chooser.setSelectedFile(new File("generator-versions.properties"));if(chooser.showSaveDialog(this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,properties(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" choices to "+path);}catch(Exception error){error(error);}}
+        void updateForLatestVersions(){updateLatest.setEnabled(false);status.setText("Checking ops.java for released JDK 8 and later versions, including Security Alerts...");new SwingWorker<CatalogUpdate,Void>(){protected CatalogUpdate doInBackground()throws Exception{return fetchLatestCatalog(catalog);}protected void done(){try{var update=get();setCatalog(update.catalog);String change=update.additions==0?"No new versions were available.":"Added "+update.additions+" versions.";String route=update.fallback?" Retrieved through the read-only web fallback.":"";status.setText(change+route+" Catalog saved to "+update.path);}catch(Exception exception){Throwable cause=exception.getCause()==null?exception:exception.getCause();String message=cause.getMessage()==null?cause.getClass().getSimpleName():cause.getMessage();status.setText("Update failed: "+message);error(new Exception(message));}finally{updateLatest.setEnabled(true);}}}.execute();}
+        void saveSelection(){var chooser=chooser("Save Java Versions JSON configuration");chooser.setSelectedFile(new File("generator-versions.json"));if(chooser.showSaveDialog(this)!=JFileChooser.APPROVE_OPTION)return;Path path=chooser.getSelectedFile().toPath();try{if(Files.exists(path)&&JOptionPane.showConfirmDialog(this,"Replace "+path.getFileName()+"?","Existing file",JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION)return;Files.writeString(path,versionConfiguration(catalog,selected),StandardCharsets.UTF_8);status.setText("Saved "+selected.size()+" choices to "+path);}catch(Exception error){error(error);}}
         class VersionTable extends AbstractTableModel {
             final String[] names={"Include","Family","Version / update","Expected java.version"};
             public int getRowCount(){return visible.size();}public int getColumnCount(){return 4;}public String getColumnName(int column){return names[column];}public Class<?> getColumnClass(int column){return column==0?Boolean.class:String.class;}public boolean isCellEditable(int row,int column){return column==0;}

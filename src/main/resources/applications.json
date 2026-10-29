@@ -12,7 +12,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/tomcat/bin/bootstrap.jar:/opt/tomcat/bin/tomcat-juli.jar",
         "C:\\Apps\\tomcat\\bin\\bootstrap.jar;C:\\Apps\\tomcat\\bin\\tomcat-juli.jar"
@@ -32,7 +31,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/h2/h2.jar",
         "C:\\Apps\\h2\\h2.jar"
@@ -52,7 +50,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/Applications/jetty/start.jar",
         "C:\\Apps\\jetty\\start.jar",
@@ -75,7 +72,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/Applications/jenkins/jenkins.war",
         "/opt/jenkins/jenkins.war",
@@ -99,7 +95,6 @@
         "7",
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "C:\\Apps\\ant\\lib\\ant-launcher.jar",
         "/opt/ant/lib/ant-launcher.jar"
@@ -120,7 +115,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 175,
       "classPaths": [
         "C:\\Apps\\jmeter\\bin\\ApacheJMeter.jar"
       ],
@@ -233,7 +227,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/activemq/bin/activemq.jar",
         "C:\\Apps\\activemq\\bin\\activemq.jar"
@@ -254,7 +247,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\derby\\lib\\derby.jar;C:\\Apps\\derby\\lib\\derbynet.jar;C:\\Apps\\derby\\lib\\derbyshared.jar;C:\\Apps\\derby\\lib\\derbytools.jar",
         "/opt/derby/lib/derby.jar:/opt/derby/lib/derbynet.jar:/opt/derby/lib/derbyshared.jar:/opt/derby/lib/derbytools.jar"
@@ -274,7 +266,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/Applications/checkstyle/checkstyle-all.jar",
         "C:\\Apps\\checkstyle\\checkstyle-all.jar"
@@ -296,7 +287,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/Applications/plantuml/plantuml.jar",
         "C:\\Apps\\plantuml\\plantuml.jar"
@@ -317,7 +307,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/kafka/libs/kafka_2.13.jar:/opt/kafka/libs/kafka-clients.jar:/opt/kafka/libs/scala-library.jar",
         "C:\\Apps\\kafka\\libs\\kafka_2.13.jar;C:\\Apps\\kafka\\libs\\kafka-clients.jar;C:\\Apps\\kafka\\libs\\scala-library.jar"
@@ -338,7 +327,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/zookeeper/zookeeper.jar:/opt/zookeeper/lib/slf4j-api.jar",
         "C:\\Apps\\zookeeper\\zookeeper.jar;C:\\Apps\\zookeeper\\lib\\slf4j-api.jar"
@@ -359,7 +347,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/cassandra/conf:/opt/cassandra/lib/apache-cassandra.jar:/opt/cassandra/lib/guava.jar",
         "C:\\Apps\\cassandra\\conf;C:\\Apps\\cassandra\\lib\\apache-cassandra.jar;C:\\Apps\\cassandra\\lib\\guava.jar"
@@ -379,7 +366,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\solr\\server\\start.jar",
         "/opt/solr/server/start.jar"
@@ -400,7 +386,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/nifi/conf:/opt/nifi/lib/nifi-runtime.jar",
         "C:\\Apps\\nifi\\conf;C:\\Apps\\nifi\\lib\\nifi-runtime.jar"
@@ -420,7 +405,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/flink/lib/flink-dist.jar",
         "C:\\Apps\\flink\\lib\\flink-dist.jar"
@@ -441,7 +425,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/spark/conf:/opt/spark/jars/spark-core_2.12.jar:/opt/spark/jars/scala-library.jar",
         "C:\\Apps\\spark\\conf;C:\\Apps\\spark\\jars\\spark-core_2.12.jar;C:\\Apps\\spark\\jars\\scala-library.jar"
@@ -464,7 +447,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/hadoop/etc/hadoop:/opt/hadoop/share/hadoop/common/hadoop-common.jar:/opt/hadoop/share/hadoop/hdfs/hadoop-hdfs.jar",
         "C:\\Apps\\hadoop\\etc\\hadoop;C:\\Apps\\hadoop\\share\\hadoop\\common\\hadoop-common.jar;C:\\Apps\\hadoop\\share\\hadoop\\hdfs\\hadoop-hdfs.jar"
@@ -484,7 +466,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 7,
       "classPaths": [
         "/opt/hive/conf:/opt/hive/lib/hive-service.jar:/opt/hive/lib/hive-exec.jar",
         "C:\\Apps\\hive\\conf;C:\\Apps\\hive\\lib\\hive-service.jar;C:\\Apps\\hive\\lib\\hive-exec.jar"
@@ -504,7 +485,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/hbase/conf:/opt/hbase/lib/hbase-server.jar:/opt/hbase/lib/hbase-common.jar",
         "C:\\Apps\\hbase\\conf;C:\\Apps\\hbase\\lib\\hbase-server.jar;C:\\Apps\\hbase\\lib\\hbase-common.jar"
@@ -524,7 +504,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\druid\\conf;C:\\Apps\\druid\\lib\\druid-services.jar",
         "/opt/druid/conf:/opt/druid/lib/druid-services.jar"
@@ -544,7 +523,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/pinot/lib/pinot-all.jar",
         "C:\\Apps\\pinot\\lib\\pinot-all.jar"
@@ -565,7 +543,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/ignite/libs/ignite-core.jar",
         "C:\\Apps\\ignite\\libs\\ignite-core.jar"
@@ -586,7 +563,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\maven\\boot\\plexus-classworlds.jar",
         "/Applications/maven/boot/plexus-classworlds.jar"
@@ -607,7 +583,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\groovy\\lib\\groovy.jar",
         "/Applications/groovy/lib/groovy.jar"
@@ -629,7 +604,6 @@
         "7",
         "8"
       ],
-      "sourceRecords": 6,
       "classPaths": [
         "C:\\Apps\\jython\\jython-standalone.jar",
         "/opt/jython/jython-standalone.jar"
@@ -650,7 +624,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 67,
       "classPaths": [
         "C:\\Apps\\tika\\tika-app.jar"
       ],
@@ -735,7 +708,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 176,
       "classPaths": [
         "C:\\Apps\\fop\\build\\fop.jar;C:\\Apps\\fop\\lib\\xmlgraphics-commons.jar"
       ],
@@ -929,7 +901,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 100,
       "classPaths": [
         "C:\\Apps\\pdfbox\\pdfbox-app.jar"
       ],
@@ -1047,7 +1018,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\batik\\batik-rasterizer.jar"
       ],
@@ -1068,7 +1038,6 @@
         "7",
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "C:\\Apps\\xalan\\xalan.jar;C:\\Apps\\xalan\\serializer.jar",
         "/opt/xalan/xalan.jar:/opt/xalan/serializer.jar"
@@ -1089,7 +1058,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/james/conf:/opt/james/lib/james-server.jar",
         "C:\\Apps\\james\\conf;C:\\Apps\\james\\lib\\james-server.jar"
@@ -1109,7 +1077,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/karaf/lib/boot/org.apache.karaf.main.jar",
         "C:\\Apps\\karaf\\lib\\boot\\org.apache.karaf.main.jar"
@@ -1129,7 +1096,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/servicemix/lib/boot/org.apache.karaf.main.jar",
         "C:\\Apps\\servicemix\\lib\\boot\\org.apache.karaf.main.jar"
@@ -1149,7 +1115,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\artemis\\lib\\artemis-boot.jar",
         "/opt/artemis/lib/artemis-boot.jar"
@@ -1169,7 +1134,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/bookkeeper/conf:/opt/bookkeeper/lib/bookkeeper-server.jar",
         "C:\\Apps\\bookkeeper\\conf;C:\\Apps\\bookkeeper\\lib\\bookkeeper-server.jar"
@@ -1190,7 +1154,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/pulsar/conf:/opt/pulsar/lib/pulsar-broker.jar",
         "C:\\Apps\\pulsar\\conf;C:\\Apps\\pulsar\\lib\\pulsar-broker.jar"
@@ -1211,7 +1174,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\zeppelin\\conf;C:\\Apps\\zeppelin\\lib\\zeppelin-server.jar",
         "/opt/zeppelin/conf:/opt/zeppelin/lib/zeppelin-server.jar"
@@ -1231,7 +1193,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/fuseki/fuseki-server.jar",
         "C:\\Apps\\fuseki\\fuseki-server.jar"
@@ -1252,7 +1213,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "C:\\Apps\\opennlp\\lib\\opennlp-tools.jar"
       ],
@@ -1271,7 +1231,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/metabase/metabase.jar",
         "C:\\Apps\\metabase\\metabase.jar"
@@ -1292,7 +1251,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/Applications/keycloak/lib/quarkus-run.jar",
         "/opt/keycloak/lib/quarkus-run.jar",
@@ -1315,7 +1273,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/wildfly/jboss-modules.jar",
         "C:\\Apps\\wildfly\\jboss-modules.jar"
@@ -1336,7 +1293,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/payara/payara-micro.jar",
         "C:\\Apps\\payara\\payara-micro.jar"
@@ -1357,7 +1313,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/glassfish/glassfish/modules/glassfish.jar",
         "C:\\Apps\\glassfish\\glassfish\\modules\\glassfish.jar"
@@ -1377,7 +1332,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\josm\\josm-tested.jar",
         "/opt/josm/josm-tested.jar",
@@ -1400,7 +1354,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 6,
       "classPaths": [
         "C:\\Apps\\jabref\\JabRef.jar",
         "/opt/jabref/JabRef.jar"
@@ -1421,7 +1374,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\jedit\\jedit.jar",
         "/opt/jedit/jedit.jar"
@@ -1442,7 +1394,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 7,
       "classPaths": [
         "C:\\Apps\\imagej\\ij.jar"
       ],
@@ -1461,7 +1412,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/sweethome3d/SweetHome3D.jar",
         "C:\\Apps\\sweethome3d\\SweetHome3D.jar"
@@ -1484,7 +1434,6 @@
         "8",
         "15"
       ],
-      "sourceRecords": 7,
       "classPaths": [
         "C:\\Apps\\invoice-processor\\invoice-processor.jar",
         "/opt/invoice-processor/invoice-processor.jar"
@@ -1509,7 +1458,6 @@
         "11",
         "12"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/inventory-service/inventory-service.jar",
         "C:\\Apps\\inventory-service\\inventory-service.jar"
@@ -1533,7 +1481,6 @@
         "8",
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/claims-gateway/claims-gateway.jar",
         "C:\\Apps\\claims-gateway\\claims-gateway.jar"
@@ -1557,7 +1504,6 @@
         "8",
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/payroll-batch/payroll-batch.jar",
         "C:\\Apps\\payroll-batch\\payroll-batch.jar"
@@ -1580,7 +1526,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 6,
       "classPaths": [
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
         "/opt/customer-portal/customer-portal.jar"
@@ -1604,7 +1549,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/shipment-tracker/shipment-tracker.jar",
         "C:\\Apps\\shipment-tracker\\shipment-tracker.jar"
@@ -1628,7 +1572,6 @@
         "17",
         "20"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/order-orchestrator/order-orchestrator.jar",
         "C:\\Apps\\order-orchestrator\\order-orchestrator.jar"
@@ -1651,7 +1594,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/pricing-engine/pricing-engine.jar",
         "C:\\Apps\\pricing-engine\\pricing-engine.jar"
@@ -1674,7 +1616,6 @@
       "javaMajors": [
         "8"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/fraud-monitor/fraud-monitor.jar",
         "C:\\Apps\\fraud-monitor\\fraud-monitor.jar"
@@ -1699,7 +1640,6 @@
         "11",
         "23"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/policy-service/policy-service.jar",
         "C:\\Java\\jdk1.8.0_121\\jre\\lib\\deploy.jar"
@@ -1723,7 +1663,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\billing-api\\billing-api.jar",
         "/opt/billing-api/billing-api.jar"
@@ -1746,7 +1685,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\audit-collector\\audit-collector.jar",
         "/opt/audit-collector/audit-collector.jar"
@@ -1770,7 +1708,6 @@
         "8",
         "24"
       ],
-      "sourceRecords": 8,
       "classPaths": [
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
         "/opt/report-scheduler/report-scheduler.jar"
@@ -1795,7 +1732,6 @@
         "8",
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Java\\jdk1.8.0_121\\jre\\lib\\deploy.jar",
         "C:\\Apps\\document-indexer\\document-indexer.jar"
@@ -1821,7 +1757,6 @@
         "17",
         "18"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
         "/opt/loyalty-service/loyalty-service.jar"
@@ -1846,7 +1781,6 @@
         "21",
         "22"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\data-reconciler\\data-reconciler.jar",
         "/opt/data-reconciler/data-reconciler.jar"
@@ -1870,7 +1804,6 @@
         "8",
         "26"
       ],
-      "sourceRecords": 7,
       "classPaths": [
         "C:\\Apps\\catalog-api\\catalog-api.jar",
         "/opt/catalog-api/catalog-api.jar"
@@ -1893,7 +1826,6 @@
       "javaMajors": [
         "11"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\risk-batch\\risk-batch.jar",
         "/opt/risk-batch/risk-batch.jar"
@@ -1918,7 +1850,6 @@
         "17",
         "19"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/asset-register/asset-register.jar",
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar"
@@ -1942,7 +1873,6 @@
       "javaMajors": [
         "21"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "/opt/consent-service/consent-service.jar",
         "C:\\Apps\\consent-service\\consent-service.jar"
@@ -1966,7 +1896,6 @@
         "8",
         "14"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar",
         "/opt/procurement-hub/procurement-hub.jar"
@@ -1991,7 +1920,6 @@
         "11",
         "13"
       ],
-      "sourceRecords": 4,
       "classPaths": [
         "C:\\Apps\\notification-worker\\notification-worker.jar",
         "/opt/notification-worker/notification-worker.jar"
@@ -2014,7 +1942,6 @@
       "javaMajors": [
         "17"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "C:\\Apps\\forecast-runner\\forecast-runner.jar",
         "/opt/forecast-runner/forecast-runner.jar"
@@ -2038,7 +1965,6 @@
         "21",
         "27"
       ],
-      "sourceRecords": 5,
       "classPaths": [
         "/opt/settlement-engine/settlement-engine.jar",
         "C:\\Apps\\settlement-engine\\settlement-engine.jar"
@@ -2062,7 +1988,6 @@
         "8",
         "16"
       ],
-      "sourceRecords": 6,
       "classPaths": [
         "/opt/timesheet-processor/timesheet-processor.jar",
         "C:\\Java\\jdk1.8.0_202\\jre\\lib\\deploy.jar"

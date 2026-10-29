@@ -14,10 +14,12 @@ Python, or Node.js.
 ## Features
 
 - Select Java releases across multiple JDK families.
+- Refresh released JDK 8-and-later versions from `ops.java`.
 - Select Java applications and their associated classpaths.
 - Select host names, IP addresses, platforms, and OS versions.
+- Add custom applications, hosts, and OS versions from their respective tabs.
 - Search, filter, select, and clear values independently on each tab.
-- Save and reload Java-version selections as properties files.
+- Save and reload Java-version selections as JSON files.
 - Export application, host, and OS selections as separate JSON files.
 - Generate a random 15-field JUT record using the current selections.
 - Randomize record timestamps between now and 90 days ago.
@@ -117,20 +119,79 @@ be stopped early, and generated records can be saved together.
 ### Java Versions
 
 Select individual Java releases or entire JDK families. Selections can be saved
-as a properties file and loaded again later.
+as a JSON configuration and loaded again later.
+
+Click **Update for latest versions** to retrieve Oracle's current release feed
+from [ops.java](https://ops.java/releases/). The update is additive:
+
+- Delivered standard releases and Security Alerts for JDK 8 and later are
+  considered.
+- Existing releases are never removed.
+- JDK releases before 8 are preserved unchanged.
+- Future releases are excluded.
+- Security Alert identifiers are preserved as published by `ops.java`, such as
+  `27.0.1.0.3` and `8u511b33`. For Java 8 alerts, the expected Usage Tracker
+  `java.version` omits the build suffix, such as `1.8.0_511`.
+- Existing selections remain selected; newly discovered versions appear in the
+  table for the user to select.
+
+Some Oracle/Akamai edge locations reject direct desktop HTTP clients with a
+`403` response. When that happens, JUG retries through the read-only
+`r.jina.ai` web renderer, verifies that the rendered source is
+`https://ops.java/releases.json`, and applies the same validation and filtering
+before saving anything. No catalog selections or local data are sent with
+either request.
+
+The refreshed catalog is saved outside the installed application and loaded
+automatically on subsequent launches:
+
+```text
+# macOS
+~/Library/Application Support/JavaUsageGenerator/catalog.json
+
+# Windows
+%APPDATA%\JavaUsageGenerator\catalog.json
+```
+
+The status line reports whether versions were added and displays the exact path
+of the saved catalog. The application falls back to its bundled catalog if the
+saved catalog is absent or invalid.
 
 ### Java Applications
 
 Select applications from the bundled application catalog. Each application
 includes the distinct classpath values associated with it in the source data.
+Use the **+** button to add an application with its Java majors, classpaths,
+commands, and start types.
 
 ### Hosts / IPs
 
 Select bundled host names and IP addresses, grouped by platform.
+Use the **+** button to add a hostname, IPv4 address, and platform.
 
 ### OS Versions
 
 Select operating-system versions, names, architectures, and platforms.
+Use the **+** button to add another OS version. New entries are selected by
+default and are immediately available to the packet generator.
+
+Custom entries are stored separately from the bundled catalogs and merged into
+the available choices whenever JUG starts:
+
+```text
+# macOS
+~/Library/Application Support/JavaUsageGenerator/custom-applications.json
+~/Library/Application Support/JavaUsageGenerator/custom-hosts.json
+~/Library/Application Support/JavaUsageGenerator/custom-os-versions.json
+
+# Windows
+%APPDATA%\JavaUsageGenerator\custom-applications.json
+%APPDATA%\JavaUsageGenerator\custom-hosts.json
+%APPDATA%\JavaUsageGenerator\custom-os-versions.json
+```
+
+The bundled JSON resources remain unchanged, so installing a newer JUG build
+does not overwrite the user's custom entries.
 
 ## Command-Line Interface
 
@@ -145,8 +206,8 @@ APP="target/dist/Java Usage Generator.app/Contents/MacOS/Java Usage Generator"
 "$APP" --help
 "$APP" --list
 "$APP" --all
-"$APP" --family 8 --version 17.0.3.1 --output versions.properties
-"$APP" --gui --input versions.properties
+"$APP" --family 8 --version 17.0.3.1 --output versions.json
+"$APP" --gui --input versions.json
 ```
 
 On Windows PowerShell, use the console-enabled `jug.exe` launcher:
@@ -157,8 +218,8 @@ $JUG = ".\target\dist\Java Usage Generator\jug.exe"
 & $JUG --help
 & $JUG --list
 & $JUG --all
-& $JUG --family 8 --version 17.0.3.1 --output versions.properties
-& $JUG --gui --input versions.properties
+& $JUG --family 8 --version 17.0.3.1 --output versions.json
+& $JUG --gui --input versions.json
 ```
 
 Use `--catalog FILE` to load a different Java release catalog. Existing output
@@ -177,6 +238,15 @@ The application packages four independent catalogs from `src/main/resources`:
 
 These resources are embedded in both the modular JAR and the linked runtime.
 
+Saved selections use separate JSON configuration files:
+
+| File | Selection |
+| --- | --- |
+| `generator-versions.json` | Java versions and their `java.version` mappings |
+| `generator-applications.json` | Java applications and classpaths |
+| `generator-hosts.json` | Hosts and IP addresses |
+| `generator-os-versions.json` | Operating-system versions |
+
 ## Java Modules
 
 The application module is `com.jtconnors.jug` and directly requires only
@@ -187,6 +257,7 @@ com.jtconnors.jug
 java.base
 java.datatransfer
 java.desktop
+java.net.http
 java.prefs
 java.xml
 ```

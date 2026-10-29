@@ -14,8 +14,7 @@
       "architectures": [
         "amd64",
         "aarch64"
-      ],
-      "sourceRecords": 185
+      ]
     },
     {
       "id": "OSV-002",
@@ -27,8 +26,7 @@
       "architectures": [
         "amd64",
         "sparcv9"
-      ],
-      "sourceRecords": 4
+      ]
     },
     {
       "id": "OSV-003",
@@ -40,8 +38,7 @@
       ],
       "architectures": [
         "amd64"
-      ],
-      "sourceRecords": 623
+      ]
     },
     {
       "id": "OSV-004",
@@ -52,8 +49,7 @@
       ],
       "architectures": [
         "amd64"
-      ],
-      "sourceRecords": 8
+      ]
     },
     {
       "id": "OSV-005",
@@ -64,8 +60,7 @@
       ],
       "architectures": [
         "arm64"
-      ],
-      "sourceRecords": 6
+      ]
     },
     {
       "id": "OSV-006",
@@ -76,8 +71,7 @@
       ],
       "architectures": [
         "x86_64"
-      ],
-      "sourceRecords": 10
+      ]
     },
     {
       "id": "OSV-007",
@@ -89,8 +83,7 @@
       "architectures": [
         "amd64",
         "sparcv9"
-      ],
-      "sourceRecords": 4
+      ]
     }
   ]
 }

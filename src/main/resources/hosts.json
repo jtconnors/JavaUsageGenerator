@@ -9,2400 +9,2100 @@
       "value": "LNX-CASSANDRA-03/10.20.13.12",
       "hostName": "LNX-CASSANDRA-03",
       "ipAddress": "10.20.13.12",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-002",
       "value": "SOL-PAYROLL-BATCH-03/10.21.4.12",
       "hostName": "SOL-PAYROLL-BATCH-03",
       "ipAddress": "10.21.4.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-003",
       "value": "LNX-IGNITE-04/10.20.23.13",
       "hostName": "LNX-IGNITE-04",
       "ipAddress": "10.20.23.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-004",
       "value": "LNX-FLINK-02/10.20.16.11",
       "hostName": "LNX-FLINK-02",
       "ipAddress": "10.20.16.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-005",
       "value": "WIN-CATALOG-API-01/10.21.17.10",
       "hostName": "WIN-CATALOG-API-01",
       "ipAddress": "10.21.17.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-006",
       "value": "WIN-FORECAST-RUNNER-01/10.21.23.10",
       "hostName": "WIN-FORECAST-RUNNER-01",
       "ipAddress": "10.21.23.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-007",
       "value": "WIN-ZEPPELIN-01/10.20.38.10",
       "hostName": "WIN-ZEPPELIN-01",
       "ipAddress": "10.20.38.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-008",
       "value": "LNX-KARAF-04/10.20.33.13",
       "hostName": "LNX-KARAF-04",
       "ipAddress": "10.20.33.13",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-009",
       "value": "WIN-AUDIT-COLLECTOR-01/10.21.12.10",
       "hostName": "WIN-AUDIT-COLLECTOR-01",
       "ipAddress": "10.21.12.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-010",
       "value": "WIN-DOCUMENT-INDEXER-01/10.21.14.10",
       "hostName": "WIN-DOCUMENT-INDEXER-01",
       "ipAddress": "10.21.14.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-011",
       "value": "SOL-SERVICEMIX-03/10.20.34.12",
       "hostName": "SOL-SERVICEMIX-03",
       "ipAddress": "10.20.34.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-012",
       "value": "LNX-IGNITE-02/10.20.23.11",
       "hostName": "LNX-IGNITE-02",
       "ipAddress": "10.20.23.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-013",
       "value": "LNX-WILDFLY-03/10.20.43.12",
       "hostName": "LNX-WILDFLY-03",
       "ipAddress": "10.20.43.12",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-014",
       "value": "WIN-OPENNLP-01/10.20.40.10",
       "hostName": "WIN-OPENNLP-01",
       "ipAddress": "10.20.40.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-015",
       "value": "LNX-CASSANDRA-02/10.20.13.11",
       "hostName": "LNX-CASSANDRA-02",
       "ipAddress": "10.20.13.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-016",
       "value": "WIN-DRUID-01/10.20.21.10",
       "hostName": "WIN-DRUID-01",
       "ipAddress": "10.20.21.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-017",
       "value": "LNX-FRAUD-MONITOR-02/10.21.9.11",
       "hostName": "LNX-FRAUD-MONITOR-02",
       "ipAddress": "10.21.9.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-018",
       "value": "WIN-GROOVY-04/10.20.25.13",
       "hostName": "WIN-GROOVY-04",
       "ipAddress": "10.20.25.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-019",
       "value": "LNX-INVENTORY-SERVICE-04/10.21.2.13",
       "hostName": "LNX-INVENTORY-SERVICE-04",
       "ipAddress": "10.21.2.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-020",
       "value": "WIN-IGNITE-01/10.20.23.10",
       "hostName": "WIN-IGNITE-01",
       "ipAddress": "10.20.23.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-021",
       "value": "WIN-NOTIFICATION-WORKER-01/10.21.22.10",
       "hostName": "WIN-NOTIFICATION-WORKER-01",
       "ipAddress": "10.21.22.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-022",
       "value": "LNXARM-AUDIT-COLLECTOR-03/10.21.12.12",
       "hostName": "LNXARM-AUDIT-COLLECTOR-03",
       "ipAddress": "10.21.12.12",
-      "platform": "Linux ARM",
-      "sourceRecords": 1
+      "platform": "Linux ARM"
     },
     {
       "id": "HOST-023",
       "value": "LNX-PINOT-02/10.20.22.11",
       "hostName": "LNX-PINOT-02",
       "ipAddress": "10.20.22.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-024",
       "value": "WIN-PROCUREMENT-HUB-01/10.21.21.10",
       "hostName": "WIN-PROCUREMENT-HUB-01",
       "ipAddress": "10.21.21.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-025",
       "value": "LNX-PAYROLL-BATCH-04/10.21.4.13",
       "hostName": "LNX-PAYROLL-BATCH-04",
       "ipAddress": "10.21.4.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-026",
       "value": "LNX-HBASE-03/10.20.20.12",
       "hostName": "LNX-HBASE-03",
       "ipAddress": "10.20.20.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-027",
       "value": "WIN-JEDIT-03/10.20.48.12",
       "hostName": "WIN-JEDIT-03",
       "ipAddress": "10.20.48.12",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-028",
       "value": "WIN-SERVICEMIX-01/10.20.34.10",
       "hostName": "WIN-SERVICEMIX-01",
       "ipAddress": "10.20.34.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-029",
       "value": "LNX-KARAF-02/10.20.33.11",
       "hostName": "LNX-KARAF-02",
       "ipAddress": "10.20.33.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-030",
       "value": "LNX-FUSEKI-04/10.20.39.13",
       "hostName": "LNX-FUSEKI-04",
       "ipAddress": "10.20.39.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-031",
       "value": "WIN-JMETER-03/10.20.6.12",
       "hostName": "WIN-JMETER-03",
       "ipAddress": "10.20.6.12",
-      "platform": "Windows",
-      "sourceRecords": 45
+      "platform": "Windows"
     },
     {
       "id": "HOST-032",
       "value": "WIN-JYTHON-01/10.20.26.10",
       "hostName": "WIN-JYTHON-01",
       "ipAddress": "10.20.26.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-033",
       "value": "WIN-JEDIT-02/10.20.48.11",
       "hostName": "WIN-JEDIT-02",
       "ipAddress": "10.20.48.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-034",
       "value": "LNX-NIFI-03/10.20.15.12",
       "hostName": "LNX-NIFI-03",
       "ipAddress": "10.20.15.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-035",
       "value": "WIN-PDFBOX-02/10.20.29.11",
       "hostName": "WIN-PDFBOX-02",
       "ipAddress": "10.20.29.11",
-      "platform": "Windows",
-      "sourceRecords": 25
+      "platform": "Windows"
     },
     {
       "id": "HOST-036",
       "value": "LNXARM-ASSET-REGISTER-02/10.21.19.11",
       "hostName": "LNXARM-ASSET-REGISTER-02",
       "ipAddress": "10.21.19.11",
-      "platform": "Linux ARM",
-      "sourceRecords": 1
+      "platform": "Linux ARM"
     },
     {
       "id": "HOST-037",
       "value": "LNX-ORDER-ORCHESTRATOR-02/10.21.7.11",
       "hostName": "LNX-ORDER-ORCHESTRATOR-02",
       "ipAddress": "10.21.7.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-038",
       "value": "MAC-CHECKSTYLE-02/10.20.9.11",
       "hostName": "MAC-CHECKSTYLE-02",
       "ipAddress": "10.20.9.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-039",
       "value": "WIN-TIKA-02/10.20.27.11",
       "hostName": "WIN-TIKA-02",
       "ipAddress": "10.20.27.11",
-      "platform": "Windows",
-      "sourceRecords": 17
+      "platform": "Windows"
     },
     {
       "id": "HOST-040",
       "value": "WIN-IMAGEJ-04/10.20.49.13",
       "hostName": "WIN-IMAGEJ-04",
       "ipAddress": "10.20.49.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-041",
       "value": "LNX-FLINK-04/10.20.16.13",
       "hostName": "LNX-FLINK-04",
       "ipAddress": "10.20.16.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-042",
       "value": "LNX-SHIPMENT-TRACKER-02/10.21.6.11",
       "hostName": "LNX-SHIPMENT-TRACKER-02",
       "ipAddress": "10.21.6.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-043",
       "value": "LNX-TOMCAT-04/10.20.1.13",
       "hostName": "LNX-TOMCAT-04",
       "ipAddress": "10.20.1.13",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-044",
       "value": "WIN-IMAGEJ-01/10.20.49.10",
       "hostName": "WIN-IMAGEJ-01",
       "ipAddress": "10.20.49.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-045",
       "value": "LNX-JAMES-04/10.20.32.13",
       "hostName": "LNX-JAMES-04",
       "ipAddress": "10.20.32.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-046",
       "value": "WIN-CUSTOMER-PORTAL-01/10.21.5.10",
       "hostName": "WIN-CUSTOMER-PORTAL-01",
       "ipAddress": "10.21.5.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-047",
       "value": "MAC-PLANTUML-02/10.20.10.11",
       "hostName": "MAC-PLANTUML-02",
       "ipAddress": "10.20.10.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-048",
       "value": "WIN-IMAGEJ-02/10.20.49.11",
       "hostName": "WIN-IMAGEJ-02",
       "ipAddress": "10.20.49.11",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-049",
       "value": "LNX-CATALOG-API-04/10.21.17.13",
       "hostName": "LNX-CATALOG-API-04",
       "ipAddress": "10.21.17.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-050",
       "value": "LNX-JEDIT-04/10.20.48.13",
       "hostName": "LNX-JEDIT-04",
       "ipAddress": "10.20.48.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-051",
       "value": "LNX-ZOOKEEPER-04/10.20.12.13",
       "hostName": "LNX-ZOOKEEPER-04",
       "ipAddress": "10.20.12.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-052",
       "value": "LNX-KARAF-03/10.20.33.12",
       "hostName": "LNX-KARAF-03",
       "ipAddress": "10.20.33.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-053",
       "value": "LNX-DRUID-03/10.20.21.12",
       "hostName": "LNX-DRUID-03",
       "ipAddress": "10.20.21.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-054",
       "value": "WIN-ANT-02/10.20.5.11",
       "hostName": "WIN-ANT-02",
       "ipAddress": "10.20.5.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-055",
       "value": "LNX-HIVE-02/10.20.19.11",
       "hostName": "LNX-HIVE-02",
       "ipAddress": "10.20.19.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-056",
       "value": "WIN-FUSEKI-01/10.20.39.10",
       "hostName": "WIN-FUSEKI-01",
       "ipAddress": "10.20.39.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-057",
       "value": "LNX-NIFI-04/10.20.15.13",
       "hostName": "LNX-NIFI-04",
       "ipAddress": "10.20.15.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-058",
       "value": "LNX-TIMESHEET-PROCESSOR-04/10.21.25.13",
       "hostName": "LNX-TIMESHEET-PROCESSOR-04",
       "ipAddress": "10.21.25.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-059",
       "value": "WIN-FOP-04/10.20.28.13",
       "hostName": "WIN-FOP-04",
       "ipAddress": "10.20.28.13",
-      "platform": "Windows",
-      "sourceRecords": 44
+      "platform": "Windows"
     },
     {
       "id": "HOST-060",
       "value": "WIN-NIFI-01/10.20.15.10",
       "hostName": "WIN-NIFI-01",
       "ipAddress": "10.20.15.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-061",
       "value": "LNX-WILDFLY-02/10.20.43.11",
       "hostName": "LNX-WILDFLY-02",
       "ipAddress": "10.20.43.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-062",
       "value": "LNX-PULSAR-02/10.20.37.11",
       "hostName": "LNX-PULSAR-02",
       "ipAddress": "10.20.37.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-063",
       "value": "LNX-SETTLEMENT-ENGINE-03/10.21.24.12",
       "hostName": "LNX-SETTLEMENT-ENGINE-03",
       "ipAddress": "10.21.24.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-064",
       "value": "WIN-RISK-BATCH-01/10.21.18.10",
       "hostName": "WIN-RISK-BATCH-01",
       "ipAddress": "10.21.18.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-065",
       "value": "WIN-INVOICE-PROCESSOR-01/10.21.1.10",
       "hostName": "WIN-INVOICE-PROCESSOR-01",
       "ipAddress": "10.21.1.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-066",
       "value": "WIN-OPENNLP-04/10.20.40.13",
       "hostName": "WIN-OPENNLP-04",
       "ipAddress": "10.20.40.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-067",
       "value": "WIN-BILLING-API-01/10.21.11.10",
       "hostName": "WIN-BILLING-API-01",
       "ipAddress": "10.21.11.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-068",
       "value": "WIN-ARTEMIS-01/10.20.35.10",
       "hostName": "WIN-ARTEMIS-01",
       "ipAddress": "10.20.35.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-069",
       "value": "WIN-JAMES-01/10.20.32.10",
       "hostName": "WIN-JAMES-01",
       "ipAddress": "10.20.32.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-070",
       "value": "WIN-ORDER-ORCHESTRATOR-01/10.21.7.10",
       "hostName": "WIN-ORDER-ORCHESTRATOR-01",
       "ipAddress": "10.21.7.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-071",
       "value": "SOL-JYTHON-03/10.20.26.12",
       "hostName": "SOL-JYTHON-03",
       "ipAddress": "10.20.26.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-072",
       "value": "LNXARM-AUDIT-COLLECTOR-02/10.21.12.11",
       "hostName": "LNXARM-AUDIT-COLLECTOR-02",
       "ipAddress": "10.21.12.11",
-      "platform": "Linux ARM",
-      "sourceRecords": 1
+      "platform": "Linux ARM"
     },
     {
       "id": "HOST-073",
       "value": "WIN-MAVEN-04/10.20.24.13",
       "hostName": "WIN-MAVEN-04",
       "ipAddress": "10.20.24.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-074",
       "value": "LNX-ARTEMIS-03/10.20.35.12",
       "hostName": "LNX-ARTEMIS-03",
       "ipAddress": "10.20.35.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-075",
       "value": "LNX-METABASE-03/10.20.41.12",
       "hostName": "LNX-METABASE-03",
       "ipAddress": "10.20.41.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-076",
       "value": "LNX-FORECAST-RUNNER-02/10.21.23.11",
       "hostName": "LNX-FORECAST-RUNNER-02",
       "ipAddress": "10.21.23.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-077",
       "value": "LNX-BILLING-API-04/10.21.11.13",
       "hostName": "LNX-BILLING-API-04",
       "ipAddress": "10.21.11.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-078",
       "value": "WIN-SETTLEMENT-ENGINE-01/10.21.24.10",
       "hostName": "WIN-SETTLEMENT-ENGINE-01",
       "ipAddress": "10.21.24.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-079",
       "value": "WIN-XALAN-01/10.20.31.10",
       "hostName": "WIN-XALAN-01",
       "ipAddress": "10.20.31.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-080",
       "value": "WIN-JOSM-01/10.20.46.10",
       "hostName": "WIN-JOSM-01",
       "ipAddress": "10.20.46.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-081",
       "value": "LNX-FUSEKI-03/10.20.39.12",
       "hostName": "LNX-FUSEKI-03",
       "ipAddress": "10.20.39.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-082",
       "value": "LNX-ACTIVEMQ-04/10.20.7.13",
       "hostName": "LNX-ACTIVEMQ-04",
       "ipAddress": "10.20.7.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-083",
       "value": "MAC-KEYCLOAK-03/10.20.42.12",
       "hostName": "MAC-KEYCLOAK-03",
       "ipAddress": "10.20.42.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-084",
       "value": "LNX-HIVE-03/10.20.19.12",
       "hostName": "LNX-HIVE-03",
       "ipAddress": "10.20.19.12",
-      "platform": "Linux",
-      "sourceRecords": 3
+      "platform": "Linux"
     },
     {
       "id": "HOST-085",
       "value": "SOL-ANT-03/10.20.5.12",
       "hostName": "SOL-ANT-03",
       "ipAddress": "10.20.5.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-086",
       "value": "WIN-CASSANDRA-01/10.20.13.10",
       "hostName": "WIN-CASSANDRA-01",
       "ipAddress": "10.20.13.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-087",
       "value": "LNX-KAFKA-04/10.20.11.13",
       "hostName": "LNX-KAFKA-04",
       "ipAddress": "10.20.11.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-088",
       "value": "WIN-FRAUD-MONITOR-01/10.21.9.10",
       "hostName": "WIN-FRAUD-MONITOR-01",
       "ipAddress": "10.21.9.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-089",
       "value": "LNX-SPARK-02/10.20.17.11",
       "hostName": "LNX-SPARK-02",
       "ipAddress": "10.20.17.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-090",
       "value": "WIN-ANT-01/10.20.5.10",
       "hostName": "WIN-ANT-01",
       "ipAddress": "10.20.5.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-091",
       "value": "WIN-DOCUMENT-INDEXER-03/10.21.14.12",
       "hostName": "WIN-DOCUMENT-INDEXER-03",
       "ipAddress": "10.21.14.12",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-092",
       "value": "LNX-RISK-BATCH-04/10.21.18.13",
       "hostName": "LNX-RISK-BATCH-04",
       "ipAddress": "10.21.18.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-093",
       "value": "LNX-HIVE-04/10.20.19.13",
       "hostName": "LNX-HIVE-04",
       "ipAddress": "10.20.19.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-094",
       "value": "LNX-HADOOP-02/10.20.18.11",
       "hostName": "LNX-HADOOP-02",
       "ipAddress": "10.20.18.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-095",
       "value": "LNX-PRICING-ENGINE-02/10.21.8.11",
       "hostName": "LNX-PRICING-ENGINE-02",
       "ipAddress": "10.21.8.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-096",
       "value": "LNX-SPARK-04/10.20.17.13",
       "hostName": "LNX-SPARK-04",
       "ipAddress": "10.20.17.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-097",
       "value": "WIN-PRICING-ENGINE-01/10.21.8.10",
       "hostName": "WIN-PRICING-ENGINE-01",
       "ipAddress": "10.21.8.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-098",
       "value": "LNX-SHIPMENT-TRACKER-03/10.21.6.12",
       "hostName": "LNX-SHIPMENT-TRACKER-03",
       "ipAddress": "10.21.6.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-099",
       "value": "WIN-FOP-02/10.20.28.11",
       "hostName": "WIN-FOP-02",
       "ipAddress": "10.20.28.11",
-      "platform": "Windows",
-      "sourceRecords": 44
+      "platform": "Windows"
     },
     {
       "id": "HOST-100",
       "value": "LNX-H2-02/10.20.2.11",
       "hostName": "LNX-H2-02",
       "ipAddress": "10.20.2.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-101",
       "value": "WIN-DOCUMENT-INDEXER-04/10.21.14.13",
       "hostName": "WIN-DOCUMENT-INDEXER-04",
       "ipAddress": "10.21.14.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-102",
       "value": "LNX-CATALOG-API-03/10.21.17.12",
       "hostName": "LNX-CATALOG-API-03",
       "ipAddress": "10.21.17.12",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-103",
       "value": "LNX-CONSENT-SERVICE-02/10.21.20.11",
       "hostName": "LNX-CONSENT-SERVICE-02",
       "ipAddress": "10.21.20.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-104",
       "value": "LNX-RISK-BATCH-02/10.21.18.11",
       "hostName": "LNX-RISK-BATCH-02",
       "ipAddress": "10.21.18.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-105",
       "value": "LNX-INVOICE-PROCESSOR-02/10.21.1.11",
       "hostName": "LNX-INVOICE-PROCESSOR-02",
       "ipAddress": "10.21.1.11",
-      "platform": "Linux",
-      "sourceRecords": 3
+      "platform": "Linux"
     },
     {
       "id": "HOST-106",
       "value": "WIN-BATIK-02/10.20.30.11",
       "hostName": "WIN-BATIK-02",
       "ipAddress": "10.20.30.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-107",
       "value": "LNX-ZOOKEEPER-03/10.20.12.12",
       "hostName": "LNX-ZOOKEEPER-03",
       "ipAddress": "10.20.12.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-108",
       "value": "LNX-PULSAR-04/10.20.37.13",
       "hostName": "LNX-PULSAR-04",
       "ipAddress": "10.20.37.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-109",
       "value": "MAC-PLANTUML-03/10.20.10.12",
       "hostName": "MAC-PLANTUML-03",
       "ipAddress": "10.20.10.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-110",
       "value": "LNX-SHIPMENT-TRACKER-04/10.21.6.13",
       "hostName": "LNX-SHIPMENT-TRACKER-04",
       "ipAddress": "10.21.6.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-111",
       "value": "LNX-CLAIMS-GATEWAY-02/10.21.3.11",
       "hostName": "LNX-CLAIMS-GATEWAY-02",
       "ipAddress": "10.21.3.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-112",
       "value": "WIN-FLINK-01/10.20.16.10",
       "hostName": "WIN-FLINK-01",
       "ipAddress": "10.20.16.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-113",
       "value": "LNX-DRUID-02/10.20.21.11",
       "hostName": "LNX-DRUID-02",
       "ipAddress": "10.20.21.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-114",
       "value": "LNX-ZEPPELIN-03/10.20.38.12",
       "hostName": "LNX-ZEPPELIN-03",
       "ipAddress": "10.20.38.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-115",
       "value": "WIN-REPORT-SCHEDULER-01/10.21.13.10",
       "hostName": "WIN-REPORT-SCHEDULER-01",
       "ipAddress": "10.21.13.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-116",
       "value": "WIN-LOYALTY-SERVICE-01/10.21.15.10",
       "hostName": "WIN-LOYALTY-SERVICE-01",
       "ipAddress": "10.21.15.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-117",
       "value": "LNX-GLASSFISH-02/10.20.45.11",
       "hostName": "LNX-GLASSFISH-02",
       "ipAddress": "10.20.45.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-118",
       "value": "LNX-WILDFLY-04/10.20.43.13",
       "hostName": "LNX-WILDFLY-04",
       "ipAddress": "10.20.43.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-119",
       "value": "SOL-CLAIMS-GATEWAY-03/10.21.3.12",
       "hostName": "SOL-CLAIMS-GATEWAY-03",
       "ipAddress": "10.21.3.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-120",
       "value": "WIN-JYTHON-02/10.20.26.11",
       "hostName": "WIN-JYTHON-02",
       "ipAddress": "10.20.26.11",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-121",
       "value": "WIN-FOP-03/10.20.28.12",
       "hostName": "WIN-FOP-03",
       "ipAddress": "10.20.28.12",
-      "platform": "Windows",
-      "sourceRecords": 44
+      "platform": "Windows"
     },
     {
       "id": "HOST-122",
       "value": "LNX-TOMCAT-02/10.20.1.11",
       "hostName": "LNX-TOMCAT-02",
       "ipAddress": "10.20.1.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-123",
       "value": "WIN-DOCUMENT-INDEXER-02/10.21.14.11",
       "hostName": "WIN-DOCUMENT-INDEXER-02",
       "ipAddress": "10.21.14.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-124",
       "value": "LNX-ZOOKEEPER-02/10.20.12.11",
       "hostName": "LNX-ZOOKEEPER-02",
       "ipAddress": "10.20.12.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-125",
       "value": "WIN-SHIPMENT-TRACKER-01/10.21.6.10",
       "hostName": "WIN-SHIPMENT-TRACKER-01",
       "ipAddress": "10.21.6.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-126",
       "value": "LNX-SETTLEMENT-ENGINE-04/10.21.24.13",
       "hostName": "LNX-SETTLEMENT-ENGINE-04",
       "ipAddress": "10.21.24.13",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-127",
       "value": "LNX-CONSENT-SERVICE-04/10.21.20.13",
       "hostName": "LNX-CONSENT-SERVICE-04",
       "ipAddress": "10.21.20.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-128",
       "value": "WIN-DERBY-01/10.20.8.10",
       "hostName": "WIN-DERBY-01",
       "ipAddress": "10.20.8.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-129",
       "value": "LNX-REPORT-SCHEDULER-02/10.21.13.11",
       "hostName": "LNX-REPORT-SCHEDULER-02",
       "ipAddress": "10.21.13.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-130",
       "value": "LNX-FRAUD-MONITOR-03/10.21.9.12",
       "hostName": "LNX-FRAUD-MONITOR-03",
       "ipAddress": "10.21.9.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-131",
       "value": "LNX-REPORT-SCHEDULER-04/10.21.13.13",
       "hostName": "LNX-REPORT-SCHEDULER-04",
       "ipAddress": "10.21.13.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-132",
       "value": "LNX-ASSET-REGISTER-04/10.21.19.13",
       "hostName": "LNX-ASSET-REGISTER-04",
       "ipAddress": "10.21.19.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-133",
       "value": "WIN-OPENNLP-03/10.20.40.12",
       "hostName": "WIN-OPENNLP-03",
       "ipAddress": "10.20.40.12",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-134",
       "value": "LNX-KAFKA-03/10.20.11.12",
       "hostName": "LNX-KAFKA-03",
       "ipAddress": "10.20.11.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-135",
       "value": "LNX-PAYARA-03/10.20.44.12",
       "hostName": "LNX-PAYARA-03",
       "ipAddress": "10.20.44.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-136",
       "value": "LNX-PINOT-03/10.20.22.12",
       "hostName": "LNX-PINOT-03",
       "ipAddress": "10.20.22.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-137",
       "value": "LNX-SWEETHOME3D-04/10.20.50.13",
       "hostName": "LNX-SWEETHOME3D-04",
       "ipAddress": "10.20.50.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-138",
       "value": "LNX-LOYALTY-SERVICE-03/10.21.15.12",
       "hostName": "LNX-LOYALTY-SERVICE-03",
       "ipAddress": "10.21.15.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-139",
       "value": "MAC-JENKINS-03/10.20.4.12",
       "hostName": "MAC-JENKINS-03",
       "ipAddress": "10.20.4.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-140",
       "value": "LNX-JOSM-04/10.20.46.13",
       "hostName": "LNX-JOSM-04",
       "ipAddress": "10.20.46.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-141",
       "value": "LNX-AUDIT-COLLECTOR-04/10.21.12.13",
       "hostName": "LNX-AUDIT-COLLECTOR-04",
       "ipAddress": "10.21.12.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-142",
       "value": "LNX-H2-04/10.20.2.13",
       "hostName": "LNX-H2-04",
       "ipAddress": "10.20.2.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-143",
       "value": "SOL-XALAN-03/10.20.31.12",
       "hostName": "SOL-XALAN-03",
       "ipAddress": "10.20.31.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-144",
       "value": "LNX-CUSTOMER-PORTAL-03/10.21.5.12",
       "hostName": "LNX-CUSTOMER-PORTAL-03",
       "ipAddress": "10.21.5.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-145",
       "value": "LNX-BOOKKEEPER-04/10.20.36.13",
       "hostName": "LNX-BOOKKEEPER-04",
       "ipAddress": "10.20.36.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-146",
       "value": "LNX-POLICY-SERVICE-02/10.21.10.11",
       "hostName": "LNX-POLICY-SERVICE-02",
       "ipAddress": "10.21.10.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-147",
       "value": "WIN-XALAN-04/10.20.31.13",
       "hostName": "WIN-XALAN-04",
       "ipAddress": "10.20.31.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-148",
       "value": "LNX-ARTEMIS-02/10.20.35.11",
       "hostName": "LNX-ARTEMIS-02",
       "ipAddress": "10.20.35.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-149",
       "value": "WIN-IMAGEJ-03/10.20.49.12",
       "hostName": "WIN-IMAGEJ-03",
       "ipAddress": "10.20.49.12",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-150",
       "value": "MAC-CHECKSTYLE-03/10.20.9.12",
       "hostName": "MAC-CHECKSTYLE-03",
       "ipAddress": "10.20.9.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-151",
       "value": "LNX-REPORT-SCHEDULER-03/10.21.13.12",
       "hostName": "LNX-REPORT-SCHEDULER-03",
       "ipAddress": "10.21.13.12",
-      "platform": "Linux",
-      "sourceRecords": 4
+      "platform": "Linux"
     },
     {
       "id": "HOST-152",
       "value": "WIN-GLASSFISH-01/10.20.45.10",
       "hostName": "WIN-GLASSFISH-01",
       "ipAddress": "10.20.45.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-153",
       "value": "WIN-TIMESHEET-PROCESSOR-01/10.21.25.10",
       "hostName": "WIN-TIMESHEET-PROCESSOR-01",
       "ipAddress": "10.21.25.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-154",
       "value": "WIN-PULSAR-01/10.20.37.10",
       "hostName": "WIN-PULSAR-01",
       "ipAddress": "10.20.37.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-155",
       "value": "WIN-SWEETHOME3D-02/10.20.50.11",
       "hostName": "WIN-SWEETHOME3D-02",
       "ipAddress": "10.20.50.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-156",
       "value": "WIN-XALAN-02/10.20.31.11",
       "hostName": "WIN-XALAN-02",
       "ipAddress": "10.20.31.11",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-157",
       "value": "WIN-JABREF-03/10.20.47.12",
       "hostName": "WIN-JABREF-03",
       "ipAddress": "10.20.47.12",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-158",
       "value": "LNX-TOMCAT-03/10.20.1.12",
       "hostName": "LNX-TOMCAT-03",
       "ipAddress": "10.20.1.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-159",
       "value": "WIN-PDFBOX-01/10.20.29.10",
       "hostName": "WIN-PDFBOX-01",
       "ipAddress": "10.20.29.10",
-      "platform": "Windows",
-      "sourceRecords": 25
+      "platform": "Windows"
     },
     {
       "id": "HOST-160",
       "value": "WIN-ANT-04/10.20.5.13",
       "hostName": "WIN-ANT-04",
       "ipAddress": "10.20.5.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-161",
       "value": "LNX-SERVICEMIX-02/10.20.34.11",
       "hostName": "LNX-SERVICEMIX-02",
       "ipAddress": "10.20.34.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-162",
       "value": "LNX-BILLING-API-03/10.21.11.12",
       "hostName": "LNX-BILLING-API-03",
       "ipAddress": "10.21.11.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-163",
       "value": "WIN-CLAIMS-GATEWAY-01/10.21.3.10",
       "hostName": "WIN-CLAIMS-GATEWAY-01",
       "ipAddress": "10.21.3.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-164",
       "value": "LNX-TIMESHEET-PROCESSOR-03/10.21.25.12",
       "hostName": "LNX-TIMESHEET-PROCESSOR-03",
       "ipAddress": "10.21.25.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-165",
       "value": "WIN-METABASE-01/10.20.41.10",
       "hostName": "WIN-METABASE-01",
       "ipAddress": "10.20.41.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-166",
       "value": "MAC-JENKINS-02/10.20.4.11",
       "hostName": "MAC-JENKINS-02",
       "ipAddress": "10.20.4.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-167",
       "value": "LNX-HBASE-02/10.20.20.11",
       "hostName": "LNX-HBASE-02",
       "ipAddress": "10.20.20.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-168",
       "value": "LNX-JABREF-04/10.20.47.13",
       "hostName": "LNX-JABREF-04",
       "ipAddress": "10.20.47.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-169",
       "value": "LNX-PRICING-ENGINE-04/10.21.8.13",
       "hostName": "LNX-PRICING-ENGINE-04",
       "ipAddress": "10.21.8.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-170",
       "value": "LNX-DERBY-02/10.20.8.11",
       "hostName": "LNX-DERBY-02",
       "ipAddress": "10.20.8.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-171",
       "value": "WIN-CHECKSTYLE-01/10.20.9.10",
       "hostName": "WIN-CHECKSTYLE-01",
       "ipAddress": "10.20.9.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-172",
       "value": "WIN-JMETER-01/10.20.6.10",
       "hostName": "WIN-JMETER-01",
       "ipAddress": "10.20.6.10",
-      "platform": "Windows",
-      "sourceRecords": 41
+      "platform": "Windows"
     },
     {
       "id": "HOST-173",
       "value": "WIN-KARAF-01/10.20.33.10",
       "hostName": "WIN-KARAF-01",
       "ipAddress": "10.20.33.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-174",
       "value": "LNX-ZEPPELIN-04/10.20.38.13",
       "hostName": "LNX-ZEPPELIN-04",
       "ipAddress": "10.20.38.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-175",
       "value": "WIN-POLICY-SERVICE-01/10.21.10.10",
       "hostName": "WIN-POLICY-SERVICE-01",
       "ipAddress": "10.21.10.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-176",
       "value": "MAC-KEYCLOAK-02/10.20.42.11",
       "hostName": "MAC-KEYCLOAK-02",
       "ipAddress": "10.20.42.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-177",
       "value": "LNX-JENKINS-04/10.20.4.13",
       "hostName": "LNX-JENKINS-04",
       "ipAddress": "10.20.4.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-178",
       "value": "WIN-DATA-RECONCILER-01/10.21.16.10",
       "hostName": "WIN-DATA-RECONCILER-01",
       "ipAddress": "10.21.16.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-179",
       "value": "LNX-CLAIMS-GATEWAY-04/10.21.3.13",
       "hostName": "LNX-CLAIMS-GATEWAY-04",
       "ipAddress": "10.21.3.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-180",
       "value": "LNX-ORDER-ORCHESTRATOR-03/10.21.7.12",
       "hostName": "LNX-ORDER-ORCHESTRATOR-03",
       "ipAddress": "10.21.7.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-181",
       "value": "WIN-OPENNLP-02/10.20.40.11",
       "hostName": "WIN-OPENNLP-02",
       "ipAddress": "10.20.40.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-182",
       "value": "WIN-CONSENT-SERVICE-01/10.21.20.10",
       "hostName": "WIN-CONSENT-SERVICE-01",
       "ipAddress": "10.21.20.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-183",
       "value": "LNX-PROCUREMENT-HUB-03/10.21.21.12",
       "hostName": "LNX-PROCUREMENT-HUB-03",
       "ipAddress": "10.21.21.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-184",
       "value": "LNX-DERBY-03/10.20.8.12",
       "hostName": "LNX-DERBY-03",
       "ipAddress": "10.20.8.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-185",
       "value": "LNX-PRICING-ENGINE-03/10.21.8.12",
       "hostName": "LNX-PRICING-ENGINE-03",
       "ipAddress": "10.21.8.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-186",
       "value": "MAC-JETTY-03/10.20.3.12",
       "hostName": "MAC-JETTY-03",
       "ipAddress": "10.20.3.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-187",
       "value": "LNX-IGNITE-03/10.20.23.12",
       "hostName": "LNX-IGNITE-03",
       "ipAddress": "10.20.23.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-188",
       "value": "LNX-METABASE-02/10.20.41.11",
       "hostName": "LNX-METABASE-02",
       "ipAddress": "10.20.41.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-189",
       "value": "WIN-JENKINS-01/10.20.4.10",
       "hostName": "WIN-JENKINS-01",
       "ipAddress": "10.20.4.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-190",
       "value": "LNX-METABASE-04/10.20.41.13",
       "hostName": "LNX-METABASE-04",
       "ipAddress": "10.20.41.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-191",
       "value": "WIN-PLANTUML-01/10.20.10.10",
       "hostName": "WIN-PLANTUML-01",
       "ipAddress": "10.20.10.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-192",
       "value": "LNX-NIFI-02/10.20.15.11",
       "hostName": "LNX-NIFI-02",
       "ipAddress": "10.20.15.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-193",
       "value": "LNX-JAMES-03/10.20.32.12",
       "hostName": "LNX-JAMES-03",
       "ipAddress": "10.20.32.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-194",
       "value": "WIN-MAVEN-01/10.20.24.10",
       "hostName": "WIN-MAVEN-01",
       "ipAddress": "10.20.24.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-195",
       "value": "LNX-SETTLEMENT-ENGINE-02/10.21.24.11",
       "hostName": "LNX-SETTLEMENT-ENGINE-02",
       "ipAddress": "10.21.24.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-196",
       "value": "LNX-TIMESHEET-PROCESSOR-02/10.21.25.11",
       "hostName": "LNX-TIMESHEET-PROCESSOR-02",
       "ipAddress": "10.21.25.11",
-      "platform": "Linux",
-      "sourceRecords": 3
+      "platform": "Linux"
     },
     {
       "id": "HOST-197",
       "value": "LNX-PAYARA-02/10.20.44.11",
       "hostName": "LNX-PAYARA-02",
       "ipAddress": "10.20.44.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-198",
       "value": "MAC-GROOVY-02/10.20.25.11",
       "hostName": "MAC-GROOVY-02",
       "ipAddress": "10.20.25.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-199",
       "value": "WIN-HADOOP-01/10.20.18.10",
       "hostName": "WIN-HADOOP-01",
       "ipAddress": "10.20.18.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-200",
       "value": "LNX-FLINK-03/10.20.16.12",
       "hostName": "LNX-FLINK-03",
       "ipAddress": "10.20.16.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-201",
       "value": "LNX-DERBY-04/10.20.8.13",
       "hostName": "LNX-DERBY-04",
       "ipAddress": "10.20.8.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-202",
       "value": "WIN-ACTIVEMQ-01/10.20.7.10",
       "hostName": "WIN-ACTIVEMQ-01",
       "ipAddress": "10.20.7.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-203",
       "value": "WIN-JABREF-01/10.20.47.10",
       "hostName": "WIN-JABREF-01",
       "ipAddress": "10.20.47.10",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-204",
       "value": "LNX-INVENTORY-SERVICE-02/10.21.2.11",
       "hostName": "LNX-INVENTORY-SERVICE-02",
       "ipAddress": "10.21.2.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-205",
       "value": "LNX-ARTEMIS-04/10.20.35.13",
       "hostName": "LNX-ARTEMIS-04",
       "ipAddress": "10.20.35.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-206",
       "value": "LNX-ORDER-ORCHESTRATOR-04/10.21.7.13",
       "hostName": "LNX-ORDER-ORCHESTRATOR-04",
       "ipAddress": "10.21.7.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-207",
       "value": "MAC-JOSM-03/10.20.46.12",
       "hostName": "MAC-JOSM-03",
       "ipAddress": "10.20.46.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-208",
       "value": "LNX-LOYALTY-SERVICE-04/10.21.15.13",
       "hostName": "LNX-LOYALTY-SERVICE-04",
       "ipAddress": "10.21.15.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-209",
       "value": "WIN-SOLR-01/10.20.14.10",
       "hostName": "WIN-SOLR-01",
       "ipAddress": "10.20.14.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-210",
       "value": "WIN-TIKA-01/10.20.27.10",
       "hostName": "WIN-TIKA-01",
       "ipAddress": "10.20.27.10",
-      "platform": "Windows",
-      "sourceRecords": 17
+      "platform": "Windows"
     },
     {
       "id": "HOST-211",
       "value": "LNX-CUSTOMER-PORTAL-02/10.21.5.11",
       "hostName": "LNX-CUSTOMER-PORTAL-02",
       "ipAddress": "10.21.5.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-212",
       "value": "LNX-HADOOP-04/10.20.18.13",
       "hostName": "LNX-HADOOP-04",
       "ipAddress": "10.20.18.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-213",
       "value": "LNX-KEYCLOAK-04/10.20.42.13",
       "hostName": "LNX-KEYCLOAK-04",
       "ipAddress": "10.20.42.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-214",
       "value": "WIN-GROOVY-01/10.20.25.10",
       "hostName": "WIN-GROOVY-01",
       "ipAddress": "10.20.25.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-215",
       "value": "WIN-BATIK-04/10.20.30.13",
       "hostName": "WIN-BATIK-04",
       "ipAddress": "10.20.30.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-216",
       "value": "LNX-BILLING-API-02/10.21.11.11",
       "hostName": "LNX-BILLING-API-02",
       "ipAddress": "10.21.11.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-217",
       "value": "LNX-JAMES-02/10.20.32.11",
       "hostName": "LNX-JAMES-02",
       "ipAddress": "10.20.32.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-218",
       "value": "LNX-DATA-RECONCILER-03/10.21.16.12",
       "hostName": "LNX-DATA-RECONCILER-03",
       "ipAddress": "10.21.16.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-219",
       "value": "MAC-GROOVY-03/10.20.25.12",
       "hostName": "MAC-GROOVY-03",
       "ipAddress": "10.20.25.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-220",
       "value": "LNX-FORECAST-RUNNER-04/10.21.23.13",
       "hostName": "LNX-FORECAST-RUNNER-04",
       "ipAddress": "10.21.23.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-221",
       "value": "LNX-FRAUD-MONITOR-04/10.21.9.13",
       "hostName": "LNX-FRAUD-MONITOR-04",
       "ipAddress": "10.21.9.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-222",
       "value": "LNX-DRUID-04/10.20.21.13",
       "hostName": "LNX-DRUID-04",
       "ipAddress": "10.20.21.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-223",
       "value": "WIN-BATIK-01/10.20.30.10",
       "hostName": "WIN-BATIK-01",
       "ipAddress": "10.20.30.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-224",
       "value": "WIN-KEYCLOAK-01/10.20.42.10",
       "hostName": "WIN-KEYCLOAK-01",
       "ipAddress": "10.20.42.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-225",
       "value": "LNX-FUSEKI-02/10.20.39.11",
       "hostName": "LNX-FUSEKI-02",
       "ipAddress": "10.20.39.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-226",
       "value": "LNX-LOYALTY-SERVICE-02/10.21.15.11",
       "hostName": "LNX-LOYALTY-SERVICE-02",
       "ipAddress": "10.21.15.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-227",
       "value": "WIN-SWEETHOME3D-01/10.20.50.10",
       "hostName": "WIN-SWEETHOME3D-01",
       "ipAddress": "10.20.50.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-228",
       "value": "MAC-MAVEN-03/10.20.24.12",
       "hostName": "MAC-MAVEN-03",
       "ipAddress": "10.20.24.12",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-229",
       "value": "LNX-ACTIVEMQ-02/10.20.7.11",
       "hostName": "LNX-ACTIVEMQ-02",
       "ipAddress": "10.20.7.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-230",
       "value": "LNX-SERVICEMIX-04/10.20.34.13",
       "hostName": "LNX-SERVICEMIX-04",
       "ipAddress": "10.20.34.13",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-231",
       "value": "WIN-PINOT-01/10.20.22.10",
       "hostName": "WIN-PINOT-01",
       "ipAddress": "10.20.22.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-232",
       "value": "WIN-PLANTUML-04/10.20.10.13",
       "hostName": "WIN-PLANTUML-04",
       "ipAddress": "10.20.10.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-233",
       "value": "WIN-JETTY-01/10.20.3.10",
       "hostName": "WIN-JETTY-01",
       "ipAddress": "10.20.3.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-234",
       "value": "LNX-PAYARA-04/10.20.44.13",
       "hostName": "LNX-PAYARA-04",
       "ipAddress": "10.20.44.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-235",
       "value": "WIN-PAYROLL-BATCH-01/10.21.4.10",
       "hostName": "WIN-PAYROLL-BATCH-01",
       "ipAddress": "10.21.4.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-236",
       "value": "LNX-DATA-RECONCILER-02/10.21.16.11",
       "hostName": "LNX-DATA-RECONCILER-02",
       "ipAddress": "10.21.16.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-237",
       "value": "WIN-JMETER-02/10.20.6.11",
       "hostName": "WIN-JMETER-02",
       "ipAddress": "10.20.6.11",
-      "platform": "Windows",
-      "sourceRecords": 45
+      "platform": "Windows"
     },
     {
       "id": "HOST-238",
       "value": "WIN-BATIK-03/10.20.30.12",
       "hostName": "WIN-BATIK-03",
       "ipAddress": "10.20.30.12",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-239",
       "value": "LNX-H2-03/10.20.2.12",
       "hostName": "LNX-H2-03",
       "ipAddress": "10.20.2.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-240",
       "value": "WIN-WILDFLY-01/10.20.43.10",
       "hostName": "WIN-WILDFLY-01",
       "ipAddress": "10.20.43.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-241",
       "value": "WIN-H2-01/10.20.2.10",
       "hostName": "WIN-H2-01",
       "ipAddress": "10.20.2.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-242",
       "value": "LNX-DATA-RECONCILER-04/10.21.16.13",
       "hostName": "LNX-DATA-RECONCILER-04",
       "ipAddress": "10.21.16.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-243",
       "value": "LNX-RISK-BATCH-03/10.21.18.12",
       "hostName": "LNX-RISK-BATCH-03",
       "ipAddress": "10.21.18.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-244",
       "value": "WIN-SPARK-01/10.20.17.10",
       "hostName": "WIN-SPARK-01",
       "ipAddress": "10.20.17.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-245",
       "value": "LNX-CASSANDRA-04/10.20.13.13",
       "hostName": "LNX-CASSANDRA-04",
       "ipAddress": "10.20.13.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-246",
       "value": "LNX-NOTIFICATION-WORKER-04/10.21.22.13",
       "hostName": "LNX-NOTIFICATION-WORKER-04",
       "ipAddress": "10.21.22.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-247",
       "value": "WIN-HIVE-01/10.20.19.10",
       "hostName": "WIN-HIVE-01",
       "ipAddress": "10.20.19.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-248",
       "value": "WIN-BOOKKEEPER-01/10.20.36.10",
       "hostName": "WIN-BOOKKEEPER-01",
       "ipAddress": "10.20.36.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-249",
       "value": "MAC-MAVEN-02/10.20.24.11",
       "hostName": "MAC-MAVEN-02",
       "ipAddress": "10.20.24.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-250",
       "value": "LNX-POLICY-SERVICE-04/10.21.10.13",
       "hostName": "LNX-POLICY-SERVICE-04",
       "ipAddress": "10.21.10.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-251",
       "value": "LNX-CATALOG-API-02/10.21.17.11",
       "hostName": "LNX-CATALOG-API-02",
       "ipAddress": "10.21.17.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-252",
       "value": "LNX-CONSENT-SERVICE-03/10.21.20.12",
       "hostName": "LNX-CONSENT-SERVICE-03",
       "ipAddress": "10.21.20.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-253",
       "value": "LNX-JETTY-04/10.20.3.13",
       "hostName": "LNX-JETTY-04",
       "ipAddress": "10.20.3.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-254",
       "value": "LNX-SOLR-04/10.20.14.13",
       "hostName": "LNX-SOLR-04",
       "ipAddress": "10.20.14.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-255",
       "value": "WIN-HBASE-01/10.20.20.10",
       "hostName": "WIN-HBASE-01",
       "ipAddress": "10.20.20.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-256",
       "value": "SOL-INVOICE-PROCESSOR-03/10.21.1.12",
       "hostName": "SOL-INVOICE-PROCESSOR-03",
       "ipAddress": "10.21.1.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-257",
       "value": "WIN-ZOOKEEPER-01/10.20.12.10",
       "hostName": "WIN-ZOOKEEPER-01",
       "ipAddress": "10.20.12.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-258",
       "value": "LNX-BOOKKEEPER-02/10.20.36.11",
       "hostName": "LNX-BOOKKEEPER-02",
       "ipAddress": "10.20.36.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-259",
       "value": "WIN-ASSET-REGISTER-01/10.21.19.10",
       "hostName": "WIN-ASSET-REGISTER-01",
       "ipAddress": "10.21.19.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-260",
       "value": "LNX-PROCUREMENT-HUB-04/10.21.21.13",
       "hostName": "LNX-PROCUREMENT-HUB-04",
       "ipAddress": "10.21.21.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-261",
       "value": "WIN-JEDIT-01/10.20.48.10",
       "hostName": "WIN-JEDIT-01",
       "ipAddress": "10.20.48.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-262",
       "value": "WIN-INVENTORY-SERVICE-01/10.21.2.10",
       "hostName": "WIN-INVENTORY-SERVICE-01",
       "ipAddress": "10.21.2.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-263",
       "value": "LNX-HADOOP-03/10.20.18.12",
       "hostName": "LNX-HADOOP-03",
       "ipAddress": "10.20.18.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-264",
       "value": "LNX-CUSTOMER-PORTAL-04/10.21.5.13",
       "hostName": "LNX-CUSTOMER-PORTAL-04",
       "ipAddress": "10.21.5.13",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-265",
       "value": "LNX-ASSET-REGISTER-03/10.21.19.12",
       "hostName": "LNX-ASSET-REGISTER-03",
       "ipAddress": "10.21.19.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-266",
       "value": "WIN-CHECKSTYLE-04/10.20.9.13",
       "hostName": "WIN-CHECKSTYLE-04",
       "ipAddress": "10.20.9.13",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-267",
       "value": "WIN-JABREF-02/10.20.47.11",
       "hostName": "WIN-JABREF-02",
       "ipAddress": "10.20.47.11",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-268",
       "value": "LNX-GLASSFISH-03/10.20.45.12",
       "hostName": "LNX-GLASSFISH-03",
       "ipAddress": "10.20.45.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-269",
       "value": "LNX-SOLR-02/10.20.14.11",
       "hostName": "LNX-SOLR-02",
       "ipAddress": "10.20.14.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-270",
       "value": "LNX-SPARK-03/10.20.17.12",
       "hostName": "LNX-SPARK-03",
       "ipAddress": "10.20.17.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-271",
       "value": "WIN-JMETER-04/10.20.6.13",
       "hostName": "WIN-JMETER-04",
       "ipAddress": "10.20.6.13",
-      "platform": "Windows",
-      "sourceRecords": 44
+      "platform": "Windows"
     },
     {
       "id": "HOST-272",
       "value": "WIN-FOP-01/10.20.28.10",
       "hostName": "WIN-FOP-01",
       "ipAddress": "10.20.28.10",
-      "platform": "Windows",
-      "sourceRecords": 44
+      "platform": "Windows"
     },
     {
       "id": "HOST-273",
       "value": "LNX-PAYROLL-BATCH-02/10.21.4.11",
       "hostName": "LNX-PAYROLL-BATCH-02",
       "ipAddress": "10.21.4.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-274",
       "value": "LNX-KAFKA-02/10.20.11.11",
       "hostName": "LNX-KAFKA-02",
       "ipAddress": "10.20.11.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-275",
       "value": "MAC-JOSM-02/10.20.46.11",
       "hostName": "MAC-JOSM-02",
       "ipAddress": "10.20.46.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-276",
       "value": "LNX-HBASE-04/10.20.20.13",
       "hostName": "LNX-HBASE-04",
       "ipAddress": "10.20.20.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-277",
       "value": "LNX-NOTIFICATION-WORKER-03/10.21.22.12",
       "hostName": "LNX-NOTIFICATION-WORKER-03",
       "ipAddress": "10.21.22.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-278",
       "value": "LNX-FORECAST-RUNNER-03/10.21.23.12",
       "hostName": "LNX-FORECAST-RUNNER-03",
       "ipAddress": "10.21.23.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-279",
       "value": "LNX-PINOT-04/10.20.22.13",
       "hostName": "LNX-PINOT-04",
       "ipAddress": "10.20.22.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-280",
       "value": "LNX-POLICY-SERVICE-03/10.21.10.12",
       "hostName": "LNX-POLICY-SERVICE-03",
       "ipAddress": "10.21.10.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-281",
       "value": "WIN-TIKA-03/10.20.27.12",
       "hostName": "WIN-TIKA-03",
       "ipAddress": "10.20.27.12",
-      "platform": "Windows",
-      "sourceRecords": 17
+      "platform": "Windows"
     },
     {
       "id": "HOST-282",
       "value": "LNX-BOOKKEEPER-03/10.20.36.12",
       "hostName": "LNX-BOOKKEEPER-03",
       "ipAddress": "10.20.36.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-283",
       "value": "WIN-PDFBOX-04/10.20.29.13",
       "hostName": "WIN-PDFBOX-04",
       "ipAddress": "10.20.29.13",
-      "platform": "Windows",
-      "sourceRecords": 25
+      "platform": "Windows"
     },
     {
       "id": "HOST-284",
       "value": "LNX-PULSAR-03/10.20.37.12",
       "hostName": "LNX-PULSAR-03",
       "ipAddress": "10.20.37.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-285",
       "value": "WIN-PAYARA-01/10.20.44.10",
       "hostName": "WIN-PAYARA-01",
       "ipAddress": "10.20.44.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-286",
       "value": "LNX-JYTHON-04/10.20.26.13",
       "hostName": "LNX-JYTHON-04",
       "ipAddress": "10.20.26.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-287",
       "value": "LNX-ZEPPELIN-02/10.20.38.11",
       "hostName": "LNX-ZEPPELIN-02",
       "ipAddress": "10.20.38.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-288",
       "value": "LNX-ACTIVEMQ-03/10.20.7.12",
       "hostName": "LNX-ACTIVEMQ-03",
       "ipAddress": "10.20.7.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-289",
       "value": "LNX-GLASSFISH-04/10.20.45.13",
       "hostName": "LNX-GLASSFISH-04",
       "ipAddress": "10.20.45.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-290",
       "value": "WIN-TIKA-04/10.20.27.13",
       "hostName": "WIN-TIKA-04",
       "ipAddress": "10.20.27.13",
-      "platform": "Windows",
-      "sourceRecords": 16
+      "platform": "Windows"
     },
     {
       "id": "HOST-291",
       "value": "MAC-JETTY-02/10.20.3.11",
       "hostName": "MAC-JETTY-02",
       "ipAddress": "10.20.3.11",
-      "platform": "macOS",
-      "sourceRecords": 1
+      "platform": "macOS"
     },
     {
       "id": "HOST-292",
       "value": "WIN-PDFBOX-03/10.20.29.12",
       "hostName": "WIN-PDFBOX-03",
       "ipAddress": "10.20.29.12",
-      "platform": "Windows",
-      "sourceRecords": 25
+      "platform": "Windows"
     },
     {
       "id": "HOST-293",
       "value": "SOL-INVENTORY-SERVICE-03/10.21.2.12",
       "hostName": "SOL-INVENTORY-SERVICE-03",
       "ipAddress": "10.21.2.12",
-      "platform": "Solaris",
-      "sourceRecords": 1
+      "platform": "Solaris"
     },
     {
       "id": "HOST-294",
       "value": "LNX-NOTIFICATION-WORKER-02/10.21.22.11",
       "hostName": "LNX-NOTIFICATION-WORKER-02",
       "ipAddress": "10.21.22.11",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-295",
       "value": "LNX-INVOICE-PROCESSOR-04/10.21.1.13",
       "hostName": "LNX-INVOICE-PROCESSOR-04",
       "ipAddress": "10.21.1.13",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-296",
       "value": "LNX-PROCUREMENT-HUB-02/10.21.21.11",
       "hostName": "LNX-PROCUREMENT-HUB-02",
       "ipAddress": "10.21.21.11",
-      "platform": "Linux",
-      "sourceRecords": 2
+      "platform": "Linux"
     },
     {
       "id": "HOST-297",
       "value": "WIN-TOMCAT-01/10.20.1.10",
       "hostName": "WIN-TOMCAT-01",
       "ipAddress": "10.20.1.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     },
     {
       "id": "HOST-298",
       "value": "WIN-SWEETHOME3D-03/10.20.50.12",
       "hostName": "WIN-SWEETHOME3D-03",
       "ipAddress": "10.20.50.12",
-      "platform": "Windows",
-      "sourceRecords": 2
+      "platform": "Windows"
     },
     {
       "id": "HOST-299",
       "value": "LNX-SOLR-03/10.20.14.12",
       "hostName": "LNX-SOLR-03",
       "ipAddress": "10.20.14.12",
-      "platform": "Linux",
-      "sourceRecords": 1
+      "platform": "Linux"
     },
     {
       "id": "HOST-300",
       "value": "WIN-KAFKA-01/10.20.11.10",
       "hostName": "WIN-KAFKA-01",
       "ipAddress": "10.20.11.10",
-      "platform": "Windows",
-      "sourceRecords": 1
+      "platform": "Windows"
     }
   ]
 }
