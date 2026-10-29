@@ -27,6 +27,8 @@ Python, or Node.js.
   intervals.
 - Optionally transmit generated records over UDP.
 - Configure the UDP host and port; the initial port is `32139`.
+- Receive UDP JUT records on a configurable host/IP and port and inspect them in
+  the application.
 - Save generated records as `.jut` files.
 
 All available choices are selected when the application starts.
@@ -115,6 +117,13 @@ host, and OS version.
 The lower section creates a timed packet series. Choose the number of records,
 an interval and unit, and whether records should also be sent over UDP. A run can
 be stopped early, and generated records can be saved together.
+
+### Listen
+
+The Listen tab receives UDP JUT records and displays each packet as it
+arrives. The listener defaults to `localhost` on port `32139`, matching the
+Generate tab. The host/IP and port can be changed before listening starts, and
+the displayed packets can be cleared without stopping the listener.
 
 ### Java Versions
 
