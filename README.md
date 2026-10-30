@@ -270,8 +270,10 @@ Saved selections use separate JSON configuration files:
 
 ## Java Modules
 
-The application module is `com.jtconnors.jug` and directly requires only
-`java.desktop`. The linked runtime contains:
+The application module is `com.jtconnors.jug` and directly requires
+`java.net.http` and `javafx.controls`. The OpenJFX Maven plugin resolves the
+remaining JavaFX modules and `jlink` includes their transitive JDK dependencies.
+The linked runtime contains:
 
 ```text
 com.jtconnors.jug
@@ -281,6 +283,10 @@ java.desktop
 java.net.http
 java.prefs
 java.xml
+javafx.base
+javafx.controls
+javafx.graphics
+jdk.unsupported
 ```
 
 ## Verification
