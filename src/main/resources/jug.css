@@ -1,6 +1,6 @@
 .root {
     -fx-font-family: "System";
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-background-color: #f4f6f8;
     -fx-accent: #176b92;
     -fx-focus-color: #176b92;
@@ -45,7 +45,7 @@
 }
 
 .page-title {
-    -fx-font-size: 20px;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
     -fx-text-fill: #20262d;
 }
@@ -75,7 +75,7 @@
 }
 
 .field > .label {
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #626c76;
 }
@@ -142,7 +142,7 @@
 }
 
 .icon-button {
-    -fx-font-size: 18px;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-min-width: 34px;
     -fx-pref-width: 34px;
@@ -190,7 +190,7 @@
 
 .code-area {
     -fx-font-family: "Menlo", "Consolas", monospace;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-background-color: #fbfcfd;
     -fx-border-color: #cfd6dd;
 }
@@ -220,7 +220,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #4b5661;
     -fx-alignment: CENTER-LEFT;
