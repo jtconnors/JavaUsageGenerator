@@ -1,15 +1,15 @@
 # Java Usage Generator (JUG)
 
-Java Usage Generator is a desktop application for creating sample
+Java Usage Generator is a JavaFX desktop application for creating sample
 [Java Usage Tracker](https://docs.oracle.com/en/java/java-components/usage-tracker/)
 (JUT) records. It provides a graphical interface for selecting Java versions,
 applications, hosts, and operating-system versions, then combines those choices
 into individual records or timed packet series.
 
-JUG is a modular Java application built with Maven and JDK 25. Its packaged
+JUG is a modular JavaFX application built with Maven and JDK 25. Its packaged
 macOS and Windows applications include a platform-specific minimal Java runtime
-created with `jlink`, so an end user does not need to install Java, Maven,
-Python, or Node.js.
+created with `jlink`, including the JavaFX modules and native libraries it uses,
+so an end user does not need to install Java, JavaFX, Maven, Python, or Node.js.
 
 ## Features
 
@@ -84,10 +84,10 @@ target/dist/Java Usage Generator.app
 target/dist/Java Usage Generator/
 ```
 
-Maven compiles the named module, runs `jlink` to construct a minimal runtime,
-and activates the host OS profile to run `jpackage`. The `macos` profile adds
-macOS bundle metadata. The `windows` profile creates a GUI launcher and a
-separate console launcher.
+Maven compiles the named module and uses the OpenJFX Maven plugin to run `jlink`
+with the platform-specific JavaFX dependencies. It then activates the host OS
+profile to run `jpackage`. The `macos` profile adds macOS bundle metadata. The
+`windows` profile creates a GUI launcher and a separate console launcher.
 
 ## Run
 

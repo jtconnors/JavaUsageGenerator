@@ -13,14 +13,19 @@
     <maven.compiler.release>25</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.outputTimestamp>2026-10-28T00:00:00Z</project.build.outputTimestamp>
+    <javafx.version>25.0.1</javafx.version>
     <jug.module>com.jtconnors.jug</jug.module>
     <jug.mainClass>com.jtconnors.jug.JugSelector</jug.mainClass>
     <jug.appName>Java Usage Generator</jug.appName>
-    <jug.jlinkExecutable>${java.home}/bin/jlink</jug.jlinkExecutable>
     <jug.jpackageExecutable>${java.home}/bin/jpackage</jug.jpackageExecutable>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -63,6 +68,9 @@
         <version>3.16.0</version>
         <configuration>
           <release>25</release>
+          <compilerArgs>
+            <arg>-Xlint:unchecked</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
 
@@ -89,36 +97,33 @@
       </plugin>
 
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.6.4</version>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
         <executions>
           <execution>
             <id>create-minimal-runtime</id>
             <phase>package</phase>
             <goals>
-              <goal>exec</goal>
+              <goal>jlink</goal>
             </goals>
-            <configuration>
-              <executable>${jug.jlinkExecutable}</executable>
-              <arguments>
-                <argument>--module-path</argument>
-                <argument>${java.home}/jmods${path.separator}${project.build.directory}/${project.build.finalName}.jar</argument>
-                <argument>--add-modules</argument>
-                <argument>${jug.module}</argument>
-                <argument>--launcher</argument>
-                <argument>jug=${jug.module}/${jug.mainClass}</argument>
-                <argument>--output</argument>
-                <argument>${project.build.directory}/runtime</argument>
-                <argument>--strip-debug</argument>
-                <argument>--no-header-files</argument>
-                <argument>--no-man-pages</argument>
-                <argument>--compress=zip-6</argument>
-              </arguments>
-            </configuration>
           </execution>
-
         </executions>
+        <configuration>
+          <mainClass>${jug.module}/${jug.mainClass}</mainClass>
+          <launcher>jug</launcher>
+          <jlinkImageName>runtime</jlinkImageName>
+          <jlinkZipName>runtime</jlinkZipName>
+          <stripDebug>true</stripDebug>
+          <noHeaderFiles>true</noHeaderFiles>
+          <noManPages>true</noManPages>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.6.4</version>
       </plugin>
     </plugins>
   </build>
@@ -179,7 +184,6 @@
         </os>
       </activation>
       <properties>
-        <jug.jlinkExecutable>${java.home}/bin/jlink.exe</jug.jlinkExecutable>
         <jug.jpackageExecutable>${java.home}/bin/jpackage.exe</jug.jpackageExecutable>
       </properties>
       <build>
